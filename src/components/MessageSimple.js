@@ -534,7 +534,7 @@ export class MessageSimple extends PureComponent {
             </div>
             {images.length > 1 && <Gallery images={images} />}
 
-            {message.text && (
+            {message.translations.en && (
               <div className="str-chat__message-text">
                 <div
                   className={`
