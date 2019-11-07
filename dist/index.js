@@ -917,7 +917,9 @@ var formatArray = function formatArray(dict) {
 var renderText = function renderText(message) {
   // take the @ mentions and turn them into markdown?
   // translate links
-  var text = message.text;
+  var _ref = message.translations ? message.translations.en : message.text,
+      text = _ref.text;
+
   var mentioned_users = message.mentioned_users;
 
   if (!text) {
@@ -5323,7 +5325,7 @@ function (_PureComponent) {
         latest_reactions: message.latest_reactions,
         messageList: messageListRect,
         ref: this.reactionSelectorRef
-      })), message.translations ? message.translations.en : message.text && this.renderOptions()), !threadList && message.reply_count !== 0 && React__default.createElement("div", {
+      })), message.text && this.renderOptions()), !threadList && message.reply_count !== 0 && React__default.createElement("div", {
         className: "str-chat__message-simple-reply-button"
       }, React__default.createElement(MessageRepliesCountButton, {
         onClick: handleOpenThread,

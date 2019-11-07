@@ -590,7 +590,7 @@ export class MessageSimple extends PureComponent {
                   )}
                 </div>
 
-                {message.translations ? message.translations.en : message.text && this.renderOptions()}
+                {message.text && this.renderOptions()}
               </div>
             )}
             {!threadList && message.reply_count !== 0 && (
