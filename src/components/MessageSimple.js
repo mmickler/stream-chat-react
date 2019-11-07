@@ -534,7 +534,7 @@ export class MessageSimple extends PureComponent {
             </div>
             {images.length > 1 && <Gallery images={images} />}
 
-            {message.translations.en && (
+            {message.text && (
               <div className="str-chat__message-text">
                 <div
                   className={`
@@ -590,7 +590,7 @@ export class MessageSimple extends PureComponent {
                   )}
                 </div>
 
-                {message.text && this.renderOptions()}
+                {message.translations ? message.translations.en : message.text && this.renderOptions()}
               </div>
             )}
             {!threadList && message.reply_count !== 0 && (

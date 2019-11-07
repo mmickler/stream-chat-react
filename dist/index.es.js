@@ -5287,7 +5287,7 @@ function (_PureComponent) {
         });
       })), images.length > 1 && React__default.createElement(Gallery, {
         images: images
-      }), message.translations.en && React__default.createElement("div", {
+      }), message.text && React__default.createElement("div", {
         className: "str-chat__message-text"
       }, React__default.createElement("div", {
         className: "\n\t\t\t\t\t\t\t\t\tstr-chat__message-text-inner str-chat__message-simple-text-inner\n\t\t\t\t\t\t\t\t\t".concat(this.state.isFocused ? 'str-chat__message-text-inner--focused' : '', "\n\t\t\t\t\t\t\t\t\t").concat(hasAttachment ? 'str-chat__message-text-inner--has-attachment' : '', "\n\t\t\t\t\t\t\t\t\t").concat(isOnlyEmojis(message.text) ? 'str-chat__message-simple-text-inner--is-emoji' : '', "\n                ").trim(),
@@ -5315,7 +5315,7 @@ function (_PureComponent) {
         latest_reactions: message.latest_reactions,
         messageList: messageListRect,
         ref: this.reactionSelectorRef
-      })), message.text && this.renderOptions()), !threadList && message.reply_count !== 0 && React__default.createElement("div", {
+      })), message.translations ? message.translations.en : message.text && this.renderOptions()), !threadList && message.reply_count !== 0 && React__default.createElement("div", {
         className: "str-chat__message-simple-reply-button"
       }, React__default.createElement(MessageRepliesCountButton, {
         onClick: handleOpenThread,
