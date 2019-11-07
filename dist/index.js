@@ -917,9 +917,7 @@ var formatArray = function formatArray(dict) {
 var renderText = function renderText(message) {
   // take the @ mentions and turn them into markdown?
   // translate links
-  var _ref = message.translations ? message.translations.en : message.text,
-      text = _ref.text;
-
+  var text = message.translations ? message.translations.en : message.text;
   var mentioned_users = message.mentioned_users;
 
   if (!text) {
