@@ -8529,24 +8529,18 @@ function (_PureComponent) {
       }, React__default.createElement("path", {
         d: "M3 13h1v.5H0V13h1V5.5H0V5h3v8zM1.994 3.516A1.507 1.507 0 1 1 1.995.502a1.507 1.507 0 0 1-.001 3.014z",
         fillRule: "evenodd"
-      }))), React__default.createElement("select", {
-        //TODO: REMOVE IT
-        // target="_blank"
-        // rel="noopener noreferrer"
-        className: "str-chat__square-button str-chat__header-livestream-right-button"
-      }, " Sprachen", React__default.createElement("option", {
-        value: "English"
-      }, "en"), React__default.createElement("option", {
-        value: "Deutsch"
-      }, "de"), React__default.createElement("option", {
-        value: "Spanisch"
-      }, "es"), React__default.createElement("option", {
-        value: "Italien"
-      }, "it"), React__default.createElement("option", {
-        value: "Franz\xF6sisch"
-      }, "fr"), React__default.createElement("img", {
-        src: chevrondown
-      })))));
+      }))), React__default.createElement("nav", {
+        className: "language-selector"
+      }, React__default.createElement("ul", null, React__default.createElement("li", null, "Nederlands ", React__default.createElement("img", {
+        src: "https://goo.gl/et1Sx4",
+        alt: "nederlands"
+      })), React__default.createElement("ul", null, React__default.createElement("li", null, "English ", React__default.createElement("img", {
+        src: "https://goo.gl/O27aC0",
+        alt: "English"
+      })), React__default.createElement("li", null, "Francais ", React__default.createElement("img", {
+        src: "https://goo.gl/AQn8Ss",
+        alt: "Francais"
+      }))))))));
     }
   }]);
 
