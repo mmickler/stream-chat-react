@@ -77,11 +77,15 @@ class ChannelHeader extends PureComponent {
               //TODO: REMOVE IT
               // target="_blank"
               // rel="noopener noreferrer"
-              // className="str-chat__square-button str-chat__header-livestream-right-button"
+              className="str-chat__square-button str-chat__header-livestream-right-button"
             > Sprachen
-            <option value="English">English</option>
-            <option value="Deutsch">Deutsch</option>
-            <option value="Spanisch">Spanisch</option>
+            <option value="English">en</option>
+            <option value="Deutsch">de</option>
+            <option value="Spanisch">es</option>
+            <option value="Italien">it</option>
+            <option value="Französisch">fr</option>
+            {/* <option value="Spanisch">ne</option>
+            <option value="Spanisch">es</option> */}
 
             
             <img src={chevrondown} />
