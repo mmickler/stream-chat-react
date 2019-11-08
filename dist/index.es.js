@@ -909,6 +909,7 @@ var formatArray = function formatArray(dict) {
 var renderText = function renderText(message) {
   // take the @ mentions and turn them into markdown?
   // translate links
+  //TODO: send message to MS-Translations Service
   var text = message.translations ? message.translations.en : message.text;
   var mentioned_users = message.mentioned_users;
 
@@ -8515,7 +8516,7 @@ function (_PureComponent) {
       }, React__default.createElement("div", {
         className: "str-chat__header-livestream-right-button-wrapper"
       }, React__default.createElement("a", {
-        href: "https://getstream.io/chat/",
+        // href="https://getstream.io/chat/"
         target: "_blank",
         rel: "noopener noreferrer",
         className: "str-chat__square-button str-chat__header-livestream-right-button--info"

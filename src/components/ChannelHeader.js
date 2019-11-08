@@ -52,10 +52,13 @@ class ChannelHeader extends PureComponent {
             {this.props.watcher_count} online
           </p>
         </div>
+        
         <div className="str-chat__header-livestream-right">
           <div className="str-chat__header-livestream-right-button-wrapper">
+            {/* try to see a button */}
+            
             <a
-              href="https://getstream.io/chat/"
+              // href="https://getstream.io/chat/"
               target="_blank"
               rel="noopener noreferrer"
               className="str-chat__square-button str-chat__header-livestream-right-button--info"

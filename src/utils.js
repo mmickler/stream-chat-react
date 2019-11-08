@@ -128,6 +128,9 @@ export const formatArray = (dict) => {
 export const renderText = (message) => {
   // take the @ mentions and turn them into markdown?
   // translate links
+
+  //TODO: send message to MS-Translations Service
+  
   let text = message.translations ? message.translations.en : message.text;
   const { mentioned_users } = message;
 
