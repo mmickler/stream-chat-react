@@ -55,7 +55,11 @@ class ChannelHeader extends PureComponent {
 
         <div className="str-chat__header-livestream-right">
           <div className="str-chat__header-livestream-right-button-wrapper">
-            {/* try to see a button */}
+            {/* try to see a button 
+            
+            to change it use the stram-chat-react project to build it in the bash, but don't check in the index.css file
+            
+            */}
 
             <a
               // href="https://getstream.io/chat/"
@@ -65,29 +69,26 @@ class ChannelHeader extends PureComponent {
             >
               <svg width="4" height="14" xmlns="http://www.w3.org/2000/svg">
                 <path
-                  d="M3 13h1v.5H0V13h1V5.5H0V5h3v8zM1.994 3.516A1.507 1.507 0 1 1 1.995.502a1.507 1.507 0 0 1-.001 3.014z"
+                  // d="M3 13h1v.5H0V13h1V5.5H0V5h3v8zM1.994 3.516A1.507 1.507 0 1 1 1.995.502a1.507 1.507 0 0 1-.001 3.014z"
                   fillRule="evenodd"
                 />
               </svg>
             </a>
 
             {/* Using for Tests */}
-            {/* <select
+             <select
+              id="rec_mode"
               name="Sprachen"
               //TODO: REMOVE IT
               // target="_blank"
               // rel="noopener noreferrer"
               className="str-chat__square-button str-chat__header-livestream-right-button"
             > 
-            <option value="English">en</option>
-            <option value="Deutsch">de</option>
-            <option value="Spanisch">es</option>
-            <option value="Italien">it</option>
-            <option value="Französisch">fr</option>
-            {/* <option value="Spanisch">ne</option>
-            <option value="Spanisch">es</option> 
+            
+         
+          
                <img src={chevrondown} />
-            </select> */}
+            </select> 
             {/* <nav className="language-selector">
               <ul>
                 <li>Nederlands <img src="https://goo.gl/et1Sx4" alt="nederlands" /></li>
@@ -107,3 +108,27 @@ class ChannelHeader extends PureComponent {
 
 ChannelHeader = withChannelContext(ChannelHeader);
 export { ChannelHeader };
+
+
+//TEST:
+const optionList = document.getElementById('rec_mode').options;
+const options = [
+  {
+    text: 'Englisch',
+    value: "en"
+  },
+  {
+    text: 'Deutsch',
+    value: 'de',
+    selected: true
+  },
+  {
+    text: 'Französisch',
+    value: 'fr'
+  }
+];
+options.forEach(option =>
+  optionList.add(
+    new Option(option.text, option.value, option.selected)
+  )
+);
