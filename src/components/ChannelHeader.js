@@ -88,7 +88,7 @@ class ChannelHeader extends PureComponent {
             <option value="Spanisch">es</option> 
                <img src={chevrondown} />
             </select> */}
-            <nav className="language-selector">
+            {/* <nav className="language-selector">
               <ul>
                 <li>Nederlands <img src="https://goo.gl/et1Sx4" alt="nederlands" /></li>
                 <ul>
@@ -96,7 +96,7 @@ class ChannelHeader extends PureComponent {
                   <li>Francais <img src="https://goo.gl/AQn8Ss" alt="Francais" /></li>
                 </ul>
               </ul>
-            </nav>
+            </nav> */}
 
           </div>
         </div>
