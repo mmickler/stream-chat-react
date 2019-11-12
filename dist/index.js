@@ -917,6 +917,7 @@ var formatArray = function formatArray(dict) {
 var renderText = function renderText(message) {
   // take the @ mentions and turn them into markdown?
   // translate links
+  console.log("output");
   console.log(message); //TODO: show the language which the user can read
 
   var text = message.translations ? message.translations.en : message.text;
