@@ -62,21 +62,20 @@ class ChannelHeader extends PureComponent {
             */}
 
             <a
-              // href="https://getstream.io/chat/"
               target="_blank"
               rel="noopener noreferrer"
               className="str-chat__square-button str-chat__header-livestream-right-button--info"
             >
               <svg width="4" height="14" xmlns="http://www.w3.org/2000/svg">
                 <path
-                  // d="M3 13h1v.5H0V13h1V5.5H0V5h3v8zM1.994 3.516A1.507 1.507 0 1 1 1.995.502a1.507 1.507 0 0 1-.001 3.014z"
+                  d="M3 13h1v.5H0V13h1V5.5H0V5h3v8zM1.994 3.516A1.507 1.507 0 1 1 1.995.502a1.507 1.507 0 0 1-.001 3.014z"
                   fillRule="evenodd"
                 />
               </svg>
             </a>
 
             {/* Using for Tests */}
-             {/* <select
+            {/* <select
               id="rec_mode"
               name="Sprachen"
               //TODO: REMOVE IT
@@ -85,9 +84,9 @@ class ChannelHeader extends PureComponent {
               className="str-chat__square-button str-chat__header-livestream-right-button"
             > 
              */}
-         
-          
-               {/* <img src={chevrondown} />
+
+
+            {/* <img src={chevrondown} />
             </select>  */}
             {/* <nav className="language-selector">
               <ul>
