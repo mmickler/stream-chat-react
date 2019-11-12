@@ -128,8 +128,8 @@ export const formatArray = (dict) => {
 export const renderText = (message) => {
   // take the @ mentions and turn them into markdown?
   // translate links
-  console.log("output");
- console.log(message.members.user.languages);
+//   console.log("output");
+//  console.log(message.members.user.languages);
   //TODO: show the language which the user can read
   // if(!){
 
