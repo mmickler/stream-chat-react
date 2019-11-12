@@ -8531,16 +8531,7 @@ function (_PureComponent) {
       }, React__default.createElement("path", {
         // d="M3 13h1v.5H0V13h1V5.5H0V5h3v8zM1.994 3.516A1.507 1.507 0 1 1 1.995.502a1.507 1.507 0 0 1-.001 3.014z"
         fillRule: "evenodd"
-      }))), React__default.createElement("select", {
-        id: "rec_mode",
-        name: "Sprachen" //TODO: REMOVE IT
-        // target="_blank"
-        // rel="noopener noreferrer"
-        ,
-        className: "str-chat__square-button str-chat__header-livestream-right-button"
-      }, React__default.createElement("img", {
-        src: chevrondown
-      })))));
+      }))))));
     }
   }]);
 
@@ -8562,22 +8553,27 @@ _defineProperty(ChannelHeader, "propTypes", {
 });
 
 ChannelHeader = withChannelContext(ChannelHeader);
-
-var optionList = document.getElementById('rec_mode').options;
-var options = [{
-  text: 'Englisch',
-  value: "en"
-}, {
-  text: 'Deutsch',
-  value: 'de',
-  selected: true
-}, {
-  text: 'Französisch',
-  value: 'fr'
-}];
-options.forEach(function (option) {
-  return optionList.add(new Option(option.text, option.value, option.selected));
-});
+// const optionList = document.getElementById('rec_mode').options;
+// const options = [
+//   {
+//     text: 'Englisch',
+//     value: "en"
+//   },
+//   {
+//     text: 'Deutsch',
+//     value: 'de',
+//     selected: true
+//   },
+//   {
+//     text: 'Französisch',
+//     value: 'fr'
+//   }
+// ];
+// options.forEach(option =>
+//   optionList.add(
+//     new Option(option.text, option.value, option.selected)
+//   )
+// );
 
 /**
  * MessageInputFlat - Large Message Input to be used for the MessageInput.

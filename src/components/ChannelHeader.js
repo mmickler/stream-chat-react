@@ -76,7 +76,7 @@ class ChannelHeader extends PureComponent {
             </a>
 
             {/* Using for Tests */}
-             <select
+             {/* <select
               id="rec_mode"
               name="Sprachen"
               //TODO: REMOVE IT
@@ -84,11 +84,11 @@ class ChannelHeader extends PureComponent {
               // rel="noopener noreferrer"
               className="str-chat__square-button str-chat__header-livestream-right-button"
             > 
-            
+             */}
          
           
-               <img src={chevrondown} />
-            </select> 
+               {/* <img src={chevrondown} />
+            </select>  */}
             {/* <nav className="language-selector">
               <ul>
                 <li>Nederlands <img src="https://goo.gl/et1Sx4" alt="nederlands" /></li>
@@ -111,24 +111,24 @@ export { ChannelHeader };
 
 
 //TEST:
-const optionList = document.getElementById('rec_mode').options;
-const options = [
-  {
-    text: 'Englisch',
-    value: "en"
-  },
-  {
-    text: 'Deutsch',
-    value: 'de',
-    selected: true
-  },
-  {
-    text: 'Französisch',
-    value: 'fr'
-  }
-];
-options.forEach(option =>
-  optionList.add(
-    new Option(option.text, option.value, option.selected)
-  )
-);
+// const optionList = document.getElementById('rec_mode').options;
+// const options = [
+//   {
+//     text: 'Englisch',
+//     value: "en"
+//   },
+//   {
+//     text: 'Deutsch',
+//     value: 'de',
+//     selected: true
+//   },
+//   {
+//     text: 'Französisch',
+//     value: 'fr'
+//   }
+// ];
+// options.forEach(option =>
+//   optionList.add(
+//     new Option(option.text, option.value, option.selected)
+//   )
+// );
