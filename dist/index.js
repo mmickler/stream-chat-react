@@ -925,10 +925,17 @@ var renderText = function renderText(message) {
   // }
   var text = "";
 
-  if (document.getElementById("select").options[document.getElementById("select").selectedIndex].value === "en") {
-    text = message.translations ? message.translations.en : message.text;
-  } else {
-    text = message.translations ? message.translations.de : message.text;
+  switch (document.getElementById("select").options[document.getElementById("select").selectedIndex].value) {
+    case "en":
+      text = message.translations.en;
+      break;
+
+    case "de":
+      text = message.translations.de;
+      break;
+
+    default:
+      text = message.text;
   }
 
   var mentioned_users = message.mentioned_users;

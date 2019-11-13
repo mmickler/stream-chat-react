@@ -128,21 +128,28 @@ export const formatArray = (dict) => {
 export const renderText = (message) => {
   // take the @ mentions and turn them into markdown?
   // translate links
-//   console.log("output");
-//  console.log(message.members.user.languages);
+  //   console.log("output");
+  //  console.log(message.members.user.languages);
   //TODO: show the language which the user can read
   // if(!){
 
   // } else{
-    
+
   // }
   let text = "";
-  if(document.getElementById("select").options[document.getElementById("select").selectedIndex].value === "en"){
-   text = message.translations ? message.translations.en : message.text;
-  }else {
-   text = message.translations ? message.translations.de : message.text;
+  switch (document.getElementById("select").options[document.getElementById("select").selectedIndex].value) {
+    case "en":
+      text = message.translations.en;
+      break;
+    case "de":
+      text = message.translations.de;
+      break;
+    default:
+        text = message.text;
   }
-  
+
+
+
   const { mentioned_users } = message;
 
   if (!text) {
@@ -201,7 +208,7 @@ export const renderText = (message) => {
 // https://stackoverflow.com/a/6860916/2570866
 export function generateRandomId() {
   // prettier-ignore
-  return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+  return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
 
 function S4() {
