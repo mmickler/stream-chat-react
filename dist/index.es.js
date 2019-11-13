@@ -9545,17 +9545,18 @@ function (_PureComponent) {
           src: chevrondown
         }), React__default.createElement("select", {
           className: "str-chat__channel-list-team__header--button",
-          id: "select" //TODO: Load User Language and show new messages in the selected Language
+          id: "select",
+          defaultValue: "en" //TODO: Load User Language and show new messages in the selected Language
 
         }, React__default.createElement("option", {
-          value: "it"
-        }, "Italienisch"), React__default.createElement("option", {
           value: "en"
         }, "Englisch"), React__default.createElement("option", {
           value: "de"
         }, "Deutsch"), React__default.createElement("option", {
           value: "es"
-        }, "Spanisch")))), this.props.children));
+        }, "Spanisch"), React__default.createElement("option", {
+          value: "it"
+        }, "Italienisch")))), this.props.children));
       }
     }
   }]);

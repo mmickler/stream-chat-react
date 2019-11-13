@@ -85,14 +85,18 @@ class ChannelListTeam extends PureComponent {
               <div className="str-chat__channel-list-team__header--right">
                 <img src={chevrondown} />
                 <select className="str-chat__channel-list-team__header--button" id="select"
-                  //TODO: Load User Language and show new messages in the selected Language
+                defaultValue="en"
+                //TODO: Load User Language and show new messages in the selected Language
                 >
-                  <option value="it" >Italienisch</option>
+
                   <option value="en" >Englisch</option>
                   <option value="de" >Deutsch</option>
                   <option value="es" >Spanisch</option>
+                  <option value="it" >Italienisch</option>
+
+
                   {/* TODO: Edit --- show User and Channel List Menu */}
-                  
+
                 </select>
               </div>
             </div>
