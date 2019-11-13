@@ -9554,7 +9554,7 @@ function (_PureComponent) {
         }), React__default.createElement("select", {
           className: "str-chat__channel-list-team__header--button",
           id: "select",
-          value: this.state.languageselect || '',
+          value: this.state.languageselect || 'en',
           name: "languageselect" //TODO: Load User Language and show new messages in the selected Language
 
         }, React__default.createElement("option", {
