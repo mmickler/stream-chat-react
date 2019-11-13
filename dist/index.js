@@ -9498,8 +9498,9 @@ function (_PureComponent) {
   _createClass(ChannelListTeam, [{
     key: "onLanguageChange",
     value: function onLanguageChange(event) {
-      window.dplChatConfig.language = event.target.value;
-      event.preventDefault();
+      window.dplChatConfig.language = event.target.value; //event.preventDefault();
+
+      console.log("languageChange", window.dplChatConfig.language);
     }
   }, {
     key: "render",
