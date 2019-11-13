@@ -7,6 +7,23 @@ import { withChatContext } from '../context';
 
 import chevrondown from '../assets/str-chat__icon-chevron-down.svg';
 
+
+// function dropdown(){
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
+// window.onclick = function(event) {
+//   if (!event.target.matches('.dropbtn')) {
+
+//     const dropdowns = document.getElementsByClassName("dropdown-content");
+//     let i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       const openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @example ./examples/ChannelList.md
@@ -23,6 +40,7 @@ class ChannelListTeam extends PureComponent {
   static defaultProps = {
     error: false,
   };
+
 
   render() {
     const { showSidebar } = this.props;
@@ -65,9 +83,34 @@ class ChannelListTeam extends PureComponent {
                 </div>
               </div>
               <div className="str-chat__channel-list-team__header--right">
-                <button className="str-chat__channel-list-team__header--button">
+                <select className="str-chat__channel-list-team__header--button"
+                //click="dropdown()"
+                // id="link"
+                // className="dropdown-menu-button"
+                >
+                  {/* <select id="skill_category">
+                   
+                  </select> */}
+                  <option value="en">Englisch</option>
+                  <option value="de">Deutsch</option>
+                  <option value="it">Italienisch</option>
+
+                  {/* TODO: Edit --- show User and Channel List Menu */}
                   <img src={chevrondown} />
-                </button>
+                </select>
+                {/* <div id="myDropdown" className="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div> */}
+                {/* <div className="dropdown-menu hide">
+                  <ul>
+                    <li>new repository</li>
+                    <li>New organization</li>
+                    <div className="dropdown-menu-devider"></div>
+                    <li>logout</li>
+                  </ul>
+                </div> */}
               </div>
             </div>
             {this.props.children}
@@ -80,3 +123,10 @@ class ChannelListTeam extends PureComponent {
 
 ChannelListTeam = withChatContext(ChannelListTeam);
 export { ChannelListTeam };
+
+// var dropdown = require('dropdown-menu')
+// var el = document.getElementById('link')
+// var d = dropdown(el)
+// d.on('select', function (li) {
+//   console.log(li)
+// })
