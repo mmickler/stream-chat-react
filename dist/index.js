@@ -9553,9 +9553,10 @@ function (_PureComponent) {
           src: chevrondown
         }), React__default.createElement("select", {
           className: "str-chat__channel-list-team__header--button",
-          id: "select",
-          value: this.state.languageselect || 'en',
-          name: "languageselect" //TODO: Load User Language and show new messages in the selected Language
+          id: "select" // value={this.state.languageselect || 'en'} 
+          // name="languageselect"
+          // value={document.getElementById("select").options[document.getElementById("select").selectedIndex].value || "en"}
+          //TODO: Load User Language and show new messages in the selected Language
 
         }, React__default.createElement("option", {
           value: "en"
