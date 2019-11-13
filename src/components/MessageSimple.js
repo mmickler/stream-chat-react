@@ -116,6 +116,7 @@ export class MessageSimple extends PureComponent {
 
   state = {
     isFocused: false,
+    language: window.dplChatConfig.language,
     actionsBoxOpen: false,
     showDetailedReactions: false,
   };

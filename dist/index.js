@@ -923,6 +923,7 @@ var renderText = function renderText(message) {
   // if(!){
   // } else{
   // }
+  console.log("renderText");
   var language = window.dplChatConfig.language;
   var text = "";
 
@@ -4999,6 +5000,7 @@ function (_PureComponent) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       isFocused: false,
+      language: window.dplChatConfig.language,
       actionsBoxOpen: false,
       showDetailedReactions: false
     });

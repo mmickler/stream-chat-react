@@ -136,6 +136,8 @@ export const renderText = (message) => {
   // } else{
 
   // }
+console.log("renderText");
+
   const language = window.dplChatConfig.language;
   let text = "";
   switch (language) {
