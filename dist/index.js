@@ -923,10 +923,10 @@ var renderText = function renderText(message) {
   // if(!){
   // } else{
   // }
-  var x = document.getElementById("select");
+  var language = window.dplChatConfig.language;
   var text = "";
 
-  switch (x.options[x.selectedIndex].value) {
+  switch (language) {
     case "en":
       text = message.translations ? message.translations.en : message.text;
       break;
@@ -9496,6 +9496,12 @@ function (_PureComponent) {
   }
 
   _createClass(ChannelListTeam, [{
+    key: "onLanguageChange",
+    value: function onLanguageChange(event) {
+      window.dplChatConfig.language = event.target.value;
+      event.preventDefault();
+    }
+  }, {
     key: "render",
     value: function render() {
       var showSidebar = this.props.showSidebar;
@@ -9542,8 +9548,8 @@ function (_PureComponent) {
           // name="languageselect"
           // value={document.getElementById("select").options[document.getElementById("select").selectedIndex].value || "en"}
           // value ={this.state.keyword}
-          // onChange={(event)=>selectChangeHandler(event)}
-          //TODO: Load User Language and show new messages in the selected Language
+          ,
+          onChange: this.onLanguageChange //TODO: Load User Language and show new messages in the selected Language
 
         }, React__default.createElement("option", {
           value: "en"

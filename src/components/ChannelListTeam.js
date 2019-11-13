@@ -25,6 +25,13 @@ class ChannelListTeam extends PureComponent {
   static defaultProps = {
     error: false,
   };
+  onLanguageChange(event) {
+
+
+    window.dplChatConfig.language = event.target.value;
+    event.preventDefault();
+
+  }
 
 
   render() {
@@ -70,11 +77,11 @@ class ChannelListTeam extends PureComponent {
               <div className="str-chat__channel-list-team__header--right">
                 <img src={chevrondown} />
                 <select className="str-chat__channel-list-team__header--button" id="select"
-                // value={this.state.languageselect || 'en'} 
-                // name="languageselect"
-                // value={document.getElementById("select").options[document.getElementById("select").selectedIndex].value || "en"}
-                // value ={this.state.keyword}
-                // onChange={(event)=>selectChangeHandler(event)}
+                  // value={this.state.languageselect || 'en'} 
+                  // name="languageselect"
+                  // value={document.getElementById("select").options[document.getElementById("select").selectedIndex].value || "en"}
+                  // value ={this.state.keyword}
+                  onChange={this.onLanguageChange}
                 //TODO: Load User Language and show new messages in the selected Language
                 >
 
@@ -84,7 +91,7 @@ class ChannelListTeam extends PureComponent {
                   <option value="it" >Italienisch</option>
 
 
-                  
+
 
                 </select>
               </div>

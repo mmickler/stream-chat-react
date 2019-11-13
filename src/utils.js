@@ -136,9 +136,9 @@ export const renderText = (message) => {
   // } else{
 
   // }
-  const x = document.getElementById("select");
+  const language = window.dplChatConfig.language;
   let text = "";
-  switch (x.options[x.selectedIndex].value) {
+  switch (language) {
     case "en":
       text = message.translations ? message.translations.en : message.text;
       break;
