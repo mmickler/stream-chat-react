@@ -9556,7 +9556,8 @@ function (_PureComponent) {
           id: "select" // value={this.state.languageselect || 'en'} 
           // name="languageselect"
           // value={document.getElementById("select").options[document.getElementById("select").selectedIndex].value || "en"}
-          //TODO: Load User Language and show new messages in the selected Language
+          ,
+          value: window.dplChatConfig.defaultLanguage //TODO: Load User Language and show new messages in the selected Language
 
         }, React__default.createElement("option", {
           value: "en"
