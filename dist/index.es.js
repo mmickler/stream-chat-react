@@ -915,10 +915,12 @@ var renderText = function renderText(message) {
   // if(!){
   // } else{
   // }
+  var text = "";
+
   if (document.getElementById("select").options.value === "en") {
-    var _text = message.translations ? message.translations.en : message.text;
+    text = message.translations ? message.translations.en : message.text;
   } else {
-    var _text2 = message.translations ? message.translations.de : message.text;
+    text = message.translations ? message.translations.de : message.text;
   }
 
   var mentioned_users = message.mentioned_users;

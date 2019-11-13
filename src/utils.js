@@ -136,10 +136,11 @@ export const renderText = (message) => {
   // } else{
     
   // }
+  let text = "";
   if(document.getElementById("select").options.value === "en"){
-    let text = message.translations ? message.translations.en : message.text;
+   text = message.translations ? message.translations.en : message.text;
   }else {
-    let text = message.translations ? message.translations.de : message.text;
+   text = message.translations ? message.translations.de : message.text;
   }
   
   const { mentioned_users } = message;
