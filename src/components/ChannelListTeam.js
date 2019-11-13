@@ -85,7 +85,8 @@ class ChannelListTeam extends PureComponent {
               <div className="str-chat__channel-list-team__header--right">
                 <img src={chevrondown} />
                 <select className="str-chat__channel-list-team__header--button" id="select"
-                defaultValue="en"
+                value={this.state.languageselect || ''} 
+                name="languageselect"
                 //TODO: Load User Language and show new messages in the selected Language
                 >
 
