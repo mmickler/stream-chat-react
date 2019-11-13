@@ -88,7 +88,7 @@ class ChannelListTeam extends PureComponent {
                 // value={this.state.languageselect || 'en'} 
                 // name="languageselect"
                 // value={document.getElementById("select").options[document.getElementById("select").selectedIndex].value || "en"}
-                value={window.dplChatConfig.defaultLanguage}
+                value ={window.dplChatConfig.defaultLanguage}
                 //TODO: Load User Language and show new messages in the selected Language
                 >
 
