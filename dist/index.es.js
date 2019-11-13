@@ -917,7 +917,7 @@ var renderText = function renderText(message) {
   // }
   var text = "";
 
-  if (document.getElementById("select").options.value === "en") {
+  if (document.getElementById("select").options[document.getElementById("select").selectedIndex].value === "en") {
     text = message.translations ? message.translations.en : message.text;
   } else {
     text = message.translations ? message.translations.de : message.text;
