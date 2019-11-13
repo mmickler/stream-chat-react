@@ -136,16 +136,17 @@ export const renderText = (message) => {
   // } else{
 
   // }
+  const x = document.getElementById("select");
   let text = "";
-  switch (document.getElementById("select").options[document.getElementById("select").selectedIndex].value) {
+  switch (x.options[x.selectedIndex].value) {
     case "en":
-      text = message.translations.en;
+      text = message.translations ? message.translations.en : message.text;
       break;
     case "de":
-      text = message.translations.de;
+      text = message.translations ? message.translations.de : message.text;
       break;
     default:
-        text = message.text;
+      text = message.text;
   }
 
 

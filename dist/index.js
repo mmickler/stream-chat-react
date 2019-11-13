@@ -923,15 +923,16 @@ var renderText = function renderText(message) {
   // if(!){
   // } else{
   // }
+  var x = document.getElementById("select");
   var text = "";
 
-  switch (document.getElementById("select").options[document.getElementById("select").selectedIndex].value) {
+  switch (x.options[x.selectedIndex].value) {
     case "en":
-      text = message.translations.en;
+      text = message.translations ? message.translations.en : message.text;
       break;
 
     case "de":
-      text = message.translations.de;
+      text = message.translations ? message.translations.de : message.text;
       break;
 
     default:
