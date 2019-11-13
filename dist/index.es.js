@@ -9448,6 +9448,21 @@ _defineProperty(ChatDown, "defaultProps", {
   text: 'Error connecting to chat, refresh the page to try again.'
 });
 
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
+// window.onclick = function(event) {
+//   if (!event.target.matches('.dropbtn')) {
+//     const dropdowns = document.getElementsByClassName("dropdown-content");
+//     let i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       const openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
+
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @example ./examples/ChannelList.md
@@ -9503,9 +9518,18 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--status ".concat(this.props.client.user.status)
         }, this.props.client.user.status)), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
-        }, React__default.createElement("button", {
-          className: "str-chat__channel-list-team__header--button"
-        }, React__default.createElement("img", {
+        }, React__default.createElement("select", {
+          className: "str-chat__channel-list-team__header--button" //click="dropdown()"
+          // id="link"
+          // className="dropdown-menu-button"
+
+        }, React__default.createElement("option", {
+          value: "en"
+        }, "Englisch"), React__default.createElement("option", {
+          value: "de"
+        }, "Deutsch"), React__default.createElement("option", {
+          value: "it"
+        }, "Italienisch"), React__default.createElement("img", {
           src: chevrondown
         })))), this.props.children));
       }
@@ -9529,6 +9553,11 @@ _defineProperty(ChannelListTeam, "defaultProps", {
 });
 
 ChannelListTeam = withChatContext(ChannelListTeam);
+// var el = document.getElementById('link')
+// var d = dropdown(el)
+// d.on('select', function (li) {
+//   console.log(li)
+// })
 
 function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 

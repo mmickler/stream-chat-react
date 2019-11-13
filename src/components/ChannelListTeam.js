@@ -83,7 +83,7 @@ class ChannelListTeam extends PureComponent {
                 </div>
               </div>
               <div className="str-chat__channel-list-team__header--right">
-                <button className="str-chat__channel-list-team__header--button"
+                <select className="str-chat__channel-list-team__header--button"
                 //click="dropdown()"
                 // id="link"
                 // className="dropdown-menu-button"
@@ -91,13 +91,13 @@ class ChannelListTeam extends PureComponent {
                   {/* <select id="skill_category">
                    
                   </select> */}
-                  {/* <option value="en">Englisch</option>
+                  <option value="en">Englisch</option>
                   <option value="de">Deutsch</option>
-                  <option value="it">Italienisch</option> */}
+                  <option value="it">Italienisch</option>
 
                   {/* TODO: Edit --- show User and Channel List Menu */}
                   <img src={chevrondown} />
-                </button>
+                </select>
                 {/* <div id="myDropdown" className="dropdown-content">
                   <a href="#">Link 1</a>
                   <a href="#">Link 2</a>
