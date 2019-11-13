@@ -923,7 +923,12 @@ var renderText = function renderText(message) {
   // if(!){
   // } else{
   // }
-  var text = message.translations ? message.translations.en : message.text;
+  if (document.getElementById("select").options.value === "en") {
+    var _text = message.translations ? message.translations.en : message.text;
+  } else {
+    var _text2 = message.translations ? message.translations.de : message.text;
+  }
+
   var mentioned_users = message.mentioned_users;
 
   if (!text) {
@@ -9526,20 +9531,17 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--status ".concat(this.props.client.user.status)
         }, this.props.client.user.status)), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
-        }, React__default.createElement("select", {
-          className: "str-chat__channel-list-team__header--button" //click="dropdown()"
-          // id="link"
-          // className="dropdown-menu-button"
+        }, React__default.createElement("img", {
+          src: chevrondown
+        }), React__default.createElement("select", {
+          className: "str-chat__channel-list-team__header--button",
+          id: "select" //TODO: Load User Language and show new messages in the selected Language
 
         }, React__default.createElement("option", {
           value: "en"
         }, "Englisch"), React__default.createElement("option", {
           value: "de"
-        }, "Deutsch"), React__default.createElement("option", {
-          value: "it"
-        }, "Italienisch"), React__default.createElement("img", {
-          src: chevrondown
-        })))), this.props.children));
+        }, "Deutsch")))), this.props.children));
       }
     }
   }]);

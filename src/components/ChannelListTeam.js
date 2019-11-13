@@ -83,34 +83,15 @@ class ChannelListTeam extends PureComponent {
                 </div>
               </div>
               <div className="str-chat__channel-list-team__header--right">
-                <select className="str-chat__channel-list-team__header--button"
-                //click="dropdown()"
-                // id="link"
-                // className="dropdown-menu-button"
+                <img src={chevrondown} />
+                <select className="str-chat__channel-list-team__header--button" id="select"
+                  //TODO: Load User Language and show new messages in the selected Language
                 >
-                  {/* <select id="skill_category">
-                   
-                  </select> */}
-                  <option value="en">Englisch</option>
-                  <option value="de">Deutsch</option>
-                  <option value="it">Italienisch</option>
-
+                  <option value="en" >Englisch</option>
+                  <option value="de" >Deutsch</option>
                   {/* TODO: Edit --- show User and Channel List Menu */}
-                  <img src={chevrondown} />
+                  
                 </select>
-                {/* <div id="myDropdown" className="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
-                </div> */}
-                {/* <div className="dropdown-menu hide">
-                  <ul>
-                    <li>new repository</li>
-                    <li>New organization</li>
-                    <div className="dropdown-menu-devider"></div>
-                    <li>logout</li>
-                  </ul>
-                </div> */}
               </div>
             </div>
             {this.props.children}
