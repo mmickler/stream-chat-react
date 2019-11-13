@@ -89,7 +89,7 @@ class ChannelListTeam extends PureComponent {
                 >
                   <option value="it" >Italienisch</option>
                   <option value="en" >Englisch</option>
-                  <option value="de" selected >Deutsch</option>
+                  <option value="de" >Deutsch</option>
                   <option value="es" >Spanisch</option>
                   {/* TODO: Edit --- show User and Channel List Menu */}
                   

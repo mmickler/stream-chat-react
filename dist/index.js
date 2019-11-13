@@ -9560,8 +9560,7 @@ function (_PureComponent) {
         }, "Italienisch"), React__default.createElement("option", {
           value: "en"
         }, "Englisch"), React__default.createElement("option", {
-          value: "de",
-          selected: true
+          value: "de"
         }, "Deutsch"), React__default.createElement("option", {
           value: "es"
         }, "Spanisch")))), this.props.children));
