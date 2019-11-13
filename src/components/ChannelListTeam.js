@@ -8,22 +8,7 @@ import { withChatContext } from '../context';
 import chevrondown from '../assets/str-chat__icon-chevron-down.svg';
 
 
-// function dropdown(){
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
-// window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
 
-//     const dropdowns = document.getElementsByClassName("dropdown-content");
-//     let i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       const openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @example ./examples/ChannelList.md
@@ -88,7 +73,8 @@ class ChannelListTeam extends PureComponent {
                 // value={this.state.languageselect || 'en'} 
                 // name="languageselect"
                 // value={document.getElementById("select").options[document.getElementById("select").selectedIndex].value || "en"}
-                value ={window.dplChatConfig.defaultLanguage}
+                // value ={this.state.keyword}
+                // onChange={(event)=>selectChangeHandler(event)}
                 //TODO: Load User Language and show new messages in the selected Language
                 >
 
@@ -98,7 +84,7 @@ class ChannelListTeam extends PureComponent {
                   <option value="it" >Italienisch</option>
 
 
-                  {/* TODO: Edit --- show User and Channel List Menu */}
+                  
 
                 </select>
               </div>
@@ -114,9 +100,5 @@ class ChannelListTeam extends PureComponent {
 ChannelListTeam = withChatContext(ChannelListTeam);
 export { ChannelListTeam };
 
-// var dropdown = require('dropdown-menu')
-// var el = document.getElementById('link')
-// var d = dropdown(el)
-// d.on('select', function (li) {
-//   console.log(li)
-// })
+
+

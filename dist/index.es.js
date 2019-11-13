@@ -9471,21 +9471,6 @@ _defineProperty(ChatDown, "defaultProps", {
   text: 'Error connecting to chat, refresh the page to try again.'
 });
 
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
-// window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
-//     const dropdowns = document.getElementsByClassName("dropdown-content");
-//     let i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       const openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
-
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @example ./examples/ChannelList.md
@@ -9548,8 +9533,9 @@ function (_PureComponent) {
           id: "select" // value={this.state.languageselect || 'en'} 
           // name="languageselect"
           // value={document.getElementById("select").options[document.getElementById("select").selectedIndex].value || "en"}
-          ,
-          value: window.dplChatConfig.defaultLanguage //TODO: Load User Language and show new messages in the selected Language
+          // value ={this.state.keyword}
+          // onChange={(event)=>selectChangeHandler(event)}
+          //TODO: Load User Language and show new messages in the selected Language
 
         }, React__default.createElement("option", {
           value: "en"
@@ -9581,11 +9567,6 @@ _defineProperty(ChannelListTeam, "defaultProps", {
 });
 
 ChannelListTeam = withChatContext(ChannelListTeam);
-// var el = document.getElementById('link')
-// var d = dropdown(el)
-// d.on('select', function (li) {
-//   console.log(li)
-// })
 
 function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
