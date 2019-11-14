@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Avatar } from './Avatar';
 import { withChannelContext } from '../context';
-import chevrondown from '../assets/str-chat__icon-chevron-down.svg';
+// import chevrondown from '../assets/str-chat__icon-chevron-down.svg';
 /**
  * ChannelHeader - Render some basic information about this channel
  *
@@ -55,12 +55,6 @@ class ChannelHeader extends PureComponent {
 
         <div className="str-chat__header-livestream-right">
           <div className="str-chat__header-livestream-right-button-wrapper">
-            {/* try to see a button 
-            
-            to change it use the stram-chat-react project to build it in the bash, but don't check in the index.css file
-            
-            */}
-
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -73,31 +67,6 @@ class ChannelHeader extends PureComponent {
                 />
               </svg>
             </a>
-
-            {/* Using for Tests */}
-            {/* <select
-              id="rec_mode"
-              name="Sprachen"
-              //TODO: REMOVE IT
-              // target="_blank"
-              // rel="noopener noreferrer"
-              className="str-chat__square-button str-chat__header-livestream-right-button"
-            > 
-             */}
-
-
-            {/* <img src={chevrondown} />
-            </select>  */}
-            {/* <nav className="language-selector">
-              <ul>
-                <li>Nederlands <img src="https://goo.gl/et1Sx4" alt="nederlands" /></li>
-                <ul>
-                  <li>English <img src="https://goo.gl/O27aC0" alt="English" /></li>
-                  <li>Francais <img src="https://goo.gl/AQn8Ss" alt="Francais" /></li>
-                </ul>
-              </ul>
-            </nav> */}
-
           </div>
         </div>
       </div>
@@ -107,27 +76,3 @@ class ChannelHeader extends PureComponent {
 
 ChannelHeader = withChannelContext(ChannelHeader);
 export { ChannelHeader };
-
-
-//TEST:
-// const optionList = document.getElementById('rec_mode').options;
-// const options = [
-//   {
-//     text: 'Englisch',
-//     value: "en"
-//   },
-//   {
-//     text: 'Deutsch',
-//     value: 'de',
-//     selected: true
-//   },
-//   {
-//     text: 'Französisch',
-//     value: 'fr'
-//   }
-// ];
-// options.forEach(option =>
-//   optionList.add(
-//     new Option(option.text, option.value, option.selected)
-//   )
-// );
