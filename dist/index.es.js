@@ -4969,6 +4969,9 @@ _defineProperty(EditMessageForm, "defaultProps", {
   disabled: false
 });
 
+function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /**
  * MessageSimple - Render component, should be used together with the Message component
  *
@@ -5163,6 +5166,16 @@ function (_PureComponent) {
   }
 
   _createClass(MessageSimple, [{
+    key: "onLanguageChanged",
+    //TODO: register onLanguageChanged eventHandler
+    value: function onLanguageChanged() {
+      this.setState({
+        state: _objectSpread$4({}, this.state, {}, {
+          language: window.dplChatConfig.language
+        })
+      });
+    }
+  }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       if (!this.props.message.deleted_at) {
@@ -7663,9 +7676,9 @@ _defineProperty(LoadingErrorIndicator, "defaultProps", {
   error: false
 });
 
-function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /**
  * Channel - Wrapper component for a channel. It needs to be place inside of the Chat component.
  * ChannelHeader, MessageList, Thread and MessageInput should be used as children of the Channel component.
@@ -7892,7 +7905,7 @@ function (_PureComponent2) {
         extraState.threadMessages = channel.state.threads[updatedMessage.parent_id] || [];
       }
 
-      _this2.setState(_objectSpread$4({
+      _this2.setState(_objectSpread$5({
         messages: channel.state.messages
       }, extraState));
     });
@@ -7917,7 +7930,7 @@ function (_PureComponent2) {
         id: clientSideID,
         type: 'regular',
         status: 'sending',
-        user: _objectSpread$4({
+        user: _objectSpread$5({
           id: _this2.props.client.userID
         }, _this2.props.client.user),
         created_at: new Date(),
@@ -8126,11 +8139,11 @@ function (_PureComponent2) {
         }
 
         var lastMessageId = prevState.messages[prevState.messages.length - 1].id;
-        if (!prevState.eventHistory[lastMessageId]) return _objectSpread$4({}, prevState, {
-          eventHistory: _objectSpread$4({}, prevState.eventHistory, _defineProperty({}, lastMessageId, [e]))
+        if (!prevState.eventHistory[lastMessageId]) return _objectSpread$5({}, prevState, {
+          eventHistory: _objectSpread$5({}, prevState.eventHistory, _defineProperty({}, lastMessageId, [e]))
         });
-        return _objectSpread$4({}, prevState, {
-          eventHistory: _objectSpread$4({}, prevState.eventHistory, _defineProperty({}, lastMessageId, [].concat(_toConsumableArray(prevState.eventHistory[lastMessageId]), [e])))
+        return _objectSpread$5({}, prevState, {
+          eventHistory: _objectSpread$5({}, prevState.eventHistory, _defineProperty({}, lastMessageId, [].concat(_toConsumableArray(prevState.eventHistory[lastMessageId]), [e])))
         });
       });
     });
@@ -8262,7 +8275,7 @@ function (_PureComponent2) {
     });
 
     _defineProperty(_assertThisInitialized(_this2), "getContext", function () {
-      return _objectSpread$4({}, _this2.state, {
+      return _objectSpread$5({}, _this2.state, {
         client: _this2.props.client,
         channel: _this2.props.channel,
         Message: _this2.props.Message,
@@ -9174,9 +9187,9 @@ _defineProperty(ChannelPreviewCountOnly, "propTypes", {
   unread_count: PropTypes.number
 });
 
-function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var ChannelPreview =
 /*#__PURE__*/
 function (_PureComponent) {
@@ -9277,7 +9290,7 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
-      var props = _objectSpread$5({}, this.state, {}, this.props);
+      var props = _objectSpread$6({}, this.state, {}, this.props);
 
       var Preview = this.props.Preview;
       return React__default.createElement(Preview, _extends({}, props, {
@@ -9581,9 +9594,9 @@ _defineProperty(ChannelListTeam, "defaultProps", {
 
 ChannelListTeam = withChatContext(ChannelListTeam);
 
-function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @extends PureComponent
@@ -9620,9 +9633,9 @@ function (_PureComponent) {
                 refreshing: true
               });
 
-              newOptions = _objectSpread$6({}, options);
+              newOptions = _objectSpread$7({}, options);
               if (!options.limit) newOptions.limit = 30;
-              channelPromise = _this.props.client.queryChannels(filters, sort, _objectSpread$6({}, newOptions, {
+              channelPromise = _this.props.client.queryChannels(filters, sort, _objectSpread$7({}, newOptions, {
                 offset: offset
               }));
               _context.prev = 6;
@@ -9913,7 +9926,7 @@ function (_PureComponent) {
         channelUpdateCount: _this.state.channelUpdateCount,
         connectionRecoveredCount: _this.state.connectionRecoveredCount
       };
-      return smartRender(ChannelPreview, _objectSpread$6({}, props));
+      return smartRender(ChannelPreview, _objectSpread$7({}, props));
     });
 
     _this.state = {
@@ -10968,9 +10981,9 @@ _defineProperty(MessageCommerce, "defaultProps", {
   Attachment: Attachment
 });
 
-function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var SimpleReactionsList =
 /*#__PURE__*/
 function (_React$PureComponent) {
@@ -11061,7 +11074,7 @@ function (_React$PureComponent) {
       var reactionsByType = _this.getReactionsByType(reactions);
 
       var reactionsEmojis = _this.props.reactionOptions.reduce(function (acc, cur) {
-        return _objectSpread$7({}, acc, _defineProperty({}, cur.id, cur));
+        return _objectSpread$8({}, acc, _defineProperty({}, cur.id, cur));
       }, {});
 
       return Object.keys(reactionsByType).map(function (type, i) {

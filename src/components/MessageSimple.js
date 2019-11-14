@@ -121,6 +121,19 @@ export class MessageSimple extends PureComponent {
     showDetailedReactions: false,
   };
 
+  //TODO: register onLanguageChanged eventHandler
+
+  onLanguageChanged() {
+    this.setState({
+      state: {
+        ...this.state,
+        ...{
+          language: window.dplChatConfig.language,
+        }
+      }
+    });
+  }
+
   messageActionsRef = React.createRef();
   reactionSelectorRef = React.createRef();
 
@@ -546,7 +559,7 @@ export class MessageSimple extends PureComponent {
                     isOnlyEmojis(message.text)
                       ? 'str-chat__message-simple-text-inner--is-emoji'
                       : ''
-                  }
+                    }
                 `.trim()}
                   onMouseOver={onMentionsHoverMessage}
                   onClick={onMentionsClickMessage}
@@ -565,8 +578,8 @@ export class MessageSimple extends PureComponent {
                   {unsafeHTML ? (
                     <div dangerouslySetInnerHTML={{ __html: message.html }} />
                   ) : (
-                    renderText(message)
-                  )}
+                      renderText(message)
+                    )}
 
                   {/* if reactions show them */}
                   {hasReactions && !this.state.showDetailedReactions && (
