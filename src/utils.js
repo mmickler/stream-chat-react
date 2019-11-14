@@ -129,7 +129,7 @@ export const renderText = (message) => {
   // take the @ mentions and turn them into markdown?
   // translate links
   //TODO: show the language which the user can read
-  console.log("renderText");
+  
 
   const language = window.dplChatConfig.language;
   let text = "";
