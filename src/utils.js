@@ -147,8 +147,8 @@ export const renderText = (message) => {
       case "es":
         text = message.translations.es ? message.translations.es : message.text;
         break;
-      case "pol":
-        text = message.translations.pol ? message.translations.pol : message.text;
+      case "pl":
+        text = message.translations.pl ? message.translations.pl : message.text;
         break;
       default:
         text = message.text;

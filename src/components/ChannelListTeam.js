@@ -87,7 +87,7 @@ class ChannelListTeam extends PureComponent {
                   <option value="de">Deutsch</option>
                   <option value="es">Spanisch</option>
                   <option value="it">Italienisch</option>
-                  <option value="pol">Polnisch</option>
+                  <option value="pl">Polnisch</option>
                 </select>
               </div>
             </div>

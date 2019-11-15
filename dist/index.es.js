@@ -931,8 +931,8 @@ var renderText = function renderText(message) {
         text = message.translations.es ? message.translations.es : message.text;
         break;
 
-      case "pol":
-        text = message.translations.pol ? message.translations.pol : message.text;
+      case "pl":
+        text = message.translations.pl ? message.translations.pl : message.text;
         break;
 
       default:
@@ -9541,7 +9541,7 @@ function (_PureComponent) {
         }, "Spanisch"), React__default.createElement("option", {
           value: "it"
         }, "Italienisch"), React__default.createElement("option", {
-          value: "pol"
+          value: "pl"
         }, "Polnisch")))), this.props.children));
       }
     }
