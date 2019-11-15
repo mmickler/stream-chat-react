@@ -4997,7 +4997,7 @@ function (_PureComponent) {
 
     _classCallCheck(this, MessageSimple);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageSimple).call(this)); // window.addEventListener(languageChangedEventName, this.onLanguageChanged);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageSimple).call(this));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       isFocused: false,
@@ -5023,9 +5023,8 @@ function (_PureComponent) {
     _defineProperty(_assertThisInitialized(_this), "_onClickOptionsAction", function () {
       _this.setState({
         actionsBoxOpen: true
-      }, function () {
-        return document.addEventListener('click', _this.hideOptions, false);
-      });
+      } //() => document.addEventListener('click', this.hideOptions, false),
+      );
     });
 
     _defineProperty(_assertThisInitialized(_this), "_hideOptions", function () {
@@ -5174,6 +5173,7 @@ function (_PureComponent) {
       })));
     });
 
+    window.addEventListener(languageChangedEventName, _this.onLanguageChanged);
     return _this;
   }
 
