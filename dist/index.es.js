@@ -5154,8 +5154,6 @@ function (_PureComponent) {
 
     window.addEventListener(languageChangedEventName, function () {
       _this.onLanguageChanged();
-
-      console.log(_assertThisInitialized(_this));
     });
     return _this;
   }
