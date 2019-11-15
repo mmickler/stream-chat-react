@@ -34,7 +34,7 @@ class ChannelListTeam extends PureComponent {
     window.dplChatConfig.language = event.target.value;
     window.dispatchEvent(languageChangedEvent);
     localStorage.setItem('language', window.dplChatConfig.language);
-    console.log("languageChange", window.dplChatConfig.language);
+    
   }
 
   render() {
