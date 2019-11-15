@@ -5011,6 +5011,8 @@ function (_PureComponent) {
         state: _objectSpread$4({}, _this.state, {}, {
           language: window.dplChatConfig.language
         })
+      }, function () {
+        return document.addEventListener(languageChangedEventName, _this.onLanguageChanged, false);
       });
     });
 

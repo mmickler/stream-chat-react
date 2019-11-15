@@ -129,7 +129,7 @@ export class MessageSimple extends PureComponent {
 
   //TODO: register onLanguageChanged eventHandler
 
-  onLanguageChanged = (() => {
+  onLanguageChanged = () => {
     this.setState({
       state: {
         ...this.state,
@@ -137,8 +137,10 @@ export class MessageSimple extends PureComponent {
           language: window.dplChatConfig.language,
         }
       }
-    });
-  });
+    },
+      () => document.addEventListener(languageChangedEventName, this.onLanguageChanged, false),
+    );
+  };
 
   messageActionsRef = React.createRef();
   reactionSelectorRef = React.createRef();
