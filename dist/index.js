@@ -9471,6 +9471,9 @@ _defineProperty(ChatDown, "defaultProps", {
 
 var chevrondown = "data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cdefs%3E%3Cpath%20id%3D%22b%22%20d%3D%22M.667.667L4%204%207.333.667z%22%2F%3E%3Cfilter%20x%3D%22-7.5%25%22%20y%3D%22-15%25%22%20width%3D%22115%25%22%20height%3D%22160%25%22%20filterUnits%3D%22objectBoundingBox%22%20id%3D%22a%22%3E%3CfeOffset%20dy%3D%221%22%20in%3D%22SourceAlpha%22%20result%3D%22shadowOffsetOuter1%22%2F%3E%3CfeComposite%20in%3D%22shadowOffsetOuter1%22%20in2%3D%22SourceAlpha%22%20operator%3D%22out%22%20result%3D%22shadowOffsetOuter1%22%2F%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.685858243%200%22%20in%3D%22shadowOffsetOuter1%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cuse%20fill%3D%22%23000%22%20filter%3D%22url%28%23a%29%22%20xlink%3Ahref%3D%22%23b%22%2F%3E%3Cuse%20fill-opacity%3D%22.7%22%20fill%3D%22%23FFF%22%20xlink%3Ahref%3D%22%23b%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
 
+function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @example ./examples/ChannelList.md
@@ -9489,9 +9492,16 @@ function (_PureComponent) {
 
   _createClass(ChannelListTeam, [{
     key: "onLanguageChange",
-    value: function onLanguageChange(event) {
-      window.dplChatConfig.language = event.target.value;
-      console.log("languageChange", window.dplChatConfig.language);
+    // onLanguageChange(event) {
+    //   window.dplChatConfig.language = event.target.value;
+    //   console.log("languageChange", window.dplChatConfig.language);
+    // }
+    value: function onLanguageChange() {
+      this.setState({
+        state: _objectSpread$7({}, this.state, {}, {
+          language: window.dplChatConfig.language
+        })
+      });
     }
   }, {
     key: "render",
@@ -9537,7 +9547,8 @@ function (_PureComponent) {
         }), React__default.createElement("select", {
           className: "str-chat__channel-list-team__header--button",
           id: "select",
-          onChange: this.onLanguageChange //TODO: Load User Language and show new messages in the selected Language
+          onChange: this.onLanguageChange,
+          value: this.state.language //TODO: Load User Language and show new messages in the selected Language
 
         }, React__default.createElement("option", {
           value: "en"
@@ -9570,9 +9581,9 @@ _defineProperty(exports.ChannelListTeam, "defaultProps", {
 
 exports.ChannelListTeam = withChatContext(exports.ChannelListTeam);
 
-function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @extends PureComponent
@@ -9609,9 +9620,9 @@ function (_PureComponent) {
                 refreshing: true
               });
 
-              newOptions = _objectSpread$7({}, options);
+              newOptions = _objectSpread$8({}, options);
               if (!options.limit) newOptions.limit = 30;
-              channelPromise = _this.props.client.queryChannels(filters, sort, _objectSpread$7({}, newOptions, {
+              channelPromise = _this.props.client.queryChannels(filters, sort, _objectSpread$8({}, newOptions, {
                 offset: offset
               }));
               _context.prev = 6;
@@ -9902,7 +9913,7 @@ function (_PureComponent) {
         channelUpdateCount: _this.state.channelUpdateCount,
         connectionRecoveredCount: _this.state.connectionRecoveredCount
       };
-      return smartRender(ChannelPreview, _objectSpread$7({}, props));
+      return smartRender(ChannelPreview, _objectSpread$8({}, props));
     });
 
     _this.state = {
@@ -10957,9 +10968,9 @@ _defineProperty(MessageCommerce, "defaultProps", {
   Attachment: Attachment
 });
 
-function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var SimpleReactionsList =
 /*#__PURE__*/
 function (_React$PureComponent) {
@@ -11050,7 +11061,7 @@ function (_React$PureComponent) {
       var reactionsByType = _this.getReactionsByType(reactions);
 
       var reactionsEmojis = _this.props.reactionOptions.reduce(function (acc, cur) {
-        return _objectSpread$8({}, acc, _defineProperty({}, cur.id, cur));
+        return _objectSpread$9({}, acc, _defineProperty({}, cur.id, cur));
       }, {});
 
       return Object.keys(reactionsByType).map(function (type, i) {

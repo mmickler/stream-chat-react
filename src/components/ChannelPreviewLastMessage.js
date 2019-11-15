@@ -48,6 +48,7 @@ export class ChannelPreviewLastMessage extends PureComponent {
           <div className="str-chat__channel-preview-info">
             <span className="str-chat__channel-preview-title">{name}</span>
             <span className="str-chat__channel-preview-last-message">
+              {/* TODO: render last message in same language as selected */}
               {!this.props.channel.state.messages[0]
                 ? 'Nothing yet...'
                 : this.props.latestMessage}
