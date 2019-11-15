@@ -9536,7 +9536,9 @@ function (_PureComponent) {
           value: "es"
         }, "Spanisch"), React__default.createElement("option", {
           value: "it"
-        }, "Italienisch")))), this.props.children));
+        }, "Italienisch"), React__default.createElement("option", {
+          value: "pol"
+        }, "Polnisch")))), this.props.children));
       }
     }
   }]);
