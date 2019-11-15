@@ -141,7 +141,7 @@ export class MessageSimple extends PureComponent {
         }
       }
     },
-      () => document.addEventListener(languageChangedEventName, this.onLanguageChanged, false),
+     // () => document.addEventListener(languageChangedEventName, this.onLanguageChanged, false),
     );
   };
 
