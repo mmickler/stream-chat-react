@@ -4985,11 +4985,19 @@ function (_PureComponent) {
   _inherits(MessageSimple, _PureComponent);
 
   function MessageSimple() {
+    var _getPrototypeOf2;
+
     var _this;
 
     _classCallCheck(this, MessageSimple);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageSimple).call(this));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MessageSimple)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "_isMounted", false);
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       isFocused: false,
@@ -5165,11 +5173,19 @@ function (_PureComponent) {
       })));
     });
 
-    window.addEventListener(languageChangedEventName, _this.onLanguageChanged);
     return _this;
   }
 
   _createClass(MessageSimple, [{
+    key: "componentDidMount",
+    // constructor() {
+    //   super();
+    //   window.addEventListener(languageChangedEventName, this.onLanguageChanged);
+    // }
+    value: function componentDidMount() {
+      window.addEventListener(languageChangedEventName, this.onLanguageChanged);
+    }
+  }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       if (!this.props.message.deleted_at) {

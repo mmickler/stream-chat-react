@@ -24,8 +24,11 @@ import { isOnlyEmojis, renderText, languageChangedEventName } from '../utils';
  * @extends PureComponent
  */
 export class MessageSimple extends PureComponent {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
+  //   window.addEventListener(languageChangedEventName, this.onLanguageChanged);
+  // }
+  componentDidMount(){
     window.addEventListener(languageChangedEventName, this.onLanguageChanged);
   }
 
@@ -118,7 +121,7 @@ export class MessageSimple extends PureComponent {
   static defaultProps = {
     Attachment,
   };
-
+  _isMounted = false;
   state = {
     isFocused: false,
     language: window.dplChatConfig.language,
