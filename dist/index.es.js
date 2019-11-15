@@ -931,6 +931,10 @@ var renderText = function renderText(message) {
         text = message.translations.es ? message.translations.es : message.text;
         break;
 
+      case "pol":
+        text = message.translations.pol ? message.translations.pol : message.text;
+        break;
+
       default:
         text = message.text;
     }
