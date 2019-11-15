@@ -28,7 +28,6 @@ export class MessageSimple extends PureComponent {
     super();
     window.addEventListener(languageChangedEventName, () => {
       this.onLanguageChanged();
-      console.log(this);
     });
   }
 
