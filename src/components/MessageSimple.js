@@ -26,7 +26,7 @@ import { isOnlyEmojis, renderText, languageChangedEventName } from '../utils';
 export class MessageSimple extends PureComponent {
   constructor() {
     super();
-    window.addEventListener(languageChangedEventName, this.onLanguageChanged());
+    window.addEventListener(languageChangedEventName, this.onLanguageChanged);
   }
 
   static propTypes = {
@@ -199,7 +199,7 @@ export class MessageSimple extends PureComponent {
       document.removeEventListener('click', this._closeDetailedReactions);
       document.removeEventListener('touchend', this._closeDetailedReactions);
     }
-    document.removeEventListener(languageChangedEventName, this.onLanguageChanged());
+    document.removeEventListener(languageChangedEventName, this.onLanguageChanged);
   }
 
   isMine() {
