@@ -5015,12 +5015,13 @@ function (_PureComponent) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "onLanguageChanged", function () {
-      _this.setState({
-        state: _objectSpread$4({}, _this.state, {}, {
-          language: window.dplChatConfig.language
-        })
-      } // () => document.addEventListener(languageChangedEventName, this.onLanguageChanged, false),
-      );
+      if (_this._isMounted) {
+        _this.setState({
+          state: _objectSpread$4({}, _this.state, {}, {
+            language: window.dplChatConfig.language
+          })
+        });
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "messageActionsRef", React__default.createRef());
@@ -5191,11 +5192,14 @@ function (_PureComponent) {
     //   window.addEventListener(languageChangedEventName, this.onLanguageChanged);
     // }
     value: function componentDidMount() {
+      this._isMounted = true;
       window.addEventListener(languageChangedEventName, this.onLanguageChanged);
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
+      this._isMounted = false;
+
       if (!this.props.message.deleted_at) {
         document.removeEventListener('click', this._closeDetailedReactions);
         document.removeEventListener('touchend', this._closeDetailedReactions);
