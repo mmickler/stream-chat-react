@@ -4997,7 +4997,7 @@ function (_PureComponent) {
 
     _classCallCheck(this, MessageSimple);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageSimple).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageSimple).call(this)); // window.addEventListener(languageChangedEventName, this.onLanguageChanged);
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       isFocused: false,
@@ -5174,7 +5174,6 @@ function (_PureComponent) {
       })));
     });
 
-    window.addEventListener(languageChangedEventName, _this.onLanguageChanged);
     return _this;
   }
 
