@@ -80,13 +80,13 @@ class ChannelListTeam extends PureComponent {
               <div className="str-chat__channel-list-team__header--right">
                 <select className="str-chat__channel-list-team__header--button" id="select"
                   onChange={this.onLanguageChange}
-                // value={this.state.language}
+                  defaultValue={this.props.language}
                 //TODO: Load User Language and show new messages in the selected Language
                 >
-                  <option value="en" selected={this.props.language === "en"} >Englisch</option>
-                  <option value="de" selected={this.props.language === "de"} >Deutsch</option>
-                  <option value="es" selected={this.props.language === "es"} >Spanisch</option>
-                  <option value="it" selected={this.props.language === "it"} >Italienisch</option>
+                  <option value="en">Englisch</option>
+                  <option value="de">Deutsch</option>
+                  <option value="es">Spanisch</option>
+                  <option value="it">Italienisch</option>
                 </select>
               </div>
             </div>

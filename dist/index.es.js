@@ -9526,21 +9526,17 @@ function (_PureComponent) {
         }, React__default.createElement("select", {
           className: "str-chat__channel-list-team__header--button",
           id: "select",
-          onChange: this.onLanguageChange // value={this.state.language}
-          //TODO: Load User Language and show new messages in the selected Language
+          onChange: this.onLanguageChange,
+          defaultValue: this.props.language //TODO: Load User Language and show new messages in the selected Language
 
         }, React__default.createElement("option", {
-          value: "en",
-          selected: this.props.language === "en"
+          value: "en"
         }, "Englisch"), React__default.createElement("option", {
-          value: "de",
-          selected: this.props.language === "de"
+          value: "de"
         }, "Deutsch"), React__default.createElement("option", {
-          value: "es",
-          selected: this.props.language === "es"
+          value: "es"
         }, "Spanisch"), React__default.createElement("option", {
-          value: "it",
-          selected: this.props.language === "it"
+          value: "it"
         }, "Italienisch")))), this.props.children));
       }
     }
