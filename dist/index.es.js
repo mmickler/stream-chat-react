@@ -4998,6 +4998,14 @@ function (_PureComponent) {
       showDetailedReactions: false
     });
 
+    _defineProperty(_assertThisInitialized(_this), "onLanguageChanged", function () {
+      _this.setState({
+        state: _objectSpread$4({}, _this.state, {}, {
+          language: window.dplChatConfig.language
+        })
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "messageActionsRef", React__default.createRef());
 
     _defineProperty(_assertThisInitialized(_this), "reactionSelectorRef", React__default.createRef());
@@ -5161,16 +5169,6 @@ function (_PureComponent) {
   }
 
   _createClass(MessageSimple, [{
-    key: "onLanguageChanged",
-    //TODO: register onLanguageChanged eventHandler
-    value: function onLanguageChanged() {
-      this.setState({
-        state: _objectSpread$4({}, this.state, {}, {
-          language: window.dplChatConfig.language
-        })
-      }).bind(this);
-    }
-  }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       if (!this.props.message.deleted_at) {
