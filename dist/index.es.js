@@ -9526,7 +9526,7 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--button",
           id: "select",
           onChange: this.onLanguageChange,
-          value: this.props.language //TODO: Load User Language and show new messages in the selected Language
+          defaultValue: this.props.language //TODO: Load User Language and show new messages in the selected Language
 
         }, React__default.createElement("option", {
           value: "en"
