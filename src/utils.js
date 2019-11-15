@@ -253,3 +253,6 @@ export const MESSAGE_ACTIONS = {
   flag: 'flag',
   mute: 'mute',
 };
+
+export const languageChangedEventName = "dpl-chat-language-changed";
+export const languageChangedEvent = new Event(languageChangedEventName);

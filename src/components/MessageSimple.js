@@ -15,7 +15,7 @@ import { EditMessageForm } from './EditMessageForm';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import { isOnlyEmojis, renderText } from '../utils';
+import { isOnlyEmojis, renderText, languageChangedEventName } from '../utils';
 
 /**
  * MessageSimple - Render component, should be used together with the Message component
@@ -24,6 +24,14 @@ import { isOnlyEmojis, renderText } from '../utils';
  * @extends PureComponent
  */
 export class MessageSimple extends PureComponent {
+  constructor() {
+    super();
+    window.addEventListener(languageChangedEventName, () => {
+      this.onLanguageChanged();
+      console.log(this);
+    });
+  }
+
   static propTypes = {
     /** The [message object](https://getstream.io/chat/docs/#message_format) */
     message: PropTypes.object,
@@ -120,6 +128,7 @@ export class MessageSimple extends PureComponent {
     actionsBoxOpen: false,
     showDetailedReactions: false,
   };
+
 
   //TODO: register onLanguageChanged eventHandler
 

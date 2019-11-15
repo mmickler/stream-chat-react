@@ -7,6 +7,8 @@ import { withChatContext } from '../context';
 
 import chevrondown from '../assets/str-chat__icon-chevron-down.svg';
 
+import {languageChangedEvent} from "../utils";
+
 
 
 /**
@@ -25,20 +27,12 @@ class ChannelListTeam extends PureComponent {
   static defaultProps = {
     error: false,
   };
+
   onLanguageChange(event) {
     window.dplChatConfig.language = event.target.value;
+    window.dispatchEvent(languageChangedEvent);
     console.log("languageChange", window.dplChatConfig.language);
   }
-  // onLanguageChange() {
-  //   this.setState({
-  //     state: {
-  //       ...this.state,
-  //       ...{
-  //         language: window.dplChatConfig.language,
-  //       }
-  //     }
-  //   });
-  // }
 
   render() {
     const { showSidebar } = this.props;
@@ -84,7 +78,7 @@ class ChannelListTeam extends PureComponent {
                 <img src={chevrondown} />
                 <select className="str-chat__channel-list-team__header--button" id="select"
                   onChange={this.onLanguageChange}
-                  // value={this.state.language}
+                // value={this.state.language}
                 //TODO: Load User Language and show new messages in the selected Language
                 >
                   <option value="en" >Englisch</option>

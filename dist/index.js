@@ -1043,6 +1043,8 @@ var MESSAGE_ACTIONS = {
   flag: 'flag',
   mute: 'mute'
 };
+var languageChangedEventName = "dpl-chat-language-changed";
+var languageChangedEvent = new Event(languageChangedEventName);
 
 /**
  * MessageActionsBox - A component for taking action on a message
@@ -4987,17 +4989,11 @@ function (_PureComponent) {
   _inherits(MessageSimple, _PureComponent);
 
   function MessageSimple() {
-    var _getPrototypeOf2;
-
     var _this;
 
     _classCallCheck(this, MessageSimple);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MessageSimple)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageSimple).call(this));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       isFocused: false,
@@ -5164,6 +5160,11 @@ function (_PureComponent) {
       })));
     });
 
+    window.addEventListener(languageChangedEventName, function () {
+      _this.onLanguageChanged();
+
+      console.log(_assertThisInitialized(_this));
+    });
     return _this;
   }
 
@@ -9491,18 +9492,9 @@ function (_PureComponent) {
     key: "onLanguageChange",
     value: function onLanguageChange(event) {
       window.dplChatConfig.language = event.target.value;
+      window.dispatchEvent(languageChangedEvent);
       console.log("languageChange", window.dplChatConfig.language);
-    } // onLanguageChange() {
-    //   this.setState({
-    //     state: {
-    //       ...this.state,
-    //       ...{
-    //         language: window.dplChatConfig.language,
-    //       }
-    //     }
-    //   });
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -12425,6 +12417,8 @@ exports.renderText = renderText;
 exports.generateRandomId = generateRandomId;
 exports.smartRender = smartRender;
 exports.MESSAGE_ACTIONS = MESSAGE_ACTIONS;
+exports.languageChangedEventName = languageChangedEventName;
+exports.languageChangedEvent = languageChangedEvent;
 exports.ChatContext = ChatContext;
 exports.withChatContext = withChatContext;
 exports.ChannelContext = ChannelContext;

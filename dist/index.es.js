@@ -1035,6 +1035,8 @@ var MESSAGE_ACTIONS = {
   flag: 'flag',
   mute: 'mute'
 };
+var languageChangedEventName = "dpl-chat-language-changed";
+var languageChangedEvent = new Event(languageChangedEventName);
 
 /**
  * MessageActionsBox - A component for taking action on a message
@@ -4979,17 +4981,11 @@ function (_PureComponent) {
   _inherits(MessageSimple, _PureComponent);
 
   function MessageSimple() {
-    var _getPrototypeOf2;
-
     var _this;
 
     _classCallCheck(this, MessageSimple);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MessageSimple)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageSimple).call(this));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       isFocused: false,
@@ -5156,6 +5152,11 @@ function (_PureComponent) {
       })));
     });
 
+    window.addEventListener(languageChangedEventName, function () {
+      _this.onLanguageChanged();
+
+      console.log(_assertThisInitialized(_this));
+    });
     return _this;
   }
 
@@ -9483,18 +9484,9 @@ function (_PureComponent) {
     key: "onLanguageChange",
     value: function onLanguageChange(event) {
       window.dplChatConfig.language = event.target.value;
+      window.dispatchEvent(languageChangedEvent);
       console.log("languageChange", window.dplChatConfig.language);
-    } // onLanguageChange() {
-    //   this.setState({
-    //     state: {
-    //       ...this.state,
-    //       ...{
-    //         language: window.dplChatConfig.language,
-    //       }
-    //     }
-    //   });
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -12384,5 +12376,5 @@ Window = withChannelContext(Window);
 
 // Setup
 
-export { Avatar, Message, MessageList, Chat, Channel, ChannelHeader, MessageInput, MessageInputLarge, MessageInputFlat, MessageInputSmall, Attachment, ChannelList, ChannelListMessenger, ChannelListTeam, ChannelPreviewCompact, ChannelPreviewMessenger, LoadMorePaginator, LoadingChannels, InfiniteScrollPaginator, LoadingIndicator$1 as LoadingIndicator, MessageCommerce, MessageLivestream, MessageTeam, MessageSimple, SendButton, Thread, TypingIndicator, Window, ReactionSelector, ReactionsList, emojiSetDef, commonEmoji, defaultMinimalEmojis, emojiData, isOnlyEmojis, isPromise, byDate, formatArray, renderText, generateRandomId, smartRender, MESSAGE_ACTIONS, ChatContext, withChatContext, ChannelContext, withChannelContext };
+export { Avatar, Message, MessageList, Chat, Channel, ChannelHeader, MessageInput, MessageInputLarge, MessageInputFlat, MessageInputSmall, Attachment, ChannelList, ChannelListMessenger, ChannelListTeam, ChannelPreviewCompact, ChannelPreviewMessenger, LoadMorePaginator, LoadingChannels, InfiniteScrollPaginator, LoadingIndicator$1 as LoadingIndicator, MessageCommerce, MessageLivestream, MessageTeam, MessageSimple, SendButton, Thread, TypingIndicator, Window, ReactionSelector, ReactionsList, emojiSetDef, commonEmoji, defaultMinimalEmojis, emojiData, isOnlyEmojis, isPromise, byDate, formatArray, renderText, generateRandomId, smartRender, MESSAGE_ACTIONS, languageChangedEventName, languageChangedEvent, ChatContext, withChatContext, ChannelContext, withChannelContext };
 //# sourceMappingURL=index.es.js.map
