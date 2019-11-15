@@ -5168,7 +5168,7 @@ function (_PureComponent) {
         state: _objectSpread$4({}, this.state, {}, {
           language: window.dplChatConfig.language
         })
-      });
+      }).bind(this);
     }
   }, {
     key: "componentWillUnmount",

@@ -137,7 +137,7 @@ export class MessageSimple extends PureComponent {
           language: window.dplChatConfig.language,
         }
       }
-    });
+    }).bind(this);
   }
 
   messageActionsRef = React.createRef();
