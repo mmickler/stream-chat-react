@@ -5164,7 +5164,7 @@ function (_PureComponent) {
       })));
     });
 
-    window.addEventListener(languageChangedEventName, _this.onLanguageChanged);
+    window.addEventListener(languageChangedEventName, _this.onLanguageChanged());
     return _this;
   }
 
@@ -5186,7 +5186,7 @@ function (_PureComponent) {
         document.removeEventListener('touchend', this._closeDetailedReactions);
       }
 
-      document.removeEventListener(languageChangedEventName, this.onLanguageChanged);
+      document.removeEventListener(languageChangedEventName, this.onLanguageChanged());
     }
   }, {
     key: "isMine",
