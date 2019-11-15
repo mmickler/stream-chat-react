@@ -153,7 +153,7 @@ export class MessageSimple extends PureComponent {
       {
         actionsBoxOpen: true,
       },
-      //() => document.addEventListener('click', this.hideOptions, false),
+      () => document.addEventListener('click', this.hideOptions, false),
     );
   };
 

@@ -5030,8 +5030,9 @@ function (_PureComponent) {
     _defineProperty(_assertThisInitialized(_this), "_onClickOptionsAction", function () {
       _this.setState({
         actionsBoxOpen: true
-      } //() => document.addEventListener('click', this.hideOptions, false),
-      );
+      }, function () {
+        return document.addEventListener('click', _this.hideOptions, false);
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "_hideOptions", function () {
