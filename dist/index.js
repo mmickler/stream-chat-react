@@ -9295,6 +9295,7 @@ function (_PureComponent) {
 
       var Preview = this.props.Preview;
       return React__default.createElement(Preview, _extends({}, props, {
+        //TODO: load count of unread messages
         latestMessage: this.getLatestMessage(),
         active: this.props.activeChannel.cid === this.props.channel.cid
       }));
@@ -12426,6 +12427,9 @@ exports.SendButton = SendButton;
 exports.TypingIndicator = TypingIndicator;
 exports.ReactionSelector = ReactionSelector;
 exports.ReactionsList = ReactionsList;
+exports.ChannelPreviewLastMessage = ChannelPreviewLastMessage;
+exports.ChannelPreviewCountOnly = ChannelPreviewCountOnly;
+exports.ChannelPreview = ChannelPreview;
 exports.emojiSetDef = emojiSetDef;
 exports.commonEmoji = commonEmoji;
 exports.defaultMinimalEmojis = defaultMinimalEmojis;

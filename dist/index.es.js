@@ -9287,6 +9287,7 @@ function (_PureComponent) {
 
       var Preview = this.props.Preview;
       return React__default.createElement(Preview, _extends({}, props, {
+        //TODO: load count of unread messages
         latestMessage: this.getLatestMessage(),
         active: this.props.activeChannel.cid === this.props.channel.cid
       }));
@@ -12397,5 +12398,5 @@ Window = withChannelContext(Window);
 
 // Setup
 
-export { Avatar, Message, MessageList, Chat, Channel, ChannelHeader, MessageInput, MessageInputLarge, MessageInputFlat, MessageInputSmall, Attachment, ChannelList, ChannelListMessenger, ChannelListTeam, ChannelPreviewCompact, ChannelPreviewMessenger, LoadMorePaginator, LoadingChannels, InfiniteScrollPaginator, LoadingIndicator$1 as LoadingIndicator, MessageCommerce, MessageLivestream, MessageTeam, MessageSimple, SendButton, Thread, TypingIndicator, Window, ReactionSelector, ReactionsList, emojiSetDef, commonEmoji, defaultMinimalEmojis, emojiData, isOnlyEmojis, isPromise, byDate, formatArray, renderText, generateRandomId, smartRender, MESSAGE_ACTIONS, languageChangedEventName, languageChangedEvent, ChatContext, withChatContext, ChannelContext, withChannelContext };
+export { Avatar, Message, MessageList, Chat, Channel, ChannelHeader, MessageInput, MessageInputLarge, MessageInputFlat, MessageInputSmall, Attachment, ChannelList, ChannelListMessenger, ChannelListTeam, ChannelPreviewCompact, ChannelPreviewMessenger, LoadMorePaginator, LoadingChannels, InfiniteScrollPaginator, LoadingIndicator$1 as LoadingIndicator, MessageCommerce, MessageLivestream, MessageTeam, MessageSimple, SendButton, Thread, TypingIndicator, Window, ReactionSelector, ReactionsList, ChannelPreviewLastMessage, ChannelPreviewCountOnly, ChannelPreview, emojiSetDef, commonEmoji, defaultMinimalEmojis, emojiData, isOnlyEmojis, isPromise, byDate, formatArray, renderText, generateRandomId, smartRender, MESSAGE_ACTIONS, languageChangedEventName, languageChangedEvent, ChatContext, withChatContext, ChannelContext, withChannelContext };
 //# sourceMappingURL=index.es.js.map
