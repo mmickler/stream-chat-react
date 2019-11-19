@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { ChannelPreviewLastMessage } from './ChannelPreviewLastMessage';
 
+import { ChannelPreviewCountOnly } from './ChannelPreviewCountOnly';
 
 export class ChannelPreview extends PureComponent {
   constructor(props) {
@@ -23,7 +23,7 @@ export class ChannelPreview extends PureComponent {
   };
 
   static defaultProps = {
-    Preview: ChannelPreviewLastMessage,
+    Preview: ChannelPreviewCountOnly,
   };
 
   componentDidMount() {

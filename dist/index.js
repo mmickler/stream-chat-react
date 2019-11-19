@@ -9148,6 +9148,42 @@ _defineProperty(ChannelPreviewLastMessage, "propTypes", {
   latestMessage: PropTypes.string
 });
 
+var ChannelPreviewCountOnly =
+/*#__PURE__*/
+function (_PureComponent) {
+  _inherits(ChannelPreviewCountOnly, _PureComponent);
+
+  function ChannelPreviewCountOnly() {
+    _classCallCheck(this, ChannelPreviewCountOnly);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelPreviewCountOnly).apply(this, arguments));
+  }
+
+  _createClass(ChannelPreviewCountOnly, [{
+    key: "render",
+    value: function render() {
+      var unreadClass = this.props.unread >= 1 ? 'unread' : '';
+      var name = this.props.channel.data.name || this.props.channel.cid;
+      return React__default.createElement("div", {
+        className: unreadClass
+      }, React__default.createElement("button", {
+        onClick: this.props.setActiveChannel.bind(this, this.props.channel)
+      }, ' ', name, " ", React__default.createElement("span", null, this.props.unread)));
+    }
+  }]);
+
+  return ChannelPreviewCountOnly;
+}(React.PureComponent);
+
+_defineProperty(ChannelPreviewCountOnly, "propTypes", {
+  /** @see See [chat context](https://getstream.github.io/stream-chat-react/#chat) for doc */
+  setActiveChannel: PropTypes.func,
+
+  /** @see See [chat context](https://getstream.github.io/stream-chat-react/#chat) for doc */
+  channel: PropTypes.object,
+  unread: PropTypes.number
+});
+
 function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -9273,7 +9309,7 @@ _defineProperty(ChannelPreview, "propTypes", {
 });
 
 _defineProperty(ChannelPreview, "defaultProps", {
-  Preview: ChannelPreviewLastMessage
+  Preview: ChannelPreviewCountOnly
 });
 
 var LoadMoreButton =
