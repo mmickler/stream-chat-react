@@ -10157,7 +10157,7 @@ _defineProperty(ChannelList, "propTypes", {
 });
 
 _defineProperty(ChannelList, "defaultProps", {
-  Preview: ChannelPreview,
+  Preview: ChannelPreviewLastMessage,
   LoadingIndicator: LoadingIndicator$1,
   List: ChannelListTeam,
   Paginator: LoadMorePaginator,
