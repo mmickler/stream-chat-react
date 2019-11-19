@@ -9152,80 +9152,6 @@ _defineProperty(ChannelPreviewLastMessage, "propTypes", {
   latestMessage: PropTypes.string
 });
 
-/**
- *
- * @example ./docs/ChannelPreviewCompact.md
- * @extends PureComponent
- *
- */
-
-var ChannelPreviewCompact =
-/*#__PURE__*/
-function (_React$PureComponent) {
-  _inherits(ChannelPreviewCompact, _React$PureComponent);
-
-  function ChannelPreviewCompact() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, ChannelPreviewCompact);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChannelPreviewCompact)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "channelPreviewButton", React__default.createRef());
-
-    _defineProperty(_assertThisInitialized(_this), "onSelectChannel", function () {
-      _this.props.setActiveChannel(_this.props.channel, _this.props.watchers);
-
-      _this.channelPreviewButton.current.blur();
-    });
-
-    return _this;
-  }
-
-  _createClass(ChannelPreviewCompact, [{
-    key: "render",
-    value: function render() {
-      var unreadClass = this.props.unread_count >= 1 ? 'str-chat__channel-preview-compact--unread' : '';
-      var activeClass = this.props.active ? 'str-chat__channel-preview-compact--active' : '';
-      var name = this.props.channel.data.name || this.props.channel.cid;
-      return React__default.createElement("button", {
-        onClick: this.onSelectChannel,
-        ref: this.channelPreviewButton,
-        className: "str-chat__channel-preview-compact ".concat(unreadClass, " ").concat(activeClass)
-      }, React__default.createElement("div", {
-        className: "str-chat__channel-preview-compact--left"
-      }, React__default.createElement(Avatar, {
-        image: this.props.channel.data.image,
-        size: 20
-      })), React__default.createElement("div", {
-        className: "str-chat__channel-preview-compact--right"
-      }, name));
-    }
-  }]);
-
-  return ChannelPreviewCompact;
-}(React__default.PureComponent);
-
-_defineProperty(ChannelPreviewCompact, "propTypes", {
-  /** **Available from [chat context](https://getstream.github.io/stream-chat-react/#chat)** */
-  setActiveChannel: PropTypes.func,
-
-  /** **Available from [chat context](https://getstream.github.io/stream-chat-react/#chat)** */
-  channel: PropTypes.object,
-  closeMenu: PropTypes.func,
-  unread_count: PropTypes.number,
-
-  /** If channel of component is active (selected) channel */
-  active: PropTypes.bool,
-  latestMessage: PropTypes.string
-});
-
 function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -9351,7 +9277,7 @@ _defineProperty(ChannelPreview, "propTypes", {
 });
 
 _defineProperty(ChannelPreview, "defaultProps", {
-  Preview: ChannelPreviewCompact
+  Preview: ChannelPreviewLastMessage
 });
 
 var LoadMoreButton =
@@ -10268,6 +10194,80 @@ _defineProperty(exports.ChannelListMessenger, "defaultProps", {
 });
 
 exports.ChannelListMessenger = withChatContext(exports.ChannelListMessenger);
+
+/**
+ *
+ * @example ./docs/ChannelPreviewCompact.md
+ * @extends PureComponent
+ *
+ */
+
+var ChannelPreviewCompact =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  _inherits(ChannelPreviewCompact, _React$PureComponent);
+
+  function ChannelPreviewCompact() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ChannelPreviewCompact);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChannelPreviewCompact)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "channelPreviewButton", React__default.createRef());
+
+    _defineProperty(_assertThisInitialized(_this), "onSelectChannel", function () {
+      _this.props.setActiveChannel(_this.props.channel, _this.props.watchers);
+
+      _this.channelPreviewButton.current.blur();
+    });
+
+    return _this;
+  }
+
+  _createClass(ChannelPreviewCompact, [{
+    key: "render",
+    value: function render() {
+      var unreadClass = this.props.unread_count >= 1 ? 'str-chat__channel-preview-compact--unread' : '';
+      var activeClass = this.props.active ? 'str-chat__channel-preview-compact--active' : '';
+      var name = this.props.channel.data.name || this.props.channel.cid;
+      return React__default.createElement("button", {
+        onClick: this.onSelectChannel,
+        ref: this.channelPreviewButton,
+        className: "str-chat__channel-preview-compact ".concat(unreadClass, " ").concat(activeClass)
+      }, React__default.createElement("div", {
+        className: "str-chat__channel-preview-compact--left"
+      }, React__default.createElement(Avatar, {
+        image: this.props.channel.data.image,
+        size: 20
+      })), React__default.createElement("div", {
+        className: "str-chat__channel-preview-compact--right"
+      }, name));
+    }
+  }]);
+
+  return ChannelPreviewCompact;
+}(React__default.PureComponent);
+
+_defineProperty(ChannelPreviewCompact, "propTypes", {
+  /** **Available from [chat context](https://getstream.github.io/stream-chat-react/#chat)** */
+  setActiveChannel: PropTypes.func,
+
+  /** **Available from [chat context](https://getstream.github.io/stream-chat-react/#chat)** */
+  channel: PropTypes.object,
+  closeMenu: PropTypes.func,
+  unread_count: PropTypes.number,
+
+  /** If channel of component is active (selected) channel */
+  active: PropTypes.bool,
+  latestMessage: PropTypes.string
+});
 
 /**
  * Used as preview component for channel item in [ChannelList](#channellist) component.
@@ -12366,42 +12366,6 @@ _defineProperty(exports.Window, "defaultProps", {
 });
 
 exports.Window = withChannelContext(exports.Window);
-
-var ChannelPreviewCountOnly =
-/*#__PURE__*/
-function (_PureComponent) {
-  _inherits(ChannelPreviewCountOnly, _PureComponent);
-
-  function ChannelPreviewCountOnly() {
-    _classCallCheck(this, ChannelPreviewCountOnly);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelPreviewCountOnly).apply(this, arguments));
-  }
-
-  _createClass(ChannelPreviewCountOnly, [{
-    key: "render",
-    value: function render() {
-      var unreadClass = this.props.unread >= 1 ? 'unread' : '';
-      var name = this.props.channel.data.name || this.props.channel.cid;
-      return React__default.createElement("div", {
-        className: unreadClass
-      }, React__default.createElement("button", {
-        onClick: this.props.setActiveChannel.bind(this, this.props.channel)
-      }, ' ', name, " ", React__default.createElement("span", null, this.props.unread)));
-    }
-  }]);
-
-  return ChannelPreviewCountOnly;
-}(React.PureComponent);
-
-_defineProperty(ChannelPreviewCountOnly, "propTypes", {
-  /** @see See [chat context](https://getstream.github.io/stream-chat-react/#chat) for doc */
-  setActiveChannel: PropTypes.func,
-
-  /** @see See [chat context](https://getstream.github.io/stream-chat-react/#chat) for doc */
-  channel: PropTypes.object,
-  unread: PropTypes.number
-});
 
 // Setup
 
