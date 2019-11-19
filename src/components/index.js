@@ -30,9 +30,6 @@ export { TypingIndicator } from './TypingIndicator';
 export { Window } from './Window';
 export { ReactionSelector } from './ReactionSelector';
 export { ReactionsList } from './ReactionsList';
-export { ChannelPreviewLastMessage } from './ChannelPreviewLastMessage';
-export { ChannelPreviewCountOnly } from './ChannelPreviewCountOnly';
-export { ChannelPreview } from './ChannelPreview';
 
 export * from '../utils';
 export * from '../context';
