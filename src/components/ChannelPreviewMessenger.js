@@ -61,6 +61,13 @@ export class ChannelPreviewMessenger extends PureComponent {
               ? 'Nothing yet...'
               : truncate(this.props.latestMessage, 14)}
           </div>
+
+        {/* TRY: to show unread messages */}
+          <div className="str-chat__channel-preview-messenger--last-message">
+            {!channel.state.messages[0]
+              ? 'Nothing yet...'
+              : truncate(this.props.unread, 5)}
+          </div>
         </div>
       </button>
     );
