@@ -7,11 +7,11 @@ export class ChannelPreviewCountOnly extends PureComponent {
     setActiveChannel: PropTypes.func,
     /** @see See [chat context](https://getstream.github.io/stream-chat-react/#chat) for doc */
     channel: PropTypes.object,
-    unread_count: PropTypes.number,
+    unread: PropTypes.number,
   };
 
   render() {
-    const unreadClass = this.props.unread_count >= 1 ? 'unread' : '';
+    const unreadClass = this.props.unread >= 1 ? 'unread' : '';
     const name = this.props.channel.data.name || this.props.channel.cid;
 
     return (
@@ -20,7 +20,7 @@ export class ChannelPreviewCountOnly extends PureComponent {
           onClick={this.props.setActiveChannel.bind(this, this.props.channel)}
         >
           {' '}
-          {name} <span>{this.props.unread_count}</span>
+          {name} <span>{this.props.unread}</span>
         </button>
       </div>
     );

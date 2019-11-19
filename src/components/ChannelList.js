@@ -132,7 +132,7 @@ class ChannelList extends PureComponent {
   };
 
   static defaultProps = {
-    Preview: ChannelPreviewLastMessage,
+    Preview: ChannelPreview,
     LoadingIndicator,
     List: ChannelListTeam,
     Paginator: LoadMorePaginator,

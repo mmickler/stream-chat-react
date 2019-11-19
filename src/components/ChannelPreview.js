@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { ChannelPreviewCountOnly } from './ChannelPreviewCountOnly';
+import { ChannelPreviewCompact } from './ChannelPreviewCompact';
 
 export class ChannelPreview extends PureComponent {
   constructor(props) {
@@ -23,7 +23,7 @@ export class ChannelPreview extends PureComponent {
   };
 
   static defaultProps = {
-    Preview: ChannelPreviewCountOnly,
+    Preview: ChannelPreviewCompact,
   };
 
   componentDidMount() {
