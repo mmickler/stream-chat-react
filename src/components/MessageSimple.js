@@ -28,8 +28,7 @@ export class MessageSimple extends PureComponent {
   //   super();
   //   window.addEventListener(languageChangedEventName, this.onLanguageChanged);
   // }
-  componentDidMount() {
-    this._isMounted = true;
+  componentDidMount(){
     window.addEventListener(languageChangedEventName, this.onLanguageChanged);
   }
 
@@ -134,16 +133,16 @@ export class MessageSimple extends PureComponent {
   //TODO: register onLanguageChanged eventHandler
 
   onLanguageChanged = () => {
-    if (this._isMounted) {
-      this.setState({
-        state: {
-          ...this.state,
-          ...{
-            language: window.dplChatConfig.language,
-          }
+    this.setState({
+      state: {
+        ...this.state,
+        ...{
+          language: window.dplChatConfig.language,
         }
-      });
-    }
+      }
+    },
+     // () => document.addEventListener(languageChangedEventName, this.onLanguageChanged, false),
+    );
   };
 
   messageActionsRef = React.createRef();
@@ -201,7 +200,6 @@ export class MessageSimple extends PureComponent {
   };
 
   componentWillUnmount() {
-    this._isMounted = false;
     if (!this.props.message.deleted_at) {
       document.removeEventListener('click', this._closeDetailedReactions);
       document.removeEventListener('touchend', this._closeDetailedReactions);
