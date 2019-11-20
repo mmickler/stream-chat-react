@@ -9060,6 +9060,42 @@ _defineProperty(MessageInputSmall, "propTypes", {
   acceptedFiles: PropTypes.object
 });
 
+var ChannelSearch =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  _inherits(ChannelSearch, _React$PureComponent);
+
+  function ChannelSearch() {
+    _classCallCheck(this, ChannelSearch);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelSearch).apply(this, arguments));
+  }
+
+  _createClass(ChannelSearch, [{
+    key: "render",
+    value: function render() {
+      return React__default.createElement("div", {
+        className: "str-chat__channel-search"
+      }, React__default.createElement("input", {
+        type: "text",
+        placeholder: "Search"
+      }), React__default.createElement("button", {
+        type: "submit"
+      }, React__default.createElement("svg", {
+        width: "18",
+        height: "17",
+        viewBox: "0 0 18 17",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, React__default.createElement("path", {
+        d: "M0 17.015l17.333-8.508L0 0v6.617l12.417 1.89L0 10.397z",
+        fillRule: "evenodd"
+      }))));
+    }
+  }]);
+
+  return ChannelSearch;
+}(React__default.PureComponent);
+
 /**
  * Used as preview component for channel item in [ChannelList](#channellist) component.
  *
@@ -12395,5 +12431,5 @@ Window = withChannelContext(Window);
 
 // Setup
 
-export { Avatar, Message, MessageList, Chat, Channel, ChannelHeader, MessageInput, MessageInputLarge, MessageInputFlat, MessageInputSmall, Attachment, ChannelList, ChannelListMessenger, ChannelListTeam, ChannelPreviewCompact, ChannelPreviewMessenger, LoadMorePaginator, LoadingChannels, InfiniteScrollPaginator, LoadingIndicator$1 as LoadingIndicator, MessageCommerce, MessageLivestream, MessageTeam, MessageSimple, SendButton, Thread, TypingIndicator, Window, ReactionSelector, ReactionsList, emojiSetDef, commonEmoji, defaultMinimalEmojis, emojiData, isOnlyEmojis, isPromise, byDate, formatArray, renderText, generateRandomId, smartRender, MESSAGE_ACTIONS, languageChangedEventName, languageChangedEvent, ChatContext, withChatContext, ChannelContext, withChannelContext };
+export { Avatar, Message, MessageList, Chat, Channel, ChannelHeader, MessageInput, MessageInputLarge, MessageInputFlat, MessageInputSmall, Attachment, ChannelSearch, ChannelList, ChannelListMessenger, ChannelListTeam, ChannelPreviewCompact, ChannelPreviewMessenger, LoadMorePaginator, LoadingChannels, InfiniteScrollPaginator, LoadingIndicator$1 as LoadingIndicator, MessageCommerce, MessageLivestream, MessageTeam, MessageSimple, SendButton, Thread, TypingIndicator, Window, ReactionSelector, ReactionsList, emojiSetDef, commonEmoji, defaultMinimalEmojis, emojiData, isOnlyEmojis, isPromise, byDate, formatArray, renderText, generateRandomId, smartRender, MESSAGE_ACTIONS, languageChangedEventName, languageChangedEvent, ChatContext, withChatContext, ChannelContext, withChannelContext };
 //# sourceMappingURL=index.es.js.map

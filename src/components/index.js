@@ -10,7 +10,7 @@ export { MessageInputFlat } from './MessageInputFlat';
 export { MessageInputSmall } from './MessageInputSmall';
 
 export { Attachment } from './Attachment';
-
+export { ChannelSearch } from './ChannelSearch';
 export { ChannelList } from './ChannelList';
 export { ChannelListMessenger } from './ChannelListMessenger';
 export { ChannelListTeam } from './ChannelListTeam';

@@ -210,7 +210,8 @@ export class MessageInputLarge extends PureComponent {
                     ? 'str-chat__input-footer--count--hidden'
                     : ''
                 }`}
-              >
+              > 
+              {/* TODO: show selected Languages */}
                 {this.props.watcher_count} online
               </span>
               <span className="str-chat__input-footer--typing">
