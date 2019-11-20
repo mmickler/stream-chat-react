@@ -1,7 +1,8 @@
 import React from 'react';
+import { withChatContext } from '../context';
 // import PropTypes from 'prop-types';
 
-export class ChannelSearch extends React.PureComponent {
+ class ChannelSearch extends React.PureComponent {
   render() {
     return (
       <div className="str-chat__channel-search">
@@ -23,3 +24,6 @@ export class ChannelSearch extends React.PureComponent {
     );
   }
 }
+
+ChannelSearch = withChatContext(ChannelSearch);
+export {ChannelSearch};
