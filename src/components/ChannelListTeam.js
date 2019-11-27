@@ -25,7 +25,7 @@ class ChannelListTeam extends PureComponent {
     showSidebar: PropTypes.bool,
     language: PropTypes.string,
     /* HACK: */
-    onSelectSort: PropTypes.object
+    onSelectSort: PropTypes.func
   };
 
   static defaultProps = {
@@ -52,7 +52,7 @@ class ChannelListTeam extends PureComponent {
     console.log(sort);
     // window.dispatchEvent(sortChangedEvent);
     // localStorage.setItem('sort', event.target.value);
-    console.log(this.props.onSelectSort());
+    // console.log(this.props.onSelectSort());
     //ERROR HERE
     console.log(this.props.onSelectSort(sort));
     this.props.onSelectSort(sort);
