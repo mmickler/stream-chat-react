@@ -10063,6 +10063,10 @@ function (_PureComponent) {
                 return this.queryChannels();
 
               case 4:
+                console.log(this.state.sort);
+                return _context5.abrupt("return", this.state.sort);
+
+              case 6:
               case "end":
                 return _context5.stop();
             }
