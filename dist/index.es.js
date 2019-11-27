@@ -9555,9 +9555,8 @@ function (_PureComponent) {
       // localStorage.setItem('sort', event.target.value);
       //ERROR HERE
 
-      this.props.onSelectSort = {
-        sort: sort
-      };
+      console.log(this.props.onSelectSort(_defineProperty({}, event.target.value, -1)));
+      this.props.onSelectSort(_defineProperty({}, event.target.value, -1));
     }
   }, {
     key: "render",
