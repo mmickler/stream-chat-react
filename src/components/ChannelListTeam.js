@@ -35,37 +35,39 @@ class ChannelListTeam extends PureComponent {
     window.dplChatConfig.language = event.target.value;
     window.dispatchEvent(languageChangedEvent);
     localStorage.setItem('language', window.dplChatConfig.language);
-    
+
   }
 
-  onSortChange(event){
-    var sort = { 
-      
+  onSortChange(event) {
+    var sort = {
+
     }
     sort[event.target.value] = -1;
     //var sort =  { last_message_at: sortingOrder } //{sort: event.target.value,  };
-    this.props.onSelectSort(sort);  
+    this.props.onSelectSort(sort);
   }
 
   SortingButtons = () => {
     return (
-      <select>
-        <option onClick={
-          () => this.onSortChange("last_message_at")
-          // () => this.onSorting('last_message_at')
+      <div>
+        <select>
+          <option onChange={
+            () => this.onSortChange("last_message_at")
+            // () => this.onSorting('last_message_at')
           }>
-        Sotiere Channels last_message_at
-      </option>
-        <option onClick={() => this.onSortChange('updated_at')}>
-          Sortiere updated_at
-    </option>
-        <option onClick={() => this.onSortChange('created_at')}>
-          Sortiere created_at
-    </option>
-        <option onClick={() => this.onSortChange('member_count')}>
-          Sortiere member_count
-    </option>
-      </select>
+            last_message_at
+          </option>
+          <option onChange={() => this.onSortChange('updated_at')}>
+            updated_at
+          </option>
+          <option onChange={() => this.onSortChange('created_at')}>
+            created_at
+          </option>
+          <option onChange={() => this.onSortChange('member_count')}>
+            member_count
+          </option>
+        </select>
+      </div>
     )
   }
 
@@ -110,11 +112,11 @@ class ChannelListTeam extends PureComponent {
                 </div>
               </div>
               <div className="str-chat__channel-list-team__header--right">
-                
+
+
+                <br></br>
                 <this.SortingButtons></this.SortingButtons>
-                
-                
-                
+
                 <select className="str-chat__channel-list-team__header--button" id="select"
                   onChange={this.onLanguageChange}
                   defaultValue={this.props.language}

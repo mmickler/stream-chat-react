@@ -9491,24 +9491,24 @@ function (_PureComponent) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChannelListTeam)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "SortingButtons", function () {
-      return React__default.createElement("select", null, React__default.createElement("option", {
-        onClick: function onClick() {
+      return React__default.createElement("div", null, React__default.createElement("select", null, React__default.createElement("option", {
+        onChange: function onChange() {
           return _this.onSortChange("last_message_at");
         } // () => this.onSorting('last_message_at')
 
-      }, "Sotiere Channels last_message_at"), React__default.createElement("option", {
-        onClick: function onClick() {
+      }, "last_message_at"), React__default.createElement("option", {
+        onChange: function onChange() {
           return _this.onSortChange('updated_at');
         }
-      }, "Sortiere updated_at"), React__default.createElement("option", {
-        onClick: function onClick() {
+      }, "updated_at"), React__default.createElement("option", {
+        onChange: function onChange() {
           return _this.onSortChange('created_at');
         }
-      }, "Sortiere created_at"), React__default.createElement("option", {
-        onClick: function onClick() {
+      }, "created_at"), React__default.createElement("option", {
+        onChange: function onChange() {
           return _this.onSortChange('member_count');
         }
-      }, "Sortiere member_count"));
+      }, "member_count")));
     });
 
     return _this;
@@ -9568,7 +9568,7 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--status ".concat(this.props.client.user.status)
         }, this.props.client.user.status)), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
-        }, React__default.createElement(this.SortingButtons, null), React__default.createElement("select", {
+        }, React__default.createElement("br", null), React__default.createElement(this.SortingButtons, null), React__default.createElement("select", {
           className: "str-chat__channel-list-team__header--button",
           id: "select",
           onChange: this.onLanguageChange,
