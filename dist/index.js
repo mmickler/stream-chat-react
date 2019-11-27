@@ -1040,8 +1040,7 @@ var MESSAGE_ACTIONS = {
   mute: 'mute'
 };
 var languageChangedEventName = "dpl-chat-language-changed";
-var languageChangedEvent = new Event(languageChangedEventName); // export const sortChangeEventName = "dpl-chat-sort-changed";
-// export const sortChangeEvent = new Event(sortChangeEventName);
+var languageChangedEvent = new Event(languageChangedEventName);
 
 /**
  * MessageActionsBox - A component for taking action on a message
@@ -9501,26 +9500,15 @@ function (_PureComponent) {
 
     _defineProperty(_assertThisInitialized(_this), "SortingSelect", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
+        className: "str-chat__channel-list-team__header--button",
         onChange: function onChange(e) {
           return _this.onSortChange(e);
-        } // defaultValue={}
-
+        }
       }, React__default.createElement("option", {
-        value: "last_message_at" //  onCLick={
-        //   () => this.onSortChange("last_message_at")
-        // // () => this.onSorting('last_message_at')
-        // }
-
-      }, "last_message_at"), React__default.createElement("option", {
-        //  onCLick={() => this.onSortChange('updated_at')}
-        value: "updated_at"
-      }, "updated_at"), React__default.createElement("option", {
-        //  onCLick={() => this.onSortChange('created_at')}
+        value: "last_message_at"
+      }, "Nachrichtendatum"), React__default.createElement("option", {
         value: "created_at"
-      }, "created_at"), React__default.createElement("option", {
-        // onCLick={() => this.onSortChange('member_count')}
-        value: "member_count"
-      }, "member_count")));
+      }, "Erstelldatum")));
     });
 
     _defineProperty(_assertThisInitialized(_this), "LanguageSelect", function () {
@@ -9556,15 +9544,8 @@ function (_PureComponent) {
   }, {
     key: "onSortChange",
     value: function onSortChange(event) {
-      //console.log(event);
-      var sort = {// last_message_at: -1
-      };
+      var sort = {};
       sort[event.target.value] = -1;
-      console.log(sort); // window.dispatchEvent(sortChangedEvent);
-      // localStorage.setItem('sort', event.target.value);
-      // console.log(this.props.onSelectSort());
-      //ERROR HERE
-
       this.props.onSelectSort(sort);
     }
   }, {
@@ -9604,9 +9585,9 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--title"
         }, this.props.client.user.name || this.props.client.user.id), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--status ".concat(this.props.client.user.status)
-        }, this.props.client.user.status)), React__default.createElement("div", {
+        }, this.props.client.user.status))), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
-        }, React__default.createElement("br", null), React__default.createElement(this.SortingSelect, null), React__default.createElement(this.LanguageSelect, null))), this.props.children));
+        }, React__default.createElement("br", null), React__default.createElement(this.SortingSelect, null), React__default.createElement(this.LanguageSelect, null)), this.props.children));
       }
     }
   }]);
@@ -9629,7 +9610,6 @@ _defineProperty(exports.ChannelListTeam, "propTypes", {
 
 _defineProperty(exports.ChannelListTeam, "defaultProps", {
   error: false,
-  // onSelectSort: {last_message_at: -1},
   language: localStorage.getItem('language')
 });
 
@@ -9982,8 +9962,7 @@ function (_PureComponent) {
       error: false,
       connectionRecoveredCount: 0,
       channelUpdateCount: 0,
-      sort: {// last_message_at: -1
-      }
+      sort: {}
     };
     _this.onSortChange = _this.onSortChange.bind(_assertThisInitialized(_this));
     _this.menuButton = React__default.createRef();
@@ -10050,8 +10029,7 @@ function (_PureComponent) {
                   offset: 0,
                   hasNextPage: true,
                   channels: []
-                }); //TODO: implement on sort change
-
+                });
                 _context5.next = 4;
                 return this.queryChannels();
 
@@ -10261,8 +10239,7 @@ _defineProperty(exports.ChannelList, "defaultProps", {
   EmptyStateIndicator: EmptyStateIndicator,
   filters: {},
   options: {},
-  sort: {// last_message_at: -1
-  },
+  sort: {},
   watchers: {}
 });
 

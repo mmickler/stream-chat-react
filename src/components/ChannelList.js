@@ -140,7 +140,6 @@ class ChannelList extends PureComponent {
     filters: {},
     options: {},
     sort: {
-      // last_message_at: -1
     },
     watchers: {},
   };
@@ -160,7 +159,6 @@ class ChannelList extends PureComponent {
       connectionRecoveredCount: 0,
       channelUpdateCount: 0,
       sort: {
-        // last_message_at: -1
       }, };
         this.onSortChange = this.onSortChange.bind(this);
 
@@ -193,11 +191,7 @@ class ChannelList extends PureComponent {
       hasNextPage: true,
       channels: []
     });
-    //TODO: implement on sort change
     await this.queryChannels();
-    // console.log("1" & this.state.sort);
-
-    // return this.state.sort ;
   }
 
   queryChannels = async () => {

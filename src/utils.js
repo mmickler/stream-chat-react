@@ -257,6 +257,5 @@ export const MESSAGE_ACTIONS = {
 export const languageChangedEventName = "dpl-chat-language-changed";
 export const languageChangedEvent = new Event(languageChangedEventName);
 
-// export const sortChangeEventName = "dpl-chat-sort-changed";
-// export const sortChangeEvent = new Event(sortChangeEventName);
+
 

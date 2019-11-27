@@ -6,7 +6,7 @@ import { ChatDown } from './ChatDown';
 import { withChatContext } from '../context';
 
 
-import { languageChangedEvent, sortChangeEvent } from "../utils";
+import { languageChangedEvent} from "../utils";
 
 
 
@@ -30,7 +30,6 @@ class ChannelListTeam extends PureComponent {
 
   static defaultProps = {
     error: false,
-    // onSelectSort: {last_message_at: -1},
     language: localStorage.getItem('language')
   };
 
@@ -44,53 +43,21 @@ class ChannelListTeam extends PureComponent {
 
 
   onSortChange(event) {
-    //console.log(event);
     var sort = {
-      // last_message_at: -1
     }
     sort[event.target.value] = -1;
-    console.log(sort);
-    // window.dispatchEvent(sortChangedEvent);
-    // localStorage.setItem('sort', event.target.value);
-    // console.log(this.props.onSelectSort());
-
-    //ERROR HERE
     this.props.onSelectSort(sort);
   }
 
   SortingSelect = () => {
     return (
       <div>
-        <select
-          onChange={(e) => this.onSortChange(e)}
-        // defaultValue={}
-        >
-          <option
-            value="last_message_at"
-          //  onCLick={
-          //   () => this.onSortChange("last_message_at")
-          // // () => this.onSorting('last_message_at')
-          // }
-          >
-            last_message_at
+        <select className="str-chat__channel-list-team__header--button" onChange={(e) => this.onSortChange(e)}>
+          <option value="last_message_at">
+            Nachrichtendatum
           </option>
-          <option
-            //  onCLick={() => this.onSortChange('updated_at')}
-            value="updated_at"
-          >
-            updated_at
-          </option>
-          <option
-            //  onCLick={() => this.onSortChange('created_at')}
-            value="created_at"
-          >
-            created_at
-          </option>
-          <option
-            // onCLick={() => this.onSortChange('member_count')}
-            value="member_count"
-          >
-            member_count
+          <option value="created_at">
+            Erstelldatum
           </option>
         </select>
       </div>
@@ -153,16 +120,13 @@ class ChannelListTeam extends PureComponent {
                   {this.props.client.user.status}
                 </div>
               </div>
-
-
+              </div>
               <div className="str-chat__channel-list-team__header--right">
-
-
                 <br></br>
                 <this.SortingSelect></this.SortingSelect>
                 <this.LanguageSelect></this.LanguageSelect>
 
-              </div>
+              
             </div>
             {this.props.children}
           </div>
