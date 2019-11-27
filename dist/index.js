@@ -9975,8 +9975,8 @@ function (_PureComponent) {
       channelUpdateCount: 0,
       sort: {// last_message_at: -1
       }
-    }; // this.onSortChange = this.onSortChange.bind(this);
-
+    };
+    _this.onSortChange = _this.onSortChange.bind(_assertThisInitialized(_this));
     _this.menuButton = React__default.createRef();
     return _this;
   }
@@ -10096,7 +10096,7 @@ function (_PureComponent) {
         setActiveChannel: this.props.setActiveChannel,
         activeChannel: this.props.channel,
         showSidebar: this.props.showSidebar,
-        onSelectSort: this.onSortChange(this.state.sort)
+        onSelectSort: this.onSortChange(this.props.sort)
       }, !channels.length ? React__default.createElement(EmptyStateIndicator, {
         listType: "channel"
       }) : smartRender(Paginator, {
