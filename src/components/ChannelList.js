@@ -185,17 +185,17 @@ class ChannelList extends PureComponent {
   componentWillUnmount() {
     this.props.client.off(this.handleEvent);
   }
-
+  
   async onSortChange(sort) {
     console.log(sort);
     this.setState({
       sort,
-      // offset: 0,
-      // hasNextPage: true,
-      // channels: []
+      offset: 0,
+      hasNextPage: true,
+      channels: []
     });
     //TODO: implement on sort change
-    // await this.queryChannels();
+    await this.queryChannels();
   }
 
   queryChannels = async () => {

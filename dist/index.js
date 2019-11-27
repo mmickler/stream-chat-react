@@ -9551,7 +9551,8 @@ function (_PureComponent) {
       window.dplChatConfig.language = event.target.value;
       window.dispatchEvent(languageChangedEvent);
       localStorage.setItem('language', window.dplChatConfig.language);
-    }
+    } //MAYBE ERROR HERE 
+
   }, {
     key: "onSortChange",
     value: function onSortChange(event) {
@@ -10041,14 +10042,16 @@ function (_PureComponent) {
               case 0:
                 console.log(sort);
                 this.setState({
-                  sort: sort // offset: 0,
-                  // hasNextPage: true,
-                  // channels: []
-
+                  sort: sort,
+                  offset: 0,
+                  hasNextPage: true,
+                  channels: []
                 }); //TODO: implement on sort change
-                // await this.queryChannels();
 
-              case 2:
+                _context5.next = 4;
+                return this.queryChannels();
+
+              case 4:
               case "end":
                 return _context5.stop();
             }
