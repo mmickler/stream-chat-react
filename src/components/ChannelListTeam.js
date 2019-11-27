@@ -50,23 +50,23 @@ class ChannelListTeam extends PureComponent {
   SortingButtons = () => {
     return (
       <div>
-        <select>
-          <option onChange={
+        <div>
+          <button onCLick={
             () => this.onSortChange("last_message_at")
             // () => this.onSorting('last_message_at')
           }>
             last_message_at
-          </option>
-          <option onChange={() => this.onSortChange('updated_at')}>
+          </button>
+          <button onCLick={() => this.onSortChange('updated_at')}>
             updated_at
-          </option>
-          <option onChange={() => this.onSortChange('created_at')}>
+          </button>
+          <button onCLick={() => this.onSortChange('created_at')}>
             created_at
-          </option>
-          <option onChange={() => this.onSortChange('member_count')}>
+          </button>
+          <button onCLick={() => this.onSortChange('member_count')}>
             member_count
-          </option>
-        </select>
+          </button>
+        </div>
       </div>
     )
   }
@@ -111,6 +111,8 @@ class ChannelListTeam extends PureComponent {
                   {this.props.client.user.status}
                 </div>
               </div>
+              
+              
               <div className="str-chat__channel-list-team__header--right">
 
 

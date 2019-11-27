@@ -9491,21 +9491,21 @@ function (_PureComponent) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChannelListTeam)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "SortingButtons", function () {
-      return React__default.createElement("div", null, React__default.createElement("select", null, React__default.createElement("option", {
-        onChange: function onChange() {
+      return React__default.createElement("div", null, React__default.createElement("div", null, React__default.createElement("button", {
+        onCLick: function onCLick() {
           return _this.onSortChange("last_message_at");
         } // () => this.onSorting('last_message_at')
 
-      }, "last_message_at"), React__default.createElement("option", {
-        onChange: function onChange() {
+      }, "last_message_at"), React__default.createElement("button", {
+        onCLick: function onCLick() {
           return _this.onSortChange('updated_at');
         }
-      }, "updated_at"), React__default.createElement("option", {
-        onChange: function onChange() {
+      }, "updated_at"), React__default.createElement("button", {
+        onCLick: function onCLick() {
           return _this.onSortChange('created_at');
         }
-      }, "created_at"), React__default.createElement("option", {
-        onChange: function onChange() {
+      }, "created_at"), React__default.createElement("button", {
+        onCLick: function onCLick() {
           return _this.onSortChange('member_count');
         }
       }, "member_count")));
