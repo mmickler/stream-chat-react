@@ -9556,9 +9556,11 @@ function (_PureComponent) {
   }, {
     key: "onSortChange",
     value: function onSortChange(event) {
+      console.log(event);
       var sort = {// last_message_at: -1
       };
-      sort[event.target.value] = -1; // window.dispatchEvent(sortChangedEvent);
+      sort[event.target.value] = -1;
+      console.log(sort); // window.dispatchEvent(sortChangedEvent);
       // localStorage.setItem('sort', event.target.value);
 
       this.props.onSelectSort(sort);
