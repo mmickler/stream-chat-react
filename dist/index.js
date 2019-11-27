@@ -9535,8 +9535,7 @@ function (_PureComponent) {
   }, {
     key: "onSortChange",
     value: function onSortChange(event) {
-      var sort = {
-        last_message_at: -1
+      var sort = {// last_message_at: -1
       };
       sort[event.target.value] = -1; // window.dispatchEvent(sortChangedEvent);
       // localStorage.setItem('sort', event.target.value);
@@ -9974,7 +9973,9 @@ function (_PureComponent) {
       error: false,
       connectionRecoveredCount: 0,
       channelUpdateCount: 0,
-      sort: {}
+      sort: {
+        last_message_at: -1
+      }
     };
     _this.menuButton = React__default.createRef();
     return _this;

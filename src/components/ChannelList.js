@@ -157,7 +157,7 @@ class ChannelList extends PureComponent {
       error: false,
       connectionRecoveredCount: 0,
       channelUpdateCount: 0,
-      sort: {},
+      sort: {last_message_at: -1},
     };
 
     this.menuButton = React.createRef();
