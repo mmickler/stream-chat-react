@@ -9543,19 +9543,21 @@ function (_PureComponent) {
       window.dplChatConfig.language = event.target.value;
       window.dispatchEvent(languageChangedEvent);
       localStorage.setItem('language', window.dplChatConfig.language);
-    } //MAYBE ERROR HERE 
-
+    }
   }, {
     key: "onSortChange",
     value: function onSortChange(event) {
-      console.log(event);
+      //console.log(event);
       var sort = {// last_message_at: -1
       };
       sort[event.target.value] = -1;
       console.log(sort); // window.dispatchEvent(sortChangedEvent);
       // localStorage.setItem('sort', event.target.value);
+      //ERROR HERE
 
-      this.props.onSelectSort(sort);
+      this.props.onSelectSort = {
+        sort: sort
+      };
     }
   }, {
     key: "render",
@@ -9619,7 +9621,9 @@ _defineProperty(ChannelListTeam, "propTypes", {
 
 _defineProperty(ChannelListTeam, "defaultProps", {
   error: false,
-  // onSelectSort: {last_message_at: -1},
+  onSelectSort: {
+    last_message_at: -1
+  },
   language: localStorage.getItem('language')
 });
 
