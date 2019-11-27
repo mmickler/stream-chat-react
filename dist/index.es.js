@@ -9986,7 +9986,7 @@ function (_PureComponent) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 this.setState({
-                  sort: this.props.sort
+                  sort: this.defaultProps.sort
                 });
                 _context4.next = 3;
                 return this.queryChannels();
