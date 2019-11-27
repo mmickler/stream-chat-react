@@ -9493,24 +9493,27 @@ function (_PureComponent) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChannelListTeam)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "SortingButtons", function () {
-      return React__default.createElement("div", null, React__default.createElement("select", {
-        onChange: _this.onSortChange,
-        defaultValue: _this.props.sort
-      }, React__default.createElement("option", {
-        value: "last_message_at" //  onCLick={
-        //   () => this.onSortChange("last_message_at")
-        // () => this.onSorting('last_message_at')
-        // }
+      return React__default.createElement("div", null, React__default.createElement("select", null, React__default.createElement("option", {
+        // value="last_message_at:"
+        onCLick: function onCLick() {
+          return _this.onSortChange("last_message_at");
+        } // () => this.onSorting('last_message_at')
 
       }, "last_message_at"), React__default.createElement("option", {
-        //  onCLick={() => this.onSortChange('updated_at')}
-        value: "updated_at"
+        onCLick: function onCLick() {
+          return _this.onSortChange('updated_at');
+        } // value="updated_at:"
+
       }, "updated_at"), React__default.createElement("option", {
-        //  onCLick={() => this.onSortChange('created_at')}
-        value: "created_at"
+        onCLick: function onCLick() {
+          return _this.onSortChange('created_at');
+        } // value="created_at:"
+
       }, "created_at"), React__default.createElement("option", {
-        // onCLick={() => this.onSortChange('member_count')}
-        value: "member_count"
+        onCLick: function onCLick() {
+          return _this.onSortChange('member_count');
+        } // value="member_count:"
+
       }, "member_count")));
     });
 
@@ -9615,32 +9618,6 @@ _defineProperty(ChannelListTeam, "defaultProps", {
 });
 
 ChannelListTeam = withChatContext(ChannelListTeam);
-// onSorting = (type) => {
-//   //TODO: Live Channel Update maybe put it in ChannelList
-//   //didn't work right, maybe the wrong place
-//   const sortingOrder = -1;
-//   switch (type) {
-//     case "last_message_at":
-//       this.setState({ ...this.state, sort: { last_message_at: sortingOrder } })
-//       console.log(this.state.searchInput)
-//       break;
-//     case "updated_at":
-//       this.setState({ ...this.state, ...{ sort: { updated_at: sortingOrder } } })
-//       console.log(this.state.searchInput)
-//       break;
-//     case "created_at":
-//       this.setState({ ...{ sort: { created_at: sortingOrder } } })
-//       console.log(this.state.searchInput)
-//       break;
-//     case "member_count":
-//       this.setState({ sort: { member_count: sortingOrder } })
-//       console.log(this.state.searchInput)
-//       break;
-//     default:
-//       console.log(this.state.sort);
-//       break;
-//   }
-// }
 
 function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -9999,7 +9976,8 @@ function (_PureComponent) {
     key: "componentDidCatch",
     value: function componentDidCatch(error, info) {
       console.warn(error, info);
-    }
+    } //COMPONET IS ALWAYS MOUNTED WHY ARE THE PROPS UNDEFINDED?
+
   }, {
     key: "componentDidMount",
     value: function () {

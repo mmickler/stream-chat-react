@@ -43,44 +43,43 @@ class ChannelListTeam extends PureComponent {
 
     }
     sort[event.target.value] = -1;
-
     // window.dispatchEvent(sortChangedEvent);
     // localStorage.setItem('sort', event.target.value);
-
     this.props.onSelectSort(sort);
   }
 
   SortingButtons = () => {
+    
     return (
       <div>
         <select
-          onChange={this.onSortChange}
-          defaultValue={this.props.sort}
+          // onChange={this.onSortChange}
+          // defaultValue={this.props.sort}
         >
           <option
-            value="last_message_at"
-          //  onCLick={
-          //   () => this.onSortChange("last_message_at")
+            // value="last_message_at:"
+           onCLick={
+            () => this.onSortChange("last_message_at")
           // () => this.onSorting('last_message_at')
-          // }
+          }
           >
             last_message_at
           </option>
           <option
-            //  onCLick={() => this.onSortChange('updated_at')}
-            value="updated_at"
+             onCLick={() => this.onSortChange('updated_at')}
+            // value="updated_at:"
           >
             updated_at
           </option>
           <option
-            //  onCLick={() => this.onSortChange('created_at')}
-            value="created_at"
+             onCLick={() => this.onSortChange('created_at')}
+            // value="created_at:"
           >
             created_at
           </option>
           <option
-            // onCLick={() => this.onSortChange('member_count')}
-            value="member_count"
+            onCLick={() => this.onSortChange('member_count')}
+            // value="member_count:"
           >
             member_count
           </option>
@@ -161,35 +160,5 @@ class ChannelListTeam extends PureComponent {
 ChannelListTeam = withChatContext(ChannelListTeam);
 export { ChannelListTeam };
 
-
-//TRY TO USE FIND A BLACE FOR MY BUTTONS
-
-
-// onSorting = (type) => {
-//   //TODO: Live Channel Update maybe put it in ChannelList
-//   //didn't work right, maybe the wrong place
-//   const sortingOrder = -1;
-//   switch (type) {
-//     case "last_message_at":
-//       this.setState({ ...this.state, sort: { last_message_at: sortingOrder } })
-//       console.log(this.state.searchInput)
-//       break;
-//     case "updated_at":
-//       this.setState({ ...this.state, ...{ sort: { updated_at: sortingOrder } } })
-//       console.log(this.state.searchInput)
-//       break;
-//     case "created_at":
-//       this.setState({ ...{ sort: { created_at: sortingOrder } } })
-//       console.log(this.state.searchInput)
-//       break;
-//     case "member_count":
-//       this.setState({ sort: { member_count: sortingOrder } })
-//       console.log(this.state.searchInput)
-//       break;
-//     default:
-//       console.log(this.state.sort);
-//       break;
-//   }
-// }
 
 
