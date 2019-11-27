@@ -42,7 +42,7 @@ class ChannelListTeam extends PureComponent {
   }
 
 
- 
+
   onSortChange(event) {
     //console.log(event);
     var sort = {
@@ -53,16 +53,17 @@ class ChannelListTeam extends PureComponent {
     // window.dispatchEvent(sortChangedEvent);
     // localStorage.setItem('sort', event.target.value);
     // console.log(this.props.onSelectSort());
+
     //ERROR HERE
-     this.props.onSelectSort(sort);
+    this.props.onSelectSort(sort);
   }
 
   SortingSelect = () => {
     return (
       <div>
         <select
-          onChange={this.onSortChange}
-          // defaultValue={}
+          onChange={(e) => this.onSortChange(e)}
+        // defaultValue={}
         >
           <option
             value="last_message_at"
@@ -96,20 +97,21 @@ class ChannelListTeam extends PureComponent {
     )
   }
 
-  LanguageSelect=()=>{
-    return(
-    <select className="str-chat__channel-list-team__header--button" id="select"
-    onChange={this.onLanguageChange}
-    defaultValue={this.props.language}
-  //TODO: Load User Language and show new messages in the selected Language
-  >
-    <option value="en">Englisch</option>
-    <option value="de">Deutsch</option>
-    <option value="es">Spanisch</option>
-    <option value="it">Italienisch</option>
-    <option value="pl">Polnisch</option>
-  </select>
-  )}
+  LanguageSelect = () => {
+    return (
+      <select className="str-chat__channel-list-team__header--button" id="select"
+        onChange={this.onLanguageChange}
+        defaultValue={this.props.language}
+      //TODO: Load User Language and show new messages in the selected Language
+      >
+        <option value="en">Englisch</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Spanisch</option>
+        <option value="it">Italienisch</option>
+        <option value="pl">Polnisch</option>
+      </select>
+    )
+  }
 
   render() {
     const { showSidebar } = this.props;
