@@ -9965,8 +9965,7 @@ function (_PureComponent) {
       error: false,
       connectionRecoveredCount: 0,
       channelUpdateCount: 0,
-      sort: {
-        last_message_at: -1
+      sort: {// last_message_at: -1
       }
     };
     _this.menuButton = React__default.createRef();
@@ -9980,9 +9979,9 @@ function (_PureComponent) {
     } //COMPONET IS ALWAYS MOUNTED WHY ARE THE PROPS UNDEFINDED?
 
   }, {
-    key: "componentDidMount",
+    key: "componentWillMount",
     value: function () {
-      var _componentDidMount = _asyncToGenerator(
+      var _componentWillMount = _asyncToGenerator(
       /*#__PURE__*/
       _regeneratorRuntime.mark(function _callee4() {
         return _regeneratorRuntime.wrap(function _callee4$(_context4) {
@@ -10006,11 +10005,11 @@ function (_PureComponent) {
         }, _callee4, this);
       }));
 
-      function componentDidMount() {
-        return _componentDidMount.apply(this, arguments);
+      function componentWillMount() {
+        return _componentWillMount.apply(this, arguments);
       }
 
-      return componentDidMount;
+      return componentWillMount;
     }()
   }, {
     key: "componentWillUnmount",
@@ -10243,7 +10242,8 @@ _defineProperty(ChannelList, "defaultProps", {
   EmptyStateIndicator: EmptyStateIndicator,
   filters: {},
   options: {},
-  sort: {},
+  sort: {// last_message_at: -1
+  },
   watchers: {}
 });
 

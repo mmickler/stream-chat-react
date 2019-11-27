@@ -139,7 +139,9 @@ class ChannelList extends PureComponent {
     EmptyStateIndicator,
     filters: {},
     options: {},
-    sort: {},
+    sort: {
+      // last_message_at: -1
+    },
     watchers: {},
   };
 
@@ -157,7 +159,9 @@ class ChannelList extends PureComponent {
       error: false,
       connectionRecoveredCount: 0,
       channelUpdateCount: 0,
-      sort: {last_message_at: -1},
+      sort: {
+        // last_message_at: -1
+      },
     };
 
     this.menuButton = React.createRef();
@@ -171,7 +175,7 @@ class ChannelList extends PureComponent {
     console.warn(error, info);
   }
   //COMPONET IS ALWAYS MOUNTED WHY ARE THE PROPS UNDEFINDED?
-  async componentDidMount() {
+  async componentWillMount() {
     this.setState({ sort: this.props.sort });
     await this.queryChannels();
     this.listenToChanges();
