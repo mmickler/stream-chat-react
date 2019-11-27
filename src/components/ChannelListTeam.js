@@ -25,7 +25,7 @@ class ChannelListTeam extends PureComponent {
     showSidebar: PropTypes.bool,
     language: PropTypes.string,
     /* HACK: */
-    onSelectSort: PropTypes.func
+    onSelectSort: PropTypes.object
   };
 
   static defaultProps = {

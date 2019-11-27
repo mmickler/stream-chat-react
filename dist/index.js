@@ -9624,7 +9624,7 @@ _defineProperty(exports.ChannelListTeam, "propTypes", {
   language: PropTypes.string,
 
   /* HACK: */
-  onSelectSort: PropTypes.func
+  onSelectSort: PropTypes.object
 });
 
 _defineProperty(exports.ChannelListTeam, "defaultProps", {
