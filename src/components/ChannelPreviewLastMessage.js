@@ -47,10 +47,10 @@ export class ChannelPreviewLastMessage extends PureComponent {
           )}
           
           <Avatar image={this.props.channel.data.image} />
-          {/* <Badge badgeContent={this.props.unread_count} color="secondary"> */}
-            {/* <div>
-            </div> */}
-          {/* </Badge> */}
+          {/* <Badge badgeContent={this.props.unread_count} color="secondary"> 
+            <div>
+            </div>
+          </Badge> */}
           <div className="str-chat__channel-preview-info">
             <span className="str-chat__channel-preview-title">{name}</span>
             <span className="str-chat__channel-preview-last-message">

@@ -184,7 +184,6 @@ class ChannelList extends PureComponent {
   }
   
   async onSortChange(sort) {
-    console.log(sort);
     this.setState({
       sort,
       offset: 0,

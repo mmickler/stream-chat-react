@@ -9535,7 +9535,7 @@ function (_PureComponent) {
     key: "onSortChange",
     value: function onSortChange(event) {
       var sort = {};
-      sort[event.target.value] = -1;
+      sort[event.target.value] = 1;
       this.props.onSelectSort(sort);
     }
   }, {
@@ -10015,17 +10015,16 @@ function (_PureComponent) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                console.log(sort);
                 this.setState({
                   sort: sort,
                   offset: 0,
                   hasNextPage: true,
                   channels: []
                 });
-                _context5.next = 4;
+                _context5.next = 3;
                 return this.queryChannels();
 
-              case 4:
+              case 3:
               case "end":
                 return _context5.stop();
             }

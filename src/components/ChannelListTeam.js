@@ -43,14 +43,13 @@ class ChannelListTeam extends PureComponent {
 
 
   onSortChange(event) {
-    var sort = {
+    const sort = {
     }
-    sort[event.target.value] = -1;
+    sort[event.target.value] = 1;
     this.props.onSelectSort(sort);
   }
 
-  SortingSelect = () => {
-    return (
+  SortingSelect = () => (
       <div>
         <select  onChange={(e) => this.onSortChange(e)}>
           <option value="last_message_at">
@@ -62,10 +61,8 @@ class ChannelListTeam extends PureComponent {
         </select>
       </div>
     )
-  }
 
-  LanguageSelect = () => {
-    return (
+  LanguageSelect = () => (
       <select  id="select"
         onChange={this.onLanguageChange}
         defaultValue={this.props.language}
@@ -78,7 +75,6 @@ class ChannelListTeam extends PureComponent {
         <option value="pl">Polnisch</option>
       </select>
     )
-  }
 
   render() {
     const { showSidebar } = this.props;
