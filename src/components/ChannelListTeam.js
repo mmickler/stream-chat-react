@@ -93,6 +93,7 @@ class ChannelListTeam extends PureComponent {
   }
 
   LanguageSelect=()=>{
+    return(
     <select className="str-chat__channel-list-team__header--button" id="select"
     onChange={this.onLanguageChange}
     defaultValue={this.props.language}
@@ -104,7 +105,7 @@ class ChannelListTeam extends PureComponent {
     <option value="it">Italienisch</option>
     <option value="pl">Polnisch</option>
   </select>
-  }
+  )}
 
   render() {
     const { showSidebar } = this.props;

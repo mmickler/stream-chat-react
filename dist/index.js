@@ -9523,7 +9523,7 @@ function (_PureComponent) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "LanguageSelect", function () {
-      React__default.createElement("select", {
+      return React__default.createElement("select", {
         className: "str-chat__channel-list-team__header--button",
         id: "select",
         onChange: _this.onLanguageChange,
