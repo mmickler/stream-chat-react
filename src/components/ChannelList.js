@@ -195,9 +195,9 @@ class ChannelList extends PureComponent {
     });
     //TODO: implement on sort change
     await this.queryChannels();
-    console.log("1" & this.state.sort);
+    // console.log("1" & this.state.sort);
 
-    return this.state.sort ;
+    // return this.state.sort ;
   }
 
   queryChannels = async () => {

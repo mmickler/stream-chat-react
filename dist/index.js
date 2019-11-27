@@ -1040,9 +1040,8 @@ var MESSAGE_ACTIONS = {
   mute: 'mute'
 };
 var languageChangedEventName = "dpl-chat-language-changed";
-var languageChangedEvent = new Event(languageChangedEventName);
-var sortChangeEventName = "dpl-chat-sort-changed";
-var sortChangeEvent = new Event(sortChangeEventName);
+var languageChangedEvent = new Event(languageChangedEventName); // export const sortChangeEventName = "dpl-chat-sort-changed";
+// export const sortChangeEvent = new Event(sortChangeEventName);
 
 /**
  * MessageActionsBox - A component for taking action on a message
@@ -9564,8 +9563,7 @@ function (_PureComponent) {
       // console.log(this.props.onSelectSort());
       //ERROR HERE
 
-      console.log(this.state.sort);
-      this.state.sort = this.props.onSelectSort(sort);
+      this.props.onSelectSort(sort);
     }
   }, {
     key: "render",
@@ -9629,9 +9627,7 @@ _defineProperty(exports.ChannelListTeam, "propTypes", {
 
 _defineProperty(exports.ChannelListTeam, "defaultProps", {
   error: false,
-  onSelectSort: {
-    last_message_at: -1
-  },
+  // onSelectSort: {last_message_at: -1},
   language: localStorage.getItem('language')
 });
 
@@ -10058,10 +10054,6 @@ function (_PureComponent) {
                 return this.queryChannels();
 
               case 4:
-                console.log("1" & this.state.sort);
-                return _context5.abrupt("return", this.state.sort);
-
-              case 6:
               case "end":
                 return _context5.stop();
             }
@@ -12533,8 +12525,6 @@ exports.smartRender = smartRender;
 exports.MESSAGE_ACTIONS = MESSAGE_ACTIONS;
 exports.languageChangedEventName = languageChangedEventName;
 exports.languageChangedEvent = languageChangedEvent;
-exports.sortChangeEventName = sortChangeEventName;
-exports.sortChangeEvent = sortChangeEvent;
 exports.ChatContext = ChatContext;
 exports.withChatContext = withChatContext;
 exports.ChannelContext = ChannelContext;

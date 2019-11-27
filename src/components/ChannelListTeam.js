@@ -30,7 +30,7 @@ class ChannelListTeam extends PureComponent {
 
   static defaultProps = {
     error: false,
-    onSelectSort: {last_message_at: -1},
+    // onSelectSort: {last_message_at: -1},
     language: localStorage.getItem('language')
   };
 
@@ -54,8 +54,7 @@ class ChannelListTeam extends PureComponent {
     // localStorage.setItem('sort', event.target.value);
     // console.log(this.props.onSelectSort());
     //ERROR HERE
-    console.log(this.state.sort);
-    this.state.sort = this.props.onSelectSort(sort);
+     this.props.onSelectSort(sort);
   }
 
   SortingSelect = () => {
