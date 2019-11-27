@@ -1041,6 +1041,8 @@ var MESSAGE_ACTIONS = {
 };
 var languageChangedEventName = "dpl-chat-language-changed";
 var languageChangedEvent = new Event(languageChangedEventName);
+var sortChangeEventName = "dpl-chat-sort-changed";
+var sortChangeEvent = new Event(sortChangeEventName);
 
 /**
  * MessageActionsBox - A component for taking action on a message
@@ -9534,7 +9536,8 @@ function (_PureComponent) {
     key: "onSortChange",
     value: function onSortChange(event) {
       var sort = {};
-      sort[event.target.value] = -1; //var sort =  { last_message_at: sortingOrder } //{sort: event.target.value,  };
+      sort[event.target.value] = -1; // window.dispatchEvent(sortChangedEvent);
+      // localStorage.setItem('sort', event.target.value);
 
       this.props.onSelectSort(sort);
     }
@@ -12534,6 +12537,8 @@ exports.smartRender = smartRender;
 exports.MESSAGE_ACTIONS = MESSAGE_ACTIONS;
 exports.languageChangedEventName = languageChangedEventName;
 exports.languageChangedEvent = languageChangedEvent;
+exports.sortChangeEventName = sortChangeEventName;
+exports.sortChangeEvent = sortChangeEvent;
 exports.ChatContext = ChatContext;
 exports.withChatContext = withChatContext;
 exports.ChannelContext = ChannelContext;
