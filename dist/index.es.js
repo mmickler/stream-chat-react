@@ -9611,6 +9611,9 @@ _defineProperty(ChannelListTeam, "propTypes", {
 
 _defineProperty(ChannelListTeam, "defaultProps", {
   error: false,
+  onSelectSort: {
+    last_message_at: -1
+  },
   language: localStorage.getItem('language')
 });
 

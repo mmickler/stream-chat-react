@@ -29,6 +29,7 @@ class ChannelListTeam extends PureComponent {
 
   static defaultProps = {
     error: false,
+    onSelectSort: {last_message_at: -1},
     language: localStorage.getItem('language')
   };
 
