@@ -10033,16 +10033,14 @@ function (_PureComponent) {
               case 0:
                 console.log(sort);
                 this.setState({
-                  sort: sort,
-                  offset: 0,
-                  hasNextPage: true,
-                  channels: []
+                  sort: sort // offset: 0,
+                  // hasNextPage: true,
+                  // channels: []
+
                 }); //TODO: implement on sort change
+                // await this.queryChannels();
 
-                _context5.next = 4;
-                return this.queryChannels();
-
-              case 4:
+              case 2:
               case "end":
                 return _context5.stop();
             }
