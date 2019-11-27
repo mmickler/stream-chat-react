@@ -55,7 +55,7 @@ class ChannelListTeam extends PureComponent {
       <div>
         <select
           onChange={this.onSortChange}
-          defaultValue={this.props.sort}
+          defaultValue={this.props.onSelectSort}
         >
           <option
             value="last_message_at"

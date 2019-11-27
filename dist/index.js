@@ -9503,7 +9503,7 @@ function (_PureComponent) {
     _defineProperty(_assertThisInitialized(_this), "SortingButtons", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
         onChange: _this.onSortChange,
-        defaultValue: _this.props.sort
+        defaultValue: _this.props.onSelectSort
       }, React__default.createElement("option", {
         value: "last_message_at" //  onCLick={
         //   () => this.onSortChange("last_message_at")
