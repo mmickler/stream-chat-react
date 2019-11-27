@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Avatar } from './Avatar';
 import PropTypes from 'prop-types';
+// import Badge from '@material-ui/core/Badge';
 
 /**
  * Used as preview component for channel item in [ChannelList](#channellist) component.
@@ -44,7 +45,12 @@ export class ChannelPreviewLastMessage extends PureComponent {
           {this.props.unread_count >= 1 && (
             <div className="str-chat__channel-preview--dot" />
           )}
+          
           <Avatar image={this.props.channel.data.image} />
+          {/* <Badge badgeContent={this.props.unread_count} color="secondary"> */}
+            {/* <div>
+            </div> */}
+          {/* </Badge> */}
           <div className="str-chat__channel-preview-info">
             <span className="str-chat__channel-preview-title">{name}</span>
             <span className="str-chat__channel-preview-last-message">

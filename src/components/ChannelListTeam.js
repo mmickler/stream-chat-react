@@ -126,9 +126,6 @@ class ChannelListTeam extends PureComponent {
                 <this.SortingSelect></this.SortingSelect>
                 <this.LanguageSelect></this.LanguageSelect>
               </div>
-
-
-
             </div>
             {this.props.children}
           </div>
