@@ -6,7 +6,8 @@ import { ChatDown } from './ChatDown';
 import { withChatContext } from '../context';
 
 
-import { languageChangedEvent } from "../utils";
+import { languageChangedEvent, sortChangeEvent } from "../utils";
+
 
 
 
@@ -43,7 +44,7 @@ class ChannelListTeam extends PureComponent {
 
     }
     sort[event.target.value] = -1;
-    window.dispatchEvent(sortChangedEvent);
+    window.dispatchEvent(sortChangeEvent);
     localStorage.setItem('sort', event.target.value);
     this.props.onSelectSort(sort);
   }

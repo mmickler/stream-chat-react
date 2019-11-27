@@ -9537,7 +9537,7 @@ function (_PureComponent) {
     value: function onSortChange(event) {
       var sort = {};
       sort[event.target.value] = -1;
-      window.dispatchEvent(sortChangedEvent);
+      window.dispatchEvent(sortChangeEvent);
       localStorage.setItem('sort', event.target.value);
       this.props.onSelectSort(sort);
     }
