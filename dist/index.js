@@ -45,7 +45,6 @@ var uuidv4 = _interopDefault(require('uuid/v4'));
 var Visibility = _interopDefault(require('visibilityjs'));
 var debounce = _interopDefault(require('lodash/debounce'));
 var throttle = _interopDefault(require('lodash/throttle'));
-require('date-fns');
 var uniqBy = _interopDefault(require('lodash.uniqby'));
 
 /**

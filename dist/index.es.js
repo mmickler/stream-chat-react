@@ -37,7 +37,6 @@ import uuidv4 from 'uuid/v4';
 import Visibility from 'visibilityjs';
 import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
-import 'date-fns';
 import uniqBy from 'lodash.uniqby';
 
 /**
