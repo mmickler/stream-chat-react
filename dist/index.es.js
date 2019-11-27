@@ -9492,15 +9492,6 @@ function (_PureComponent) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChannelListTeam)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "onSortChange", function (event) {
-      var sort = {// last_message_at: -1
-      };
-      sort[event.target.value] = -1; // window.dispatchEvent(sortChangedEvent);
-      // localStorage.setItem('sort', event.target.value);
-
-      _this.props.onSelectSort(sort);
-    });
-
     _defineProperty(_assertThisInitialized(_this), "SortingButtons", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
         onChange: _this.onSortChange // defaultValue={}
@@ -9532,6 +9523,16 @@ function (_PureComponent) {
       window.dplChatConfig.language = event.target.value;
       window.dispatchEvent(languageChangedEvent);
       localStorage.setItem('language', window.dplChatConfig.language);
+    }
+  }, {
+    key: "onSortChange",
+    value: function onSortChange(event) {
+      var sort = {// last_message_at: -1
+      };
+      sort[event.target.value] = -1; // window.dispatchEvent(sortChangedEvent);
+      // localStorage.setItem('sort', event.target.value);
+
+      this.props.onSelectSort(sort);
     }
   }, {
     key: "render",
