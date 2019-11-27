@@ -9467,6 +9467,11 @@ _defineProperty(ChatDown, "defaultProps", {
   text: 'Error connecting to chat, refresh the page to try again.'
 });
 
+var _this2 = undefined;
+
+function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @example ./examples/ChannelList.md
@@ -9478,9 +9483,40 @@ function (_PureComponent) {
   _inherits(ChannelListTeam, _PureComponent);
 
   function ChannelListTeam() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, ChannelListTeam);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelListTeam).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChannelListTeam)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "SortingButtons", function () {
+      return React__default.createElement("select", null, React__default.createElement("option", {
+        onClick: function onClick() {
+          return _this.onSortChange("last_message_at");
+        } // () => this.onSorting('last_message_at')
+
+      }, "Sotiere Channels last_message_at"), React__default.createElement("option", {
+        onClick: function onClick() {
+          return _this.onSortChange('updated_at');
+        }
+      }, "Sortiere updated_at"), React__default.createElement("option", {
+        onClick: function onClick() {
+          return _this.onSortChange('created_at');
+        }
+      }, "Sortiere created_at"), React__default.createElement("option", {
+        onClick: function onClick() {
+          return _this.onSortChange('member_count');
+        }
+      }, "Sortiere member_count"));
+    });
+
+    return _this;
   }
 
   _createClass(ChannelListTeam, [{
@@ -9489,6 +9525,14 @@ function (_PureComponent) {
       window.dplChatConfig.language = event.target.value;
       window.dispatchEvent(languageChangedEvent);
       localStorage.setItem('language', window.dplChatConfig.language);
+    }
+  }, {
+    key: "onSortChange",
+    value: function onSortChange(event) {
+      var sort = {};
+      sort[event.target.value] = -1; //var sort =  { last_message_at: sortingOrder } //{sort: event.target.value,  };
+
+      this.props.onSelectSort(sort);
     }
   }, {
     key: "render",
@@ -9529,7 +9573,7 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--status ".concat(this.props.client.user.status)
         }, this.props.client.user.status)), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
-        }, React__default.createElement("select", {
+        }, React__default.createElement(SortingButtons, null), React__default.createElement("select", {
           className: "str-chat__channel-list-team__header--button",
           id: "select",
           onChange: this.onLanguageChange,
@@ -9560,7 +9604,10 @@ _defineProperty(ChannelListTeam, "propTypes", {
   /** Stream chat client object */
   client: PropTypes.object,
   showSidebar: PropTypes.bool,
-  language: PropTypes.string
+  language: PropTypes.string,
+
+  /* HACK: */
+  onSelectSort: PropTypes.func
 });
 
 _defineProperty(ChannelListTeam, "defaultProps", {
@@ -9570,9 +9617,61 @@ _defineProperty(ChannelListTeam, "defaultProps", {
 
 ChannelListTeam = withChatContext(ChannelListTeam);
 
-function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+onSorting = function onSorting(type) {
+  //TODO: Live Channel Update maybe put it in ChannelList
+  //didn't work right, maybe the wrong place
+  var sortingOrder = -1;
 
-function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+  switch (type) {
+    case "last_message_at":
+      _this2.setState(_objectSpread$7({}, _this2.state, {
+        sort: {
+          last_message_at: sortingOrder
+        }
+      }));
+
+      console.log(_this2.state.searchInput);
+      break;
+
+    case "updated_at":
+      _this2.setState(_objectSpread$7({}, _this2.state, {}, {
+        sort: {
+          updated_at: sortingOrder
+        }
+      }));
+
+      console.log(_this2.state.searchInput);
+      break;
+
+    case "created_at":
+      _this2.setState(_objectSpread$7({}, {
+        sort: {
+          created_at: sortingOrder
+        }
+      }));
+
+      console.log(_this2.state.searchInput);
+      break;
+
+    case "member_count":
+      _this2.setState({
+        sort: {
+          member_count: sortingOrder
+        }
+      });
+
+      console.log(_this2.state.searchInput);
+      break;
+
+    default:
+      console.log(_this2.state.sort);
+      break;
+  }
+};
+
+function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @extends PureComponent
@@ -9596,22 +9695,22 @@ function (_PureComponent) {
     _asyncToGenerator(
     /*#__PURE__*/
     _regeneratorRuntime.mark(function _callee() {
-      var _this$props, options, filters, sort, offset, newOptions, channelPromise, channelQueryResponse, customActiveChannel;
+      var _this$props, options, filters, _this$state, offset, sort, newOptions, channelPromise, channelQueryResponse, customActiveChannel;
 
       return _regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _this$props = _this.props, options = _this$props.options, filters = _this$props.filters, sort = _this$props.sort;
-              offset = _this.state.offset;
+              _this$props = _this.props, options = _this$props.options, filters = _this$props.filters;
+              _this$state = _this.state, offset = _this$state.offset, sort = _this$state.sort;
 
               _this.setState({
                 refreshing: true
               });
 
-              newOptions = _objectSpread$7({}, options);
+              newOptions = _objectSpread$8({}, options);
               if (!options.limit) newOptions.limit = 30;
-              channelPromise = _this.props.client.queryChannels(filters, sort, _objectSpread$7({}, newOptions, {
+              channelPromise = _this.props.client.queryChannels(filters, sort, _objectSpread$8({}, newOptions, {
                 offset: offset
               }));
               _context.prev = 6;
@@ -9902,7 +10001,7 @@ function (_PureComponent) {
         channelUpdateCount: _this.state.channelUpdateCount,
         connectionRecoveredCount: _this.state.connectionRecoveredCount
       };
-      return smartRender(ChannelPreview, _objectSpread$7({}, props));
+      return smartRender(ChannelPreview, _objectSpread$8({}, props));
     });
 
     _this.state = {
@@ -9916,7 +10015,8 @@ function (_PureComponent) {
       offset: 0,
       error: false,
       connectionRecoveredCount: 0,
-      channelUpdateCount: 0
+      channelUpdateCount: 0,
+      sort: {}
     };
     _this.menuButton = React__default.createRef();
     return _this;
@@ -9937,13 +10037,16 @@ function (_PureComponent) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                _context4.next = 2;
+                this.setState({
+                  sort: this.props.sort
+                });
+                _context4.next = 3;
                 return this.queryChannels();
 
-              case 2:
+              case 3:
                 this.listenToChanges();
 
-              case 3:
+              case 4:
               case "end":
                 return _context4.stop();
             }
@@ -9963,6 +10066,41 @@ function (_PureComponent) {
       this.props.client.off(this.handleEvent);
     }
   }, {
+    key: "onSortChange",
+    value: function () {
+      var _onSortChange = _asyncToGenerator(
+      /*#__PURE__*/
+      _regeneratorRuntime.mark(function _callee5(sort) {
+        return _regeneratorRuntime.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                console.log(sort);
+                this.setState({
+                  sort: sort,
+                  offset: 0,
+                  hasNextPage: true,
+                  channels: []
+                }); //TODO: implement on sort change
+
+                _context5.next = 4;
+                return this.queryChannels();
+
+              case 4:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this);
+      }));
+
+      function onSortChange(_x4) {
+        return _onSortChange.apply(this, arguments);
+      }
+
+      return onSortChange;
+    }()
+  }, {
     key: "listenToChanges",
     value: function listenToChanges() {
       this.props.client.on(this.handleEvent);
@@ -9975,11 +10113,11 @@ function (_PureComponent) {
       var _this$props3 = this.props,
           List = _this$props3.List,
           Paginator = _this$props3.Paginator;
-      var _this$state = this.state,
-          channels = _this$state.channels,
-          loadingChannels = _this$state.loadingChannels,
-          refreshing = _this$state.refreshing,
-          hasNextPage = _this$state.hasNextPage;
+      var _this$state2 = this.state,
+          channels = _this$state2.channels,
+          loadingChannels = _this$state2.loadingChannels,
+          refreshing = _this$state2.refreshing,
+          hasNextPage = _this$state2.hasNextPage;
       return React__default.createElement(React__default.Fragment, null, React__default.createElement("input", {
         type: "checkbox",
         id: "str-chat-channel-checkbox",
@@ -9997,7 +10135,8 @@ function (_PureComponent) {
         channels: channels,
         setActiveChannel: this.props.setActiveChannel,
         activeChannel: this.props.channel,
-        showSidebar: this.props.showSidebar
+        showSidebar: this.props.showSidebar,
+        onSelectSort: this.onSortChange
       }, !channels.length ? React__default.createElement(EmptyStateIndicator, {
         listType: "channel"
       }) : smartRender(Paginator, {
@@ -10959,9 +11098,9 @@ _defineProperty(MessageCommerce, "defaultProps", {
   Attachment: Attachment
 });
 
-function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var SimpleReactionsList =
 /*#__PURE__*/
 function (_React$PureComponent) {
@@ -11052,7 +11191,7 @@ function (_React$PureComponent) {
       var reactionsByType = _this.getReactionsByType(reactions);
 
       var reactionsEmojis = _this.props.reactionOptions.reduce(function (acc, cur) {
-        return _objectSpread$8({}, acc, _defineProperty({}, cur.id, cur));
+        return _objectSpread$9({}, acc, _defineProperty({}, cur.id, cur));
       }, {});
 
       return Object.keys(reactionsByType).map(function (type, i) {
@@ -11800,10 +11939,6 @@ function (_PureComponent) {
         image: message.user.image,
         name: message.user.name || message.user.id,
         size: 40
-      }), React__default.createElement(Avatar, {
-        image: message.user.image,
-        name: message.user.name || message.user.id,
-        size: 10
       })) : React__default.createElement("div", {
         style: {
           width: 40,

@@ -22,6 +22,8 @@ class ChannelListTeam extends PureComponent {
     client: PropTypes.object,
     showSidebar: PropTypes.bool,
     language: PropTypes.string,
+    /* HACK: */
+    onSelectSort: PropTypes.func
   };
 
   static defaultProps = {
@@ -34,6 +36,37 @@ class ChannelListTeam extends PureComponent {
     window.dispatchEvent(languageChangedEvent);
     localStorage.setItem('language', window.dplChatConfig.language);
     
+  }
+
+  onSortChange(event){
+    var sort = { 
+      
+    }
+    sort[event.target.value] = -1;
+    //var sort =  { last_message_at: sortingOrder } //{sort: event.target.value,  };
+    this.props.onSelectSort(sort);  
+  }
+
+  SortingButtons = () => {
+    return (
+      <select>
+        <option onClick={
+          () => this.onSortChange("last_message_at")
+          // () => this.onSorting('last_message_at')
+          }>
+        Sotiere Channels last_message_at
+      </option>
+        <option onClick={() => this.onSortChange('updated_at')}>
+          Sortiere updated_at
+    </option>
+        <option onClick={() => this.onSortChange('created_at')}>
+          Sortiere created_at
+    </option>
+        <option onClick={() => this.onSortChange('member_count')}>
+          Sortiere member_count
+    </option>
+      </select>
+    )
   }
 
   render() {
@@ -77,6 +110,11 @@ class ChannelListTeam extends PureComponent {
                 </div>
               </div>
               <div className="str-chat__channel-list-team__header--right">
+                
+                <SortingButtons></SortingButtons>
+                
+                
+                
                 <select className="str-chat__channel-list-team__header--button" id="select"
                   onChange={this.onLanguageChange}
                   defaultValue={this.props.language}
@@ -101,5 +139,35 @@ class ChannelListTeam extends PureComponent {
 ChannelListTeam = withChatContext(ChannelListTeam);
 export { ChannelListTeam };
 
+
+//TRY TO USE FIND A BLACE FOR MY BUTTONS
+
+
+onSorting = (type) => {
+  //TODO: Live Channel Update maybe put it in ChannelList
+  //didn't work right, maybe the wrong place
+  const sortingOrder = -1;
+  switch (type) {
+    case "last_message_at":
+      this.setState({ ...this.state, sort: { last_message_at: sortingOrder } })
+      console.log(this.state.searchInput)
+      break;
+    case "updated_at":
+      this.setState({ ...this.state, ...{ sort: { updated_at: sortingOrder } } })
+      console.log(this.state.searchInput)
+      break;
+    case "created_at":
+      this.setState({ ...{ sort: { created_at: sortingOrder } } })
+      console.log(this.state.searchInput)
+      break;
+    case "member_count":
+      this.setState({ sort: { member_count: sortingOrder } })
+      console.log(this.state.searchInput)
+      break;
+    default:
+      console.log(this.state.sort);
+      break;
+  }
+}
 
 

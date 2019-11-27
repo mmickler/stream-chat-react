@@ -372,13 +372,6 @@ export class MessageTeam extends PureComponent {
                     name={message.user.name || message.user.id}
                     size={40}
                   />
-                  {/* TODO: Try to find out where to render a button */}
-                  <Avatar
-                    image={message.user.image}
-                    name={message.user.name || message.user.id}
-                    size={10}
-                  />
-
                 </div>
               ) : (
                 <div style={{ width: 40, marginRight: 0 }} />
@@ -388,13 +381,6 @@ export class MessageTeam extends PureComponent {
               {Boolean(Date.parse(message.created_at)) &&
                 moment(message.created_at).format('h:mmA')}
             </time>
-            {/* TODO: Try to find out where to render a button */}
-            <Avatar
-              image={message.user.image}
-              name={message.user.name || message.user.id}
-              size={40}
-            />
-
           </div>
 
           <div className="str-chat__message-team-group">

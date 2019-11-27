@@ -157,6 +157,7 @@ class ChannelList extends PureComponent {
       error: false,
       connectionRecoveredCount: 0,
       channelUpdateCount: 0,
+      sort: {},
     };
 
     this.menuButton = React.createRef();
@@ -171,6 +172,7 @@ class ChannelList extends PureComponent {
   }
 
   async componentDidMount() {
+    this.setState({ sort: this.props.sort });
     await this.queryChannels();
     this.listenToChanges();
   }
@@ -179,12 +181,17 @@ class ChannelList extends PureComponent {
     this.props.client.off(this.handleEvent);
   }
 
+  async onSortChange(sort) {
+    console.log(sort);
+    this.setState({ sort, offset: 0, hasNextPage: true, channels: [] });
+    //TODO: implement on sort change
+    await this.queryChannels();
+  }
+
   queryChannels = async () => {
-    const { options, filters, sort } = this.props;
-    const { offset } = this.state;
-
+    const { options, filters } = this.props;
+    const { offset, sort } = this.state;
     this.setState({ refreshing: true });
-
     const newOptions = {
       ...options,
     };
@@ -416,7 +423,7 @@ class ChannelList extends PureComponent {
         <div
           className={`str-chat str-chat-channel-list ${this.props.theme} ${
             this.props.open ? 'str-chat-channel-list--open' : ''
-          }`}
+            }`}
           ref={this.channelList}
         >
           <List
@@ -426,17 +433,18 @@ class ChannelList extends PureComponent {
             setActiveChannel={this.props.setActiveChannel}
             activeChannel={this.props.channel}
             showSidebar={this.props.showSidebar}
+            onSelectSort={this.onSortChange}
           >
             {!channels.length ? (
               <EmptyStateIndicator listType="channel" />
             ) : (
-              smartRender(Paginator, {
-                loadNextPage: this.loadNextPage,
-                hasNextPage,
-                refreshing,
-                children: channels.map((item) => this._renderChannel(item)),
-              })
-            )}
+                smartRender(Paginator, {
+                  loadNextPage: this.loadNextPage,
+                  hasNextPage,
+                  refreshing,
+                  children: channels.map((item) => this._renderChannel(item)),
+                })
+              )}
           </List>
         </div>
       </React.Fragment>
