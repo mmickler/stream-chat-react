@@ -9568,7 +9568,7 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--status ".concat(this.props.client.user.status)
         }, this.props.client.user.status)), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
-        }, React__default.createElement(SortingButtons, null), React__default.createElement("select", {
+        }, React__default.createElement(this.SortingButtons, null), React__default.createElement("select", {
           className: "str-chat__channel-list-team__header--button",
           id: "select",
           onChange: this.onLanguageChange,

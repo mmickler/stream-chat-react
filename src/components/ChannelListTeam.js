@@ -111,7 +111,7 @@ class ChannelListTeam extends PureComponent {
               </div>
               <div className="str-chat__channel-list-team__header--right">
                 
-                <SortingButtons></SortingButtons>
+                <this.SortingButtons></this.SortingButtons>
                 
                 
                 
