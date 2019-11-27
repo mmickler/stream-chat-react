@@ -162,7 +162,7 @@ class ChannelList extends PureComponent {
       sort: {
         // last_message_at: -1
       }, };
-      //  this.onSortChange = this.onSortChange.bind(this);
+        this.onSortChange = this.onSortChange.bind(this);
    
 
     this.menuButton = React.createRef();

@@ -9971,8 +9971,8 @@ function (_PureComponent) {
       channelUpdateCount: 0,
       sort: {// last_message_at: -1
       }
-    }; //  this.onSortChange = this.onSortChange.bind(this);
-
+    };
+    _this.onSortChange = _this.onSortChange.bind(_assertThisInitialized(_this));
     _this.menuButton = React__default.createRef();
     return _this;
   }
