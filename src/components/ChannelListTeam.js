@@ -6,7 +6,7 @@ import { ChatDown } from './ChatDown';
 import { withChatContext } from '../context';
 
 
-import { languageChangedEvent} from "../utils";
+import { languageChangedEvent } from "../utils";
 
 
 
@@ -52,7 +52,7 @@ class ChannelListTeam extends PureComponent {
   SortingSelect = () => {
     return (
       <div>
-        <select className="str-chat__channel-list-team__header--button" onChange={(e) => this.onSortChange(e)}>
+        <select  onChange={(e) => this.onSortChange(e)}>
           <option value="last_message_at">
             Nachrichtendatum
           </option>
@@ -66,7 +66,7 @@ class ChannelListTeam extends PureComponent {
 
   LanguageSelect = () => {
     return (
-      <select className="str-chat__channel-list-team__header--button" id="select"
+      <select  id="select"
         onChange={this.onLanguageChange}
         defaultValue={this.props.language}
       //TODO: Load User Language and show new messages in the selected Language
@@ -120,13 +120,15 @@ class ChannelListTeam extends PureComponent {
                   {this.props.client.user.status}
                 </div>
               </div>
-              </div>
-              <div className="str-chat__channel-list-team__header--right">
-                <br></br>
+            </div>
+            <div className="str-chat__channel-list-team__header--right">
+              <div className="str-chat__channel-list-team__header--button">
                 <this.SortingSelect></this.SortingSelect>
                 <this.LanguageSelect></this.LanguageSelect>
+              </div>
 
-              
+
+
             </div>
             {this.props.children}
           </div>

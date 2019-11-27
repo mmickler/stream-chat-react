@@ -9500,7 +9500,6 @@ function (_PureComponent) {
 
     _defineProperty(_assertThisInitialized(_this), "SortingSelect", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
-        className: "str-chat__channel-list-team__header--button",
         onChange: function onChange(e) {
           return _this.onSortChange(e);
         }
@@ -9513,7 +9512,6 @@ function (_PureComponent) {
 
     _defineProperty(_assertThisInitialized(_this), "LanguageSelect", function () {
       return React__default.createElement("select", {
-        className: "str-chat__channel-list-team__header--button",
         id: "select",
         onChange: _this.onLanguageChange,
         defaultValue: _this.props.language //TODO: Load User Language and show new messages in the selected Language
@@ -9587,7 +9585,9 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--status ".concat(this.props.client.user.status)
         }, this.props.client.user.status))), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
-        }, React__default.createElement("br", null), React__default.createElement(this.SortingSelect, null), React__default.createElement(this.LanguageSelect, null)), this.props.children));
+        }, React__default.createElement("div", {
+          className: "str-chat__channel-list-team__header--button"
+        }, React__default.createElement(this.SortingSelect, null), React__default.createElement(this.LanguageSelect, null))), this.props.children));
       }
     }
   }]);
