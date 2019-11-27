@@ -330,7 +330,7 @@ export class MessageTeam extends PureComponent {
         <div
           className={`str-chat__message-team str-chat__message-team--${
             groupStyles[0]
-          } str-chat__message-team--editing`}
+            } str-chat__message-team--editing`}
           onMouseLeave={this.onMouseLeaveMessage}
         >
           {(groupStyles[0] === 'top' || groupStyles[0] === 'single') && (
@@ -357,54 +357,63 @@ export class MessageTeam extends PureComponent {
         <div
           className={`str-chat__message-team str-chat__message-team--${
             groupStyles[0]
-          } str-chat__message-team--${message.type} ${
+            } str-chat__message-team--${message.type} ${
             threadList ? 'thread-list' : ''
-          } str-chat__message-team--${message.status}`}
+            } str-chat__message-team--${message.status}`}
           onMouseLeave={this.onMouseLeaveMessage}
         >
           <div className="str-chat__message-team-meta">
             {groupStyles[0] === 'top' ||
-            groupStyles[0] === 'single' ||
-            initialMessage ? (
-              <Avatar
-                image={message.user.image}
-                name={message.user.name || message.user.id}
-                size={40}
-              />
-            ) : (
-              <div style={{ width: 40, marginRight: 0 }} />
-            )}
+              groupStyles[0] === 'single' ||
+              initialMessage ? (
+                <div>
+                  <Avatar
+                    image={message.user.image}
+                    name={message.user.name || message.user.id}
+                    size={40}
+                  />
+
+                  <Avatar
+                    image={message.user.image}
+                    name={message.user.name || message.user.id}
+                    size={10}
+                  />
+                </div>
+              ) : (
+                <div style={{ width: 40, marginRight: 0 }} />
+              )}
 
             <time dateTime={message.created_at} title={message.created_at}>
               {Boolean(Date.parse(message.created_at)) &&
                 moment(message.created_at).format('h:mmA')}
             </time>
+            {/* TODO: try to find out where to use a language selector near to the message */}
+            <Avatar
+              image={message.user.image}
+              name={message.user.name || message.user.id}
+              size={40}
+            />
           </div>
-          {/* TODO: try to find out where to use a language selector near to the message */}
-          <Avatar
-                image={message.user.image}
-                name={message.user.name || message.user.id}
-                size={40}
-              />
+
           <div className="str-chat__message-team-group">
             {(groupStyles[0] === 'top' ||
               groupStyles[0] === 'single' ||
               initialMessage) && (
-              <div className="str-chat__message-team-author">
-                <strong>{message.user.name || message.user.id}</strong>
-                {message.type === 'error' && (
-                  <div className="str-chat__message-team-error-header">
-                    Only visible to you
+                <div className="str-chat__message-team-author">
+                  <strong>{message.user.name || message.user.id}</strong>
+                  {message.type === 'error' && (
+                    <div className="str-chat__message-team-error-header">
+                      Only visible to you
                   </div>
-                )}
-              </div>
-            )}
+                  )}
+                </div>
+              )}
             <div
               className={`str-chat__message-team-content str-chat__message-team-content--${
                 groupStyles[0]
-              } str-chat__message-team-content--${
+                } str-chat__message-team-content--${
                 message.text === '' ? 'image' : 'text'
-              }`}
+                }`}
             >
               {!initialMessage &&
                 message.status !== 'sending' &&
@@ -478,8 +487,8 @@ export class MessageTeam extends PureComponent {
                 {unsafeHTML ? (
                   <div dangerouslySetInnerHTML={{ __html: message.html }} />
                 ) : (
-                  renderText(message)
-                )}
+                    renderText(message)
+                  )}
               </span>
 
               {galleryImages.length !== 0 && <Gallery images={galleryImages} />}
