@@ -9556,8 +9556,8 @@ function (_PureComponent) {
       // console.log(this.props.onSelectSort());
       //ERROR HERE
 
-      console.log(this.props.onSelectSort = sort);
-      this.props.onSelectSort(sort);
+      console.log(this.state.sort);
+      this.state.sort = this.props.onSelectSort(sort);
     }
   }, {
     key: "render",
@@ -10051,7 +10051,7 @@ function (_PureComponent) {
 
               case 4:
                 console.log("1" & this.state.sort);
-                return _context5.abrupt("return", this.state.sort());
+                return _context5.abrupt("return", this.state.sort);
 
               case 6:
               case "end":

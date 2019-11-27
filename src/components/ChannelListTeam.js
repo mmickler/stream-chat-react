@@ -54,8 +54,8 @@ class ChannelListTeam extends PureComponent {
     // localStorage.setItem('sort', event.target.value);
     // console.log(this.props.onSelectSort());
     //ERROR HERE
-    console.log(this.props.onSelectSort = sort);
-    this.props.onSelectSort(sort);
+    console.log(this.state.sort);
+    this.state.sort = this.props.onSelectSort(sort);
   }
 
   SortingSelect = () => {
