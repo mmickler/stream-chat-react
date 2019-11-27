@@ -43,8 +43,8 @@ class ChannelListTeam extends PureComponent {
 
     }
     sort[event.target.value] = -1;
-    // window.dispatchEvent(sortChangedEvent);
-    // localStorage.setItem('sort', event.target.value);
+    window.dispatchEvent(sortChangedEvent);
+    localStorage.setItem('sort', event.target.value);
     this.props.onSelectSort(sort);
   }
 
@@ -53,33 +53,33 @@ class ChannelListTeam extends PureComponent {
     return (
       <div>
         <select
-          // onChange={this.onSortChange}
-          // defaultValue={this.props.sort}
+          onChange={this.onSortChange}
+          defaultValue={this.props.sort}
         >
           <option
-            // value="last_message_at:"
-           onCLick={
-            () => this.onSortChange("last_message_at")
-          // () => this.onSorting('last_message_at')
-          }
+            value="last_message_at:"
+          //  onCLick={
+          //   () => this.onSortChange("last_message_at")
+          // // () => this.onSorting('last_message_at')
+          // }
           >
             last_message_at
           </option>
           <option
-             onCLick={() => this.onSortChange('updated_at')}
-            // value="updated_at:"
+            //  onCLick={() => this.onSortChange('updated_at')}
+            value="updated_at:"
           >
             updated_at
           </option>
           <option
-             onCLick={() => this.onSortChange('created_at')}
-            // value="created_at:"
+            //  onCLick={() => this.onSortChange('created_at')}
+            value="created_at:"
           >
             created_at
           </option>
           <option
-            onCLick={() => this.onSortChange('member_count')}
-            // value="member_count:"
+            // onCLick={() => this.onSortChange('member_count')}
+            value="member_count:"
           >
             member_count
           </option>
