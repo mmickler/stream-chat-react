@@ -9502,8 +9502,8 @@ function (_PureComponent) {
 
     _defineProperty(_assertThisInitialized(_this), "SortingButtons", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
-        onChange: _this.onSortChange,
-        defaultValue: _this.props.onSelectSort
+        onChange: _this.onSortChange // defaultValue={}
+
       }, React__default.createElement("option", {
         value: "last_message_at" //  onCLick={
         //   () => this.onSortChange("last_message_at")
@@ -9619,9 +9619,7 @@ _defineProperty(exports.ChannelListTeam, "propTypes", {
 
 _defineProperty(exports.ChannelListTeam, "defaultProps", {
   error: false,
-  onSelectSort: {
-    last_message_at: -1
-  },
+  // onSelectSort: {last_message_at: -1},
   language: localStorage.getItem('language')
 });
 

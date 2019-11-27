@@ -29,7 +29,7 @@ class ChannelListTeam extends PureComponent {
 
   static defaultProps = {
     error: false,
-    onSelectSort: {last_message_at: -1},
+    // onSelectSort: {last_message_at: -1},
     language: localStorage.getItem('language')
   };
 
@@ -55,7 +55,7 @@ class ChannelListTeam extends PureComponent {
       <div>
         <select
           onChange={this.onSortChange}
-          defaultValue={this.props.onSelectSort}
+          // defaultValue={}
         >
           <option
             value="last_message_at"
