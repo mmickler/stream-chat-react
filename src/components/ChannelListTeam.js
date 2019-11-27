@@ -143,31 +143,31 @@ export { ChannelListTeam };
 //TRY TO USE FIND A BLACE FOR MY BUTTONS
 
 
-onSorting = (type) => {
-  //TODO: Live Channel Update maybe put it in ChannelList
-  //didn't work right, maybe the wrong place
-  const sortingOrder = -1;
-  switch (type) {
-    case "last_message_at":
-      this.setState({ ...this.state, sort: { last_message_at: sortingOrder } })
-      console.log(this.state.searchInput)
-      break;
-    case "updated_at":
-      this.setState({ ...this.state, ...{ sort: { updated_at: sortingOrder } } })
-      console.log(this.state.searchInput)
-      break;
-    case "created_at":
-      this.setState({ ...{ sort: { created_at: sortingOrder } } })
-      console.log(this.state.searchInput)
-      break;
-    case "member_count":
-      this.setState({ sort: { member_count: sortingOrder } })
-      console.log(this.state.searchInput)
-      break;
-    default:
-      console.log(this.state.sort);
-      break;
-  }
-}
+// onSorting = (type) => {
+//   //TODO: Live Channel Update maybe put it in ChannelList
+//   //didn't work right, maybe the wrong place
+//   const sortingOrder = -1;
+//   switch (type) {
+//     case "last_message_at":
+//       this.setState({ ...this.state, sort: { last_message_at: sortingOrder } })
+//       console.log(this.state.searchInput)
+//       break;
+//     case "updated_at":
+//       this.setState({ ...this.state, ...{ sort: { updated_at: sortingOrder } } })
+//       console.log(this.state.searchInput)
+//       break;
+//     case "created_at":
+//       this.setState({ ...{ sort: { created_at: sortingOrder } } })
+//       console.log(this.state.searchInput)
+//       break;
+//     case "member_count":
+//       this.setState({ sort: { member_count: sortingOrder } })
+//       console.log(this.state.searchInput)
+//       break;
+//     default:
+//       console.log(this.state.sort);
+//       break;
+//   }
+// }
 
 

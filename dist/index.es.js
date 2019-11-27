@@ -9467,11 +9467,6 @@ _defineProperty(ChatDown, "defaultProps", {
   text: 'Error connecting to chat, refresh the page to try again.'
 });
 
-var _this2 = undefined;
-
-function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @example ./examples/ChannelList.md
@@ -9616,62 +9611,36 @@ _defineProperty(ChannelListTeam, "defaultProps", {
 });
 
 ChannelListTeam = withChatContext(ChannelListTeam);
+// onSorting = (type) => {
+//   //TODO: Live Channel Update maybe put it in ChannelList
+//   //didn't work right, maybe the wrong place
+//   const sortingOrder = -1;
+//   switch (type) {
+//     case "last_message_at":
+//       this.setState({ ...this.state, sort: { last_message_at: sortingOrder } })
+//       console.log(this.state.searchInput)
+//       break;
+//     case "updated_at":
+//       this.setState({ ...this.state, ...{ sort: { updated_at: sortingOrder } } })
+//       console.log(this.state.searchInput)
+//       break;
+//     case "created_at":
+//       this.setState({ ...{ sort: { created_at: sortingOrder } } })
+//       console.log(this.state.searchInput)
+//       break;
+//     case "member_count":
+//       this.setState({ sort: { member_count: sortingOrder } })
+//       console.log(this.state.searchInput)
+//       break;
+//     default:
+//       console.log(this.state.sort);
+//       break;
+//   }
+// }
 
-onSorting = function onSorting(type) {
-  //TODO: Live Channel Update maybe put it in ChannelList
-  //didn't work right, maybe the wrong place
-  var sortingOrder = -1;
+function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  switch (type) {
-    case "last_message_at":
-      _this2.setState(_objectSpread$7({}, _this2.state, {
-        sort: {
-          last_message_at: sortingOrder
-        }
-      }));
-
-      console.log(_this2.state.searchInput);
-      break;
-
-    case "updated_at":
-      _this2.setState(_objectSpread$7({}, _this2.state, {}, {
-        sort: {
-          updated_at: sortingOrder
-        }
-      }));
-
-      console.log(_this2.state.searchInput);
-      break;
-
-    case "created_at":
-      _this2.setState(_objectSpread$7({}, {
-        sort: {
-          created_at: sortingOrder
-        }
-      }));
-
-      console.log(_this2.state.searchInput);
-      break;
-
-    case "member_count":
-      _this2.setState({
-        sort: {
-          member_count: sortingOrder
-        }
-      });
-
-      console.log(_this2.state.searchInput);
-      break;
-
-    default:
-      console.log(_this2.state.sort);
-      break;
-  }
-};
-
-function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
  * @extends PureComponent
@@ -9708,9 +9677,9 @@ function (_PureComponent) {
                 refreshing: true
               });
 
-              newOptions = _objectSpread$8({}, options);
+              newOptions = _objectSpread$7({}, options);
               if (!options.limit) newOptions.limit = 30;
-              channelPromise = _this.props.client.queryChannels(filters, sort, _objectSpread$8({}, newOptions, {
+              channelPromise = _this.props.client.queryChannels(filters, sort, _objectSpread$7({}, newOptions, {
                 offset: offset
               }));
               _context.prev = 6;
@@ -10001,7 +9970,7 @@ function (_PureComponent) {
         channelUpdateCount: _this.state.channelUpdateCount,
         connectionRecoveredCount: _this.state.connectionRecoveredCount
       };
-      return smartRender(ChannelPreview, _objectSpread$8({}, props));
+      return smartRender(ChannelPreview, _objectSpread$7({}, props));
     });
 
     _this.state = {
@@ -11098,9 +11067,9 @@ _defineProperty(MessageCommerce, "defaultProps", {
   Attachment: Attachment
 });
 
-function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var SimpleReactionsList =
 /*#__PURE__*/
 function (_React$PureComponent) {
@@ -11191,7 +11160,7 @@ function (_React$PureComponent) {
       var reactionsByType = _this.getReactionsByType(reactions);
 
       var reactionsEmojis = _this.props.reactionOptions.reduce(function (acc, cur) {
-        return _objectSpread$9({}, acc, _defineProperty({}, cur.id, cur));
+        return _objectSpread$8({}, acc, _defineProperty({}, cur.id, cur));
       }, {});
 
       return Object.keys(reactionsByType).map(function (type, i) {
