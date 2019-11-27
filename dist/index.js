@@ -9505,20 +9505,20 @@ function (_PureComponent) {
         onChange: _this.onSortChange,
         defaultValue: _this.props.sort
       }, React__default.createElement("option", {
-        value: "last_message_at:" //  onCLick={
+        value: "last_message_at" //  onCLick={
         //   () => this.onSortChange("last_message_at")
         // // () => this.onSorting('last_message_at')
         // }
 
       }, "last_message_at"), React__default.createElement("option", {
         //  onCLick={() => this.onSortChange('updated_at')}
-        value: "updated_at:"
+        value: "updated_at"
       }, "updated_at"), React__default.createElement("option", {
         //  onCLick={() => this.onSortChange('created_at')}
-        value: "created_at:"
+        value: "created_at"
       }, "created_at"), React__default.createElement("option", {
         // onCLick={() => this.onSortChange('member_count')}
-        value: "member_count:"
+        value: "member_count"
       }, "member_count")));
     });
 
@@ -9536,9 +9536,9 @@ function (_PureComponent) {
     key: "onSortChange",
     value: function onSortChange(event) {
       var sort = {};
-      sort[event.target.value] = -1;
-      window.dispatchEvent(sortChangeEvent);
-      localStorage.setItem('sort', event.target.value);
+      sort[event.target.value] = -1; // window.dispatchEvent(sortChangedEvent);
+      // localStorage.setItem('sort', event.target.value);
+
       this.props.onSelectSort(sort);
     }
   }, {

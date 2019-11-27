@@ -44,13 +44,12 @@ class ChannelListTeam extends PureComponent {
 
     }
     sort[event.target.value] = -1;
-    window.dispatchEvent(sortChangeEvent);
-    localStorage.setItem('sort', event.target.value);
+    // window.dispatchEvent(sortChangedEvent);
+    // localStorage.setItem('sort', event.target.value);
     this.props.onSelectSort(sort);
   }
 
   SortingButtons = () => {
-    
     return (
       <div>
         <select
@@ -58,7 +57,7 @@ class ChannelListTeam extends PureComponent {
           defaultValue={this.props.sort}
         >
           <option
-            value="last_message_at:"
+            value="last_message_at"
           //  onCLick={
           //   () => this.onSortChange("last_message_at")
           // // () => this.onSorting('last_message_at')
@@ -68,19 +67,19 @@ class ChannelListTeam extends PureComponent {
           </option>
           <option
             //  onCLick={() => this.onSortChange('updated_at')}
-            value="updated_at:"
+            value="updated_at"
           >
             updated_at
           </option>
           <option
             //  onCLick={() => this.onSortChange('created_at')}
-            value="created_at:"
+            value="created_at"
           >
             created_at
           </option>
           <option
             // onCLick={() => this.onSortChange('member_count')}
-            value="member_count:"
+            value="member_count"
           >
             member_count
           </option>
