@@ -9543,7 +9543,7 @@ function (_PureComponent) {
     key: "onSortChange",
     value: function onSortChange(event) {
       var sort = {};
-      sort[event.target.value] = 1;
+      sort[event.target.value] = -1;
       this.props.onSelectSort(sort);
     }
   }, {

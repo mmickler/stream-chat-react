@@ -45,7 +45,7 @@ class ChannelListTeam extends PureComponent {
   onSortChange(event) {
     const sort = {
     }
-    sort[event.target.value] = 1;
+    sort[event.target.value] = -1;
     this.props.onSelectSort(sort);
   }
 
