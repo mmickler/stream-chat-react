@@ -380,6 +380,12 @@ export class MessageTeam extends PureComponent {
                 moment(message.created_at).format('h:mmA')}
             </time>
           </div>
+          {/* TODO: try to find out where to use a language selector near to the message */}
+          <Avatar
+                image={message.user.image}
+                name={message.user.name || message.user.id}
+                size={40}
+              />
           <div className="str-chat__message-team-group">
             {(groupStyles[0] === 'top' ||
               groupStyles[0] === 'single' ||

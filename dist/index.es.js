@@ -11808,7 +11808,11 @@ function (_PureComponent) {
       }), React__default.createElement("time", {
         dateTime: message.created_at,
         title: message.created_at
-      }, Boolean(Date.parse(message.created_at)) && moment(message.created_at).format('h:mmA'))), React__default.createElement("div", {
+      }, Boolean(Date.parse(message.created_at)) && moment(message.created_at).format('h:mmA'))), React__default.createElement(Avatar, {
+        image: message.user.image,
+        name: message.user.name || message.user.id,
+        size: 40
+      }), React__default.createElement("div", {
         className: "str-chat__message-team-group"
       }, (groupStyles[0] === 'top' || groupStyles[0] === 'single' || initialMessage) && React__default.createElement("div", {
         className: "str-chat__message-team-author"
