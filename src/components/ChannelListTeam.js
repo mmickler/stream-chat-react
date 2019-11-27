@@ -42,7 +42,7 @@ class ChannelListTeam extends PureComponent {
 
   onSortChange(event) {
     var sort = {
-
+      last_message_at: -1
     }
     sort[event.target.value] = -1;
     // window.dispatchEvent(sortChangedEvent);

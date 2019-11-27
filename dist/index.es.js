@@ -9527,7 +9527,9 @@ function (_PureComponent) {
   }, {
     key: "onSortChange",
     value: function onSortChange(event) {
-      var sort = {};
+      var sort = {
+        last_message_at: -1
+      };
       sort[event.target.value] = -1; // window.dispatchEvent(sortChangedEvent);
       // localStorage.setItem('sort', event.target.value);
 
