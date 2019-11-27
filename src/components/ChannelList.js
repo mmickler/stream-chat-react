@@ -163,7 +163,6 @@ class ChannelList extends PureComponent {
         // last_message_at: -1
       }, };
         this.onSortChange = this.onSortChange.bind(this);
-        this.setState({ sort: this.props.sort });
 
     this.menuButton = React.createRef();
   }
@@ -189,15 +188,16 @@ class ChannelList extends PureComponent {
   async onSortChange(sort) {
     console.log(sort);
     this.setState({
-      sort,
+      sort: sort,
       offset: 0,
       hasNextPage: true,
       channels: []
     });
     //TODO: implement on sort change
     await this.queryChannels();
-    console.log(this.state.sort);
-    return this.state.sort;
+    console.log("1" & this.state.sort);
+
+    return this.state.sort() ;
   }
 
   queryChannels = async () => {
