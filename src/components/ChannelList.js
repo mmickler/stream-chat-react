@@ -162,7 +162,7 @@ class ChannelList extends PureComponent {
       sort: {
         // last_message_at: -1
       }, };
-       this.onSortChange = this.onSortChange.bind(this);
+      //  this.onSortChange = this.onSortChange.bind(this);
    
 
     this.menuButton = React.createRef();
@@ -443,7 +443,7 @@ class ChannelList extends PureComponent {
             setActiveChannel={this.props.setActiveChannel}
             activeChannel={this.props.channel}
             showSidebar={this.props.showSidebar}
-            onSelectSort={this.onSortChange(this.props.sort)}
+            onSelectSort={this.onSortChange}//this.onSortChange(this.props.sort) | this.onSortChange(this.state.sort)
           >
             {!channels.length ? (
               <EmptyStateIndicator listType="channel" />

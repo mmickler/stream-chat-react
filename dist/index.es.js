@@ -37,6 +37,7 @@ import uuidv4 from 'uuid/v4';
 import Visibility from 'visibilityjs';
 import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
+import 'date-fns';
 import uniqBy from 'lodash.uniqby';
 
 /**
@@ -9492,7 +9493,7 @@ function (_PureComponent) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChannelListTeam)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "SortingButtons", function () {
+    _defineProperty(_assertThisInitialized(_this), "SortingSelect", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
         onChange: _this.onSortChange // defaultValue={}
 
@@ -9512,6 +9513,26 @@ function (_PureComponent) {
         // onCLick={() => this.onSortChange('member_count')}
         value: "member_count"
       }, "member_count")));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "LanguageSelect", function () {
+      React__default.createElement("select", {
+        className: "str-chat__channel-list-team__header--button",
+        id: "select",
+        onChange: _this.onLanguageChange,
+        defaultValue: _this.props.language //TODO: Load User Language and show new messages in the selected Language
+
+      }, React__default.createElement("option", {
+        value: "en"
+      }, "Englisch"), React__default.createElement("option", {
+        value: "de"
+      }, "Deutsch"), React__default.createElement("option", {
+        value: "es"
+      }, "Spanisch"), React__default.createElement("option", {
+        value: "it"
+      }, "Italienisch"), React__default.createElement("option", {
+        value: "pl"
+      }, "Polnisch"));
     });
 
     return _this;
@@ -9573,23 +9594,7 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--status ".concat(this.props.client.user.status)
         }, this.props.client.user.status)), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
-        }, React__default.createElement("br", null), React__default.createElement(this.SortingButtons, null), React__default.createElement("select", {
-          className: "str-chat__channel-list-team__header--button",
-          id: "select",
-          onChange: this.onLanguageChange,
-          defaultValue: this.props.language //TODO: Load User Language and show new messages in the selected Language
-
-        }, React__default.createElement("option", {
-          value: "en"
-        }, "Englisch"), React__default.createElement("option", {
-          value: "de"
-        }, "Deutsch"), React__default.createElement("option", {
-          value: "es"
-        }, "Spanisch"), React__default.createElement("option", {
-          value: "it"
-        }, "Italienisch"), React__default.createElement("option", {
-          value: "pl"
-        }, "Polnisch")))), this.props.children));
+        }, React__default.createElement("br", null), React__default.createElement(this.SortingSelect, null), React__default.createElement(this.LanguageSelect, null))), this.props.children));
       }
     }
   }]);
@@ -9967,8 +9972,8 @@ function (_PureComponent) {
       channelUpdateCount: 0,
       sort: {// last_message_at: -1
       }
-    };
-    _this.onSortChange = _this.onSortChange.bind(_assertThisInitialized(_this));
+    }; //  this.onSortChange = this.onSortChange.bind(this);
+
     _this.menuButton = React__default.createRef();
     return _this;
   }
@@ -10088,7 +10093,8 @@ function (_PureComponent) {
         setActiveChannel: this.props.setActiveChannel,
         activeChannel: this.props.channel,
         showSidebar: this.props.showSidebar,
-        onSelectSort: this.onSortChange(this.props.sort)
+        onSelectSort: this.onSortChange //this.onSortChange(this.props.sort) | this.onSortChange(this.state.sort)
+
       }, !channels.length ? React__default.createElement(EmptyStateIndicator, {
         listType: "channel"
       }) : smartRender(Paginator, {

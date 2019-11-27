@@ -7,6 +7,7 @@ import { withChatContext } from '../context';
 
 
 import { languageChangedEvent, sortChangeEvent } from "../utils";
+import { isThisHour } from 'date-fns';
 
 
 
@@ -40,6 +41,8 @@ class ChannelListTeam extends PureComponent {
 
   }
 
+
+
   onSortChange(event) {
     var sort = {
       // last_message_at: -1
@@ -50,7 +53,7 @@ class ChannelListTeam extends PureComponent {
     this.props.onSelectSort(sort);
   }
 
-  SortingButtons = () => {
+  SortingSelect = () => {
     return (
       <div>
         <select
@@ -87,6 +90,20 @@ class ChannelListTeam extends PureComponent {
         </select>
       </div>
     )
+  }
+
+  LanguageSelect=()=>{
+    <select className="str-chat__channel-list-team__header--button" id="select"
+    onChange={this.onLanguageChange}
+    defaultValue={this.props.language}
+  //TODO: Load User Language and show new messages in the selected Language
+  >
+    <option value="en">Englisch</option>
+    <option value="de">Deutsch</option>
+    <option value="es">Spanisch</option>
+    <option value="it">Italienisch</option>
+    <option value="pl">Polnisch</option>
+  </select>
   }
 
   render() {
@@ -135,19 +152,9 @@ class ChannelListTeam extends PureComponent {
 
 
                 <br></br>
-                <this.SortingButtons></this.SortingButtons>
+                <this.SortingSelect></this.SortingSelect>
+                <this.LanguageSelect></this.LanguageSelect>
 
-                <select className="str-chat__channel-list-team__header--button" id="select"
-                  onChange={this.onLanguageChange}
-                  defaultValue={this.props.language}
-                //TODO: Load User Language and show new messages in the selected Language
-                >
-                  <option value="en">Englisch</option>
-                  <option value="de">Deutsch</option>
-                  <option value="es">Spanisch</option>
-                  <option value="it">Italienisch</option>
-                  <option value="pl">Polnisch</option>
-                </select>
               </div>
             </div>
             {this.props.children}
