@@ -172,7 +172,7 @@ class ChannelList extends PureComponent {
   componentDidCatch(error, info) {
     console.warn(error, info);
   }
-  //COMPONET IS ALWAYS MOUNTED WHY ARE THE PROPS UNDEFINDED?
+  
   async componentDidMount() {
     this.setState({ sort: this.props.sort });
     await this.queryChannels();
@@ -438,7 +438,7 @@ class ChannelList extends PureComponent {
             setActiveChannel={this.props.setActiveChannel}
             activeChannel={this.props.channel}
             showSidebar={this.props.showSidebar}
-            onSelectSort={this.onSortChange}//this.onSortChange(this.props.sort) | this.onSortChange(this.state.sort)
+            onSelectSort={this.onSortChange}
           >
             {!channels.length ? (
               <EmptyStateIndicator listType="channel" />

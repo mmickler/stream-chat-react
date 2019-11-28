@@ -9974,8 +9974,7 @@ function (_PureComponent) {
     key: "componentDidCatch",
     value: function componentDidCatch(error, info) {
       console.warn(error, info);
-    } //COMPONET IS ALWAYS MOUNTED WHY ARE THE PROPS UNDEFINDED?
-
+    }
   }, {
     key: "componentDidMount",
     value: function () {
@@ -10083,8 +10082,7 @@ function (_PureComponent) {
         setActiveChannel: this.props.setActiveChannel,
         activeChannel: this.props.channel,
         showSidebar: this.props.showSidebar,
-        onSelectSort: this.onSortChange //this.onSortChange(this.props.sort) | this.onSortChange(this.state.sort)
-
+        onSelectSort: this.onSortChange
       }, !channels.length ? React__default.createElement(EmptyStateIndicator, {
         listType: "channel"
       }) : smartRender(Paginator, {
