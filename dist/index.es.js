@@ -9505,6 +9505,7 @@ function (_PureComponent) {
     _defineProperty(_assertThisInitialized(_this), "LanguageSelect", function () {
       return React__default.createElement("select", {
         id: "select",
+        className: "str-chat__channel-list-team__header--button",
         onChange: _this.onLanguageChange,
         defaultValue: _this.props.language //TODO: Load User Language and show new messages in the selected Language
 
@@ -9575,9 +9576,9 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--title"
         }, this.props.client.user.name || this.props.client.user.id), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--status ".concat(this.props.client.user.status)
-        }, this.props.client.user.status))), React__default.createElement("div", {
+        }, this.props.client.user.status)), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
-        }, React__default.createElement(this.LanguageSelect, null)), React__default.createElement("div", {
+        }, React__default.createElement(this.LanguageSelect, null))), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--button"
         }, React__default.createElement(this.SortingSelect, null)), this.props.children));
       }
