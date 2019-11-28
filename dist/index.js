@@ -9585,9 +9585,9 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--status ".concat(this.props.client.user.status)
         }, this.props.client.user.status))), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
-        }, React__default.createElement("div", {
+        }, React__default.createElement(this.LanguageSelect, null)), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--button"
-        }, React__default.createElement(this.SortingSelect, null), React__default.createElement(this.LanguageSelect, null))), this.props.children));
+        }, React__default.createElement(this.SortingSelect, null)), this.props.children));
       }
     }
   }]);

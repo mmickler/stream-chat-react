@@ -50,31 +50,31 @@ class ChannelListTeam extends PureComponent {
   }
 
   SortingSelect = () => (
-      <div>
-        <select  onChange={(e) => this.onSortChange(e)}>
-          <option value="last_message_at">
-            Nachrichtendatum
+    <div>
+      <select onChange={(e) => this.onSortChange(e)}>
+        <option value="last_message_at">
+          Nachrichtendatum
           </option>
-          <option value="created_at">
-            Erstelldatum
+        <option value="created_at">
+          Erstelldatum
           </option>
-        </select>
-      </div>
-    )
+      </select>
+    </div>
+  )
 
   LanguageSelect = () => (
-      <select  id="select"
-        onChange={this.onLanguageChange}
-        defaultValue={this.props.language}
-      //TODO: Load User Language and show new messages in the selected Language
-      >
-        <option value="en">Englisch</option>
-        <option value="de">Deutsch</option>
-        <option value="es">Spanisch</option>
-        <option value="it">Italienisch</option>
-        <option value="pl">Polnisch</option>
-      </select>
-    )
+    <select id="select"
+      onChange={this.onLanguageChange}
+      defaultValue={this.props.language}
+    //TODO: Load User Language and show new messages in the selected Language
+    >
+      <option value="en">Englisch</option>
+      <option value="de">Deutsch</option>
+      <option value="es">Spanisch</option>
+      <option value="it">Italienisch</option>
+      <option value="pl">Polnisch</option>
+    </select>
+  )
 
   render() {
     const { showSidebar } = this.props;
@@ -118,11 +118,13 @@ class ChannelListTeam extends PureComponent {
               </div>
             </div>
             <div className="str-chat__channel-list-team__header--right">
-              <div className="str-chat__channel-list-team__header--button">
-                <this.SortingSelect></this.SortingSelect>
-                <this.LanguageSelect></this.LanguageSelect>
-              </div>
+              <this.LanguageSelect></this.LanguageSelect>
             </div>
+            <div className="str-chat__channel-list-team__header--button">
+              <this.SortingSelect></this.SortingSelect>
+
+            </div>
+
             {this.props.children}
           </div>
         </div>
