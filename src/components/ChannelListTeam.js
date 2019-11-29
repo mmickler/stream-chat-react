@@ -7,7 +7,6 @@ import { withChatContext } from '../context';
 
 
 import { languageChangedEvent } from "../utils";
-import { isThisHour } from 'date-fns';
 
 
 
