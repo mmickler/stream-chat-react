@@ -25,7 +25,9 @@ class ChannelListTeam extends PureComponent {
     showSidebar: PropTypes.bool,
     language: PropTypes.string,
     /* HACK: */
-    onSelectSort: PropTypes.func
+    onSelectSort: PropTypes.func,
+    onSelectFilter: PropTypes.func
+
   };
 
   static defaultProps = {
@@ -40,7 +42,12 @@ class ChannelListTeam extends PureComponent {
 
   }
 
-
+  onFilterChange(event) {
+    const filters = {
+      extraChannelType: event.target.value
+    };
+    this.props.onSelectFilter(filters);
+  }
 
   onSortChange(event) {
     const sort = {
@@ -68,6 +75,7 @@ class ChannelListTeam extends PureComponent {
     <div>
       <select
         className="str-chat__channel-list-team__header--button"
+        onChange={(e) => this.onFilterChange(e)}
       >
         <option value="support">
           Support

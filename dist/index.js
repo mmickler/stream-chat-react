@@ -9513,7 +9513,10 @@ function (_PureComponent) {
 
     _defineProperty(_assertThisInitialized(_this), "FilterSelect", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
-        className: "str-chat__channel-list-team__header--button"
+        className: "str-chat__channel-list-team__header--button",
+        onChange: function onChange(e) {
+          return _this.onFilterChange(e);
+        }
       }, React__default.createElement("option", {
         value: "support"
       }, "Support"), React__default.createElement("option", {
@@ -9556,6 +9559,14 @@ function (_PureComponent) {
       window.dplChatConfig.language = event.target.value;
       window.dispatchEvent(languageChangedEvent);
       localStorage.setItem('language', window.dplChatConfig.language);
+    }
+  }, {
+    key: "onFilterChange",
+    value: function onFilterChange(event) {
+      var filters = {
+        extraChannelType: event.target.value
+      };
+      this.props.onSelectFilter(filters);
     }
   }, {
     key: "onSortChange",
@@ -9627,7 +9638,8 @@ _defineProperty(exports.ChannelListTeam, "propTypes", {
   language: PropTypes.string,
 
   /* HACK: */
-  onSelectSort: PropTypes.func
+  onSelectSort: PropTypes.func,
+  onSelectFilter: PropTypes.func
 });
 
 _defineProperty(exports.ChannelListTeam, "defaultProps", {
@@ -9987,6 +9999,7 @@ function (_PureComponent) {
       sort: {}
     };
     _this.onSortChange = _this.onSortChange.bind(_assertThisInitialized(_this));
+    _this.onFilterChange = _this.onFilterChange.bind(_assertThisInitialized(_this));
     _this.menuButton = React__default.createRef();
     return _this;
   }
@@ -10068,6 +10081,39 @@ function (_PureComponent) {
       return onSortChange;
     }()
   }, {
+    key: "onFilterChange",
+    value: function () {
+      var _onFilterChange = _asyncToGenerator(
+      /*#__PURE__*/
+      _regeneratorRuntime.mark(function _callee6(filter) {
+        return _regeneratorRuntime.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                this.setState({
+                  filter: filter,
+                  offset: 0,
+                  hasNextPage: true,
+                  channels: []
+                });
+                _context6.next = 3;
+                return this.queryChannels();
+
+              case 3:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this);
+      }));
+
+      function onFilterChange(_x5) {
+        return _onFilterChange.apply(this, arguments);
+      }
+
+      return onFilterChange;
+    }()
+  }, {
     key: "listenToChanges",
     value: function listenToChanges() {
       this.props.client.on(this.handleEvent);
@@ -10103,7 +10149,8 @@ function (_PureComponent) {
         setActiveChannel: this.props.setActiveChannel,
         activeChannel: this.props.channel,
         showSidebar: this.props.showSidebar,
-        onSelectSort: this.onSortChange
+        onSelectSort: this.onSortChange,
+        onSelectFilter: this.onFilterChange
       }, !channels.length ? React__default.createElement(EmptyStateIndicator, {
         listType: "channel"
       }) : smartRender(Paginator, {

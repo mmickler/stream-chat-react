@@ -162,7 +162,7 @@ class ChannelList extends PureComponent {
       },
     };
     this.onSortChange = this.onSortChange.bind(this);
-
+    this.onFilterChange= this.onFilterChange.bind(this);
     this.menuButton = React.createRef();
   }
 
@@ -187,6 +187,16 @@ class ChannelList extends PureComponent {
   async onSortChange(sort) {
     this.setState({
       sort,
+      offset: 0,
+      hasNextPage: true,
+      channels: []
+    });
+    await this.queryChannels();
+  }
+
+  async onFilterChange(filter) {
+    this.setState({
+      filter,
       offset: 0,
       hasNextPage: true,
       channels: []
@@ -440,6 +450,8 @@ class ChannelList extends PureComponent {
             activeChannel={this.props.channel}
             showSidebar={this.props.showSidebar}
             onSelectSort={this.onSortChange}
+            onSelectFilter={this.onFilterChange}
+
           >
               {!channels.length ? (
                 <EmptyStateIndicator listType="channel" />
