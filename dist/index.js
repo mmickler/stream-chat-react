@@ -45,6 +45,7 @@ var uuidv4 = _interopDefault(require('uuid/v4'));
 var Visibility = _interopDefault(require('visibilityjs'));
 var debounce = _interopDefault(require('lodash/debounce'));
 var throttle = _interopDefault(require('lodash/throttle'));
+require('date-fns');
 var uniqBy = _interopDefault(require('lodash.uniqby'));
 
 /**
@@ -9500,6 +9501,20 @@ function (_PureComponent) {
 
     _defineProperty(_assertThisInitialized(_this), "SortingSelect", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
+        className: "str-chat__channel-list-team__header--button",
+        onChange: function onChange(e) {
+          return _this.onSortChange(e);
+        }
+      }, React__default.createElement("option", {
+        value: "last_message_at"
+      }, "Nachrichtendatum"), React__default.createElement("option", {
+        value: "created_at"
+      }, "Erstelldatum")));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "FilterSelect", function () {
+      return React__default.createElement("div", null, React__default.createElement("select", {
+        className: "str-chat__channel-list-team__header--button",
         onChange: function onChange(e) {
           return _this.onSortChange(e);
         }
@@ -9588,7 +9603,7 @@ function (_PureComponent) {
           className: "str-chat__channel-list-team__header--right"
         }, React__default.createElement(this.LanguageSelect, null))), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--button"
-        }, React__default.createElement(this.SortingSelect, null)), React__default.createElement("div", {
+        }, React__default.createElement(this.SortingSelect, null), React__default.createElement(this.FilterSelect, null)), React__default.createElement("div", {
           id: "style-list",
           className: ".str-chat__channel-preview-messenger-list"
         }, this.props.children)));

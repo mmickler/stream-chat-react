@@ -7,6 +7,7 @@ import { withChatContext } from '../context';
 
 
 import { languageChangedEvent } from "../utils";
+import { isThisHour } from 'date-fns';
 
 
 
@@ -51,13 +52,30 @@ class ChannelListTeam extends PureComponent {
 
   SortingSelect = () => (
     <div>
-      <select onChange={(e) => this.onSortChange(e)}>
+      <select
+        className="str-chat__channel-list-team__header--button"
+        onChange={(e) => this.onSortChange(e)}>
         <option value="last_message_at">
           Nachrichtendatum
           </option>
         <option value="created_at">
           Erstelldatum
           </option>
+      </select>
+    </div>
+  )
+
+  FilterSelect = () => (
+    <div>
+      <select
+        className="str-chat__channel-list-team__header--button"
+        onChange={(e) => this.onSortChange(e)}>
+        <option value="last_message_at">
+          Nachrichtendatum
+        </option>
+        <option value="created_at">
+          Erstelldatum
+        </option>
       </select>
     </div>
   )
@@ -124,7 +142,8 @@ class ChannelListTeam extends PureComponent {
 
             <div className="str-chat__channel-list-team__header--button">
               <this.SortingSelect></this.SortingSelect>
-
+              {/* TODO: make it working */}
+              <this.FilterSelect></this.FilterSelect>
             </div>
             <div id="style-list" className=".str-chat__channel-preview-messenger-list">
               {this.props.children}
