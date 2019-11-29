@@ -9563,10 +9563,7 @@ function (_PureComponent) {
   }, {
     key: "onFilterChange",
     value: function onFilterChange(event) {
-      var filters = {
-        extraChannelType: event.target.value
-      };
-      this.props.onSelectFilter(filters);
+      this.props.onSelectFilter(event.target.value);
     }
   }, {
     key: "onSortChange",
@@ -10089,13 +10086,13 @@ function (_PureComponent) {
     value: function () {
       var _onFilterChange = _asyncToGenerator(
       /*#__PURE__*/
-      _regeneratorRuntime.mark(function _callee6(filter) {
+      _regeneratorRuntime.mark(function _callee6(filters) {
         return _regeneratorRuntime.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 this.setState({
-                  filter: filter,
+                  filters: filters,
                   offset: 0,
                   hasNextPage: true,
                   channels: []

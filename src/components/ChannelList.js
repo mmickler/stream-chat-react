@@ -198,9 +198,9 @@ class ChannelList extends PureComponent {
     await this.queryChannels();
   }
 
-  async onFilterChange(filter) {
+  async onFilterChange(filters) {
     this.setState({
-      filter,
+      filters,
       offset: 0,
       hasNextPage: true,
       channels: []
