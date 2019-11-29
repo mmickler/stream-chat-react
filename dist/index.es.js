@@ -9557,10 +9557,10 @@ function (_PureComponent) {
   }, {
     key: "onFilterChange",
     value: function onFilterChange(event) {
-      // const filter = {
-      //   extraType: event.target.value
-      // };
-      this.props.onSelectFilter(event.target.value);
+      var filter = {
+        extraType: event.target.value
+      };
+      this.props.onSelectFilter(filter);
     }
   }, {
     key: "onSortChange",
