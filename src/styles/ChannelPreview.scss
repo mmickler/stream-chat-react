@@ -144,6 +144,10 @@
   background: #004ab3;
 }
 
+.str-chat__channel-preview-messenger-list {
+  overflow-y: auto;
+}
+
 .str-chat__channel-preview-messenger {
   display: flex;
   width: 100%;

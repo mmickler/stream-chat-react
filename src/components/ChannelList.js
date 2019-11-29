@@ -159,8 +159,9 @@ class ChannelList extends PureComponent {
       connectionRecoveredCount: 0,
       channelUpdateCount: 0,
       sort: {
-      }, };
-        this.onSortChange = this.onSortChange.bind(this);
+      },
+    };
+    this.onSortChange = this.onSortChange.bind(this);
 
     this.menuButton = React.createRef();
   }
@@ -172,7 +173,7 @@ class ChannelList extends PureComponent {
   componentDidCatch(error, info) {
     console.warn(error, info);
   }
-  
+
   async componentDidMount() {
     this.setState({ sort: this.props.sort });
     await this.queryChannels();
@@ -182,7 +183,7 @@ class ChannelList extends PureComponent {
   componentWillUnmount() {
     this.props.client.off(this.handleEvent);
   }
-  
+
   async onSortChange(sort) {
     this.setState({
       sort,
@@ -439,17 +440,18 @@ class ChannelList extends PureComponent {
             activeChannel={this.props.channel}
             showSidebar={this.props.showSidebar}
             onSelectSort={this.onSortChange}
-          >
-            {!channels.length ? (
-              <EmptyStateIndicator listType="channel" />
-            ) : (
-                smartRender(Paginator, {
-                  loadNextPage: this.loadNextPage,
-                  hasNextPage,
-                  refreshing,
-                  children: channels.map((item) => this._renderChannel(item)),
-                })
-              )}
+          ><div id="testMischa">
+              {!channels.length ? (
+                <EmptyStateIndicator listType="channel" />
+              ) : (
+                  smartRender(Paginator, {
+                    loadNextPage: this.loadNextPage,
+                    hasNextPage,
+                    refreshing,
+                    children: channels.map((item) => this._renderChannel(item)),
+                  })
+                )}
+            </div>
           </List>
         </div>
       </React.Fragment>

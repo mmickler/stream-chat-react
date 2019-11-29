@@ -126,8 +126,10 @@ class ChannelListTeam extends PureComponent {
               <this.SortingSelect></this.SortingSelect>
 
             </div>
+            <div id="testMischa" className=".str-chat__channel-preview-messenger-list">
+              {this.props.children}
+            </div>
 
-            {this.props.children}
           </div>
         </div>
       );
