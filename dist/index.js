@@ -10424,7 +10424,9 @@ function (_PureComponent) {
       }, React__default.createElement(Avatar, {
         image: channel.data.image,
         size: 40
-      }), React__default.createElement("label", null, !channel.state.messages[0] ? "" : truncate(this.props.unread, 5))), React__default.createElement("div", {
+      }), React__default.createElement("button", {
+        id: "style-unread-message-button"
+      }, !channel.state.messages[0] ? "" : truncate(this.props.unread, 5))), React__default.createElement("div", {
         className: "str-chat__channel-preview-messenger--right"
       }, React__default.createElement("div", {
         className: "str-chat__channel-preview-messenger--name"
@@ -10432,9 +10434,7 @@ function (_PureComponent) {
         id: "style-channel-preview"
       }, React__default.createElement("div", {
         className: "str-chat__channel-preview-messenger--last-message"
-      }, !channel.state.messages[0] ? 'Nothing yet...' : truncate(this.props.latestMessage, 14)), React__default.createElement("div", {
-        className: "str-chat__channel-preview-messenger--last-message"
-      }, !channel.state.messages[0] ? 'Nothing yet...' : truncate(this.props.unread, 5)))));
+      }, !channel.state.messages[0] ? 'Nothing yet...' : truncate(this.props.latestMessage, 14)))));
     }
   }]);
 
