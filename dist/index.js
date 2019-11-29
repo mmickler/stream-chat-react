@@ -9514,15 +9514,14 @@ function (_PureComponent) {
 
     _defineProperty(_assertThisInitialized(_this), "FilterSelect", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
-        className: "str-chat__channel-list-team__header--button",
-        onChange: function onChange(e) {
-          return _this.onSortChange(e);
-        }
+        className: "str-chat__channel-list-team__header--button"
       }, React__default.createElement("option", {
-        value: "last_message_at"
-      }, "Nachrichtendatum"), React__default.createElement("option", {
-        value: "created_at"
-      }, "Erstelldatum")));
+        value: "niko"
+      }, "Niko"), React__default.createElement("option", {
+        value: "mischa"
+      }, "Mischa"), React__default.createElement("option", {
+        value: "test"
+      }, "TestUser")));
     });
 
     _defineProperty(_assertThisInitialized(_this), "LanguageSelect", function () {

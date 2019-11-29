@@ -69,12 +69,15 @@ class ChannelListTeam extends PureComponent {
     <div>
       <select
         className="str-chat__channel-list-team__header--button"
-        onChange={(e) => this.onSortChange(e)}>
-        <option value="last_message_at">
-          Nachrichtendatum
+        >
+        <option value="niko">
+          Niko
         </option>
-        <option value="created_at">
-          Erstelldatum
+        <option value="mischa">
+          Mischa
+        </option>
+        <option value="test">
+          TestUser
         </option>
       </select>
     </div>
