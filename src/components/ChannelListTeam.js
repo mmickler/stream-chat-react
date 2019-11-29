@@ -26,7 +26,7 @@ class ChannelListTeam extends PureComponent {
     language: PropTypes.string,
     /* HACK: */
     onSelectSort: PropTypes.func,
-    onSelectFilter: PropTypes.func
+    onSelectFilter: PropTypes.func,
 
   };
 
@@ -51,7 +51,7 @@ class ChannelListTeam extends PureComponent {
 
   onSortChange(event) {
     const sort = {
-    }
+    };
     sort[event.target.value] = -1;
     this.props.onSelectSort(sort);
   }

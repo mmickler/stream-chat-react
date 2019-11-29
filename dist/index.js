@@ -9675,14 +9675,14 @@ function (_PureComponent) {
     _asyncToGenerator(
     /*#__PURE__*/
     _regeneratorRuntime.mark(function _callee() {
-      var _this$props, options, filters, _this$state, offset, sort, newOptions, channelPromise, channelQueryResponse, customActiveChannel;
+      var options, _this$state, offset, sort, filters, newOptions, channelPromise, channelQueryResponse, customActiveChannel;
 
       return _regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _this$props = _this.props, options = _this$props.options, filters = _this$props.filters;
-              _this$state = _this.state, offset = _this$state.offset, sort = _this$state.sort;
+              options = _this.props.options;
+              _this$state = _this.state, offset = _this$state.offset, sort = _this$state.sort, filters = _this$state.filters;
 
               _this.setState({
                 refreshing: true
@@ -9963,11 +9963,11 @@ function (_PureComponent) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "_renderChannel", function (item) {
-      var _this$props2 = _this.props,
-          Preview = _this$props2.Preview,
-          setActiveChannel = _this$props2.setActiveChannel,
-          channel = _this$props2.channel,
-          watchers = _this$props2.watchers;
+      var _this$props = _this.props,
+          Preview = _this$props.Preview,
+          setActiveChannel = _this$props.setActiveChannel,
+          channel = _this$props.channel,
+          watchers = _this$props.watchers;
       if (!item) return;
       var props = {
         channel: item,
@@ -9996,7 +9996,8 @@ function (_PureComponent) {
       error: false,
       connectionRecoveredCount: 0,
       channelUpdateCount: 0,
-      sort: {}
+      sort: {},
+      filters: {}
     };
     _this.onSortChange = _this.onSortChange.bind(_assertThisInitialized(_this));
     _this.onFilterChange = _this.onFilterChange.bind(_assertThisInitialized(_this));
@@ -10022,13 +10023,16 @@ function (_PureComponent) {
                 this.setState({
                   sort: this.props.sort
                 });
-                _context4.next = 3;
+                this.setState({
+                  filters: this.props.filters
+                });
+                _context4.next = 4;
                 return this.queryChannels();
 
-              case 3:
+              case 4:
                 this.listenToChanges();
 
-              case 4:
+              case 5:
               case "end":
                 return _context4.stop();
             }
@@ -10123,9 +10127,9 @@ function (_PureComponent) {
     value: function render() {
       var _this2 = this;
 
-      var _this$props3 = this.props,
-          List = _this$props3.List,
-          Paginator = _this$props3.Paginator;
+      var _this$props2 = this.props,
+          List = _this$props2.List,
+          Paginator = _this$props2.Paginator;
       var _this$state2 = this.state,
           channels = _this$state2.channels,
           loadingChannels = _this$state2.loadingChannels,

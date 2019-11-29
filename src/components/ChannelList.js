@@ -160,6 +160,9 @@ class ChannelList extends PureComponent {
       channelUpdateCount: 0,
       sort: {
       },
+      filters: {
+
+      }
     };
     this.onSortChange = this.onSortChange.bind(this);
     this.onFilterChange= this.onFilterChange.bind(this);
@@ -176,6 +179,7 @@ class ChannelList extends PureComponent {
 
   async componentDidMount() {
     this.setState({ sort: this.props.sort });
+    this.setState({filters: this.props.filters});
     await this.queryChannels();
     this.listenToChanges();
   }
@@ -205,8 +209,8 @@ class ChannelList extends PureComponent {
   }
 
   queryChannels = async () => {
-    const { options, filters } = this.props;
-    const { offset, sort } = this.state;
+    const { options } = this.props;
+    const { offset, sort, filters } = this.state;
     this.setState({ refreshing: true });
     const newOptions = {
       ...options,
