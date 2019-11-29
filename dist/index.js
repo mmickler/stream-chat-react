@@ -10099,7 +10099,7 @@ function (_PureComponent) {
               case 0:
                 filters = {
                   extraChannelType: {
-                    $in: filter
+                    $in: [filter]
                   }
                 };
                 this.setState({
