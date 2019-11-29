@@ -9581,7 +9581,7 @@ function (_PureComponent) {
         }, React__default.createElement(this.LanguageSelect, null))), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--button"
         }, React__default.createElement(this.SortingSelect, null)), React__default.createElement("div", {
-          id: "testMischa",
+          id: "style-list",
           className: ".str-chat__channel-preview-messenger-list"
         }, this.props.children)));
       }
@@ -10078,8 +10078,6 @@ function (_PureComponent) {
         activeChannel: this.props.channel,
         showSidebar: this.props.showSidebar,
         onSelectSort: this.onSortChange
-      }, React__default.createElement("div", {
-        id: "testMischa"
       }, !channels.length ? React__default.createElement(EmptyStateIndicator, {
         listType: "channel"
       }) : smartRender(Paginator, {
@@ -10089,7 +10087,7 @@ function (_PureComponent) {
         children: channels.map(function (item) {
           return _this2._renderChannel(item);
         })
-      })))));
+      }))));
     }
   }], [{
     key: "getDerivedStateFromError",

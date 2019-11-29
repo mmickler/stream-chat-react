@@ -440,7 +440,7 @@ class ChannelList extends PureComponent {
             activeChannel={this.props.channel}
             showSidebar={this.props.showSidebar}
             onSelectSort={this.onSortChange}
-          ><div id="testMischa">
+          >
               {!channels.length ? (
                 <EmptyStateIndicator listType="channel" />
               ) : (
@@ -451,7 +451,7 @@ class ChannelList extends PureComponent {
                     children: channels.map((item) => this._renderChannel(item)),
                   })
                 )}
-            </div>
+            
           </List>
         </div>
       </React.Fragment>
