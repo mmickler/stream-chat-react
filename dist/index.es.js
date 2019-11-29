@@ -9505,37 +9505,22 @@ function (_PureComponent) {
 
     _defineProperty(_assertThisInitialized(_this), "FilterSelect", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
-        className: "str-chat__channel-list-team__header--button"
+        className: "str-chat__channel-list-team__header--button",
+        onChange: function onChange(e) {
+          return _this.onFilterChange(e);
+        }
       }, React__default.createElement("option", {
-        value: "",
-        onChange: function onChange(e) {
-          return _this.onFilterChange(e);
-        }
+        value: ""
       }, "ohne Filter"), React__default.createElement("option", {
-        value: "support",
-        onChange: function onChange(e) {
-          return _this.onFilterChange(e);
-        }
+        value: "support"
       }, "Support"), React__default.createElement("option", {
-        value: "anfrage",
-        onChange: function onChange(e) {
-          return _this.onFilterChange(e);
-        }
+        value: "anfrage"
       }, "Anfrage"), React__default.createElement("option", {
-        value: "loadinglocation",
-        onChange: function onChange(e) {
-          return _this.onFilterChange(e);
-        }
+        value: "loadinglocation"
       }, "Standort"), React__default.createElement("option", {
-        value: "buchung",
-        onChange: function onChange(e) {
-          return _this.onFilterChange(e);
-        }
+        value: "buchung"
       }, "Buchung"), React__default.createElement("option", {
-        value: "others",
-        onChange: function onChange(e) {
-          return _this.onFilterChange(e);
-        }
+        value: "others"
       }, "Others")));
     });
 
@@ -9699,24 +9684,28 @@ function (_PureComponent) {
 
               newOptions = _objectSpread$7({}, options);
               if (!options.limit) newOptions.limit = 30;
+              console.log("queryChannels", {
+                sort: sort,
+                filters: filters
+              });
               channelPromise = _this.props.client.queryChannels(filters, sort, _objectSpread$7({}, newOptions, {
                 offset: offset
               }));
-              _context.prev = 6;
+              _context.prev = 7;
               channelQueryResponse = channelPromise;
 
               if (!isPromise(channelQueryResponse)) {
-                _context.next = 12;
+                _context.next = 13;
                 break;
               }
 
-              _context.next = 11;
+              _context.next = 12;
               return channelPromise;
 
-            case 11:
+            case 12:
               channelQueryResponse = _context.sent;
 
-            case 12:
+            case 13:
               _this.setState(function (prevState) {
                 var channels = [].concat(_toConsumableArray(prevState.channels), _toConsumableArray(channelQueryResponse));
                 return {
@@ -9744,12 +9733,12 @@ function (_PureComponent) {
                 _this.props.setActiveChannel(_this.state.channels[0], _this.props.watchers);
               }
 
-              _context.next = 20;
+              _context.next = 21;
               break;
 
-            case 16:
-              _context.prev = 16;
-              _context.t0 = _context["catch"](6);
+            case 17:
+              _context.prev = 17;
+              _context.t0 = _context["catch"](7);
               console.warn(_context.t0);
 
               _this.setState({
@@ -9757,12 +9746,12 @@ function (_PureComponent) {
                 refreshing: false
               });
 
-            case 20:
+            case 21:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[6, 16]]);
+      }, _callee, null, [[7, 17]]);
     })));
 
     _defineProperty(_assertThisInitialized(_this), "handleEvent",
