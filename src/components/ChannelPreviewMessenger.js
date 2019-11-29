@@ -51,11 +51,11 @@ export class ChannelPreviewMessenger extends PureComponent {
       >
         <div className="str-chat__channel-preview-messenger--left" id="style-unread-messages">
           {<Avatar image={channel.data.image} size={40} />}
-          <button id="style-unread-message-button">
+          <label id="style-unread-message-button">
           {!channel.state.messages[0]
                 ? ""
                 : truncate(this.props.unread, 5)}
-          </button>
+          </label>
         </div>
         <div className="str-chat__channel-preview-messenger--right">
           <div className="str-chat__channel-preview-messenger--name">

@@ -10416,7 +10416,7 @@ function (_PureComponent) {
       }, React__default.createElement(Avatar, {
         image: channel.data.image,
         size: 40
-      }), React__default.createElement("button", {
+      }), React__default.createElement("label", {
         id: "style-unread-message-button"
       }, !channel.state.messages[0] ? "" : truncate(this.props.unread, 5))), React__default.createElement("div", {
         className: "str-chat__channel-preview-messenger--right"
