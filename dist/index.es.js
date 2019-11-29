@@ -10420,10 +10420,12 @@ function (_PureComponent) {
       }, React__default.createElement("div", {
         className: "str-chat__channel-preview-messenger--name"
       }, React__default.createElement("span", null, channel.data.name)), React__default.createElement("div", {
+        id: "style-channel-preview"
+      }, React__default.createElement("div", {
         className: "str-chat__channel-preview-messenger--last-message"
       }, !channel.state.messages[0] ? 'Nothing yet...' : truncate(this.props.latestMessage, 14)), React__default.createElement("div", {
         className: "str-chat__channel-preview-messenger--last-message"
-      }, !channel.state.messages[0] ? 'Nothing yet...' : truncate(this.props.unread, 5))));
+      }, !channel.state.messages[0] ? 'Nothing yet...' : truncate(this.props.unread, 5)))));
     }
   }]);
 
