@@ -9563,7 +9563,10 @@ function (_PureComponent) {
   }, {
     key: "onFilterChange",
     value: function onFilterChange(event) {
-      this.props.onSelectFilter(event.target.value);
+      var filter = {
+        extraChannelType: event.target.value
+      };
+      this.props.onSelectFilter(filter);
     }
   }, {
     key: "onSortChange",

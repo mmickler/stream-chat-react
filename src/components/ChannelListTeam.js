@@ -43,7 +43,10 @@ class ChannelListTeam extends PureComponent {
   }
 
   onFilterChange(event) {
-    this.props.onSelectFilter(event.target.value);
+    const filter = {
+      extraChannelType: event.target.value
+    };
+    this.props.onSelectFilter(filter);
   }
 
   onSortChange(event) {
