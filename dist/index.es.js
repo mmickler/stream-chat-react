@@ -9510,6 +9510,8 @@ function (_PureComponent) {
           return _this.onFilterChange(e);
         }
       }, React__default.createElement("option", {
+        value: ""
+      }, "ohne Filter"), React__default.createElement("option", {
         value: "support"
       }, "Support"), React__default.createElement("option", {
         value: "anfrage"
@@ -10081,13 +10083,15 @@ function (_PureComponent) {
     value: function () {
       var _onFilterChange = _asyncToGenerator(
       /*#__PURE__*/
-      _regeneratorRuntime.mark(function _callee6(filters) {
+      _regeneratorRuntime.mark(function _callee6(filter) {
         return _regeneratorRuntime.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 this.setState({
-                  filters: filters,
+                  filters: {
+                    extraChannelType: filter
+                  },
                   offset: 0,
                   hasNextPage: true,
                   channels: []
