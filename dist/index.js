@@ -9513,22 +9513,37 @@ function (_PureComponent) {
 
     _defineProperty(_assertThisInitialized(_this), "FilterSelect", function () {
       return React__default.createElement("div", null, React__default.createElement("select", {
-        className: "str-chat__channel-list-team__header--button",
+        className: "str-chat__channel-list-team__header--button"
+      }, React__default.createElement("option", {
+        value: "",
         onChange: function onChange(e) {
           return _this.onFilterChange(e);
         }
-      }, React__default.createElement("option", {
-        value: ""
       }, "ohne Filter"), React__default.createElement("option", {
-        value: "support"
+        value: "support",
+        onChange: function onChange(e) {
+          return _this.onFilterChange(e);
+        }
       }, "Support"), React__default.createElement("option", {
-        value: "anfrage"
+        value: "anfrage",
+        onChange: function onChange(e) {
+          return _this.onFilterChange(e);
+        }
       }, "Anfrage"), React__default.createElement("option", {
-        value: "loadinglocation"
+        value: "loadinglocation",
+        onChange: function onChange(e) {
+          return _this.onFilterChange(e);
+        }
       }, "Standort"), React__default.createElement("option", {
-        value: "buchung"
+        value: "buchung",
+        onChange: function onChange(e) {
+          return _this.onFilterChange(e);
+        }
       }, "Buchung"), React__default.createElement("option", {
-        value: "others"
+        value: "others",
+        onChange: function onChange(e) {
+          return _this.onFilterChange(e);
+        }
       }, "Others")));
     });
 

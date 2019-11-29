@@ -75,24 +75,24 @@ class ChannelListTeam extends PureComponent {
     <div>
       <select
         className="str-chat__channel-list-team__header--button"
-        onChange={(e) => this.onFilterChange(e)}
+        
       >
-        <option value="">
+        <option value="" onChange={(e) => this.onFilterChange(e)}>
           ohne Filter
         </option>
-        <option value="support">
+        <option value="support" onChange={(e) => this.onFilterChange(e)}>
           Support
         </option>
-        <option value="anfrage">
+        <option value="anfrage" onChange={(e) => this.onFilterChange(e)}>
           Anfrage
         </option>
-        <option value="loadinglocation">
+        <option value="loadinglocation" onChange={(e) => this.onFilterChange(e)}>
           Standort
         </option>
-        <option value="buchung">
+        <option value="buchung" onChange={(e) => this.onFilterChange(e)}>
           Buchung
         </option>
-        <option value="others">
+        <option value="others" onChange={(e) => this.onFilterChange(e)}>
           Others
         </option>
       </select>
