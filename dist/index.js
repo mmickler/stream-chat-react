@@ -9515,12 +9515,16 @@ function (_PureComponent) {
       return React__default.createElement("div", null, React__default.createElement("select", {
         className: "str-chat__channel-list-team__header--button"
       }, React__default.createElement("option", {
-        value: "niko"
-      }, "Niko"), React__default.createElement("option", {
-        value: "mischa"
-      }, "Mischa"), React__default.createElement("option", {
-        value: "test"
-      }, "TestUser")));
+        value: "support"
+      }, "Support"), React__default.createElement("option", {
+        value: "anfrage"
+      }, "Anfrage"), React__default.createElement("option", {
+        value: "loadinglocation"
+      }, "Standort"), React__default.createElement("option", {
+        value: "buchung"
+      }, "Buchung"), React__default.createElement("option", {
+        value: "others"
+      }, "Others")));
     });
 
     _defineProperty(_assertThisInitialized(_this), "LanguageSelect", function () {
@@ -9600,6 +9604,7 @@ function (_PureComponent) {
         }, this.props.client.user.status)), React__default.createElement("div", {
           className: "str-chat__channel-list-team__header--right"
         }, React__default.createElement(this.LanguageSelect, null))), React__default.createElement("div", {
+          id: "style-channel-selection",
           className: "str-chat__channel-list-team__header--button"
         }, React__default.createElement(this.SortingSelect, null), React__default.createElement(this.FilterSelect, null)), React__default.createElement("div", {
           id: "style-list",

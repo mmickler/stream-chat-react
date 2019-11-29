@@ -68,15 +68,21 @@ class ChannelListTeam extends PureComponent {
     <div>
       <select
         className="str-chat__channel-list-team__header--button"
-        >
-        <option value="niko">
-          Niko
+      >
+        <option value="support">
+          Support
         </option>
-        <option value="mischa">
-          Mischa
+        <option value="anfrage">
+          Anfrage
         </option>
-        <option value="test">
-          TestUser
+        <option value="loadinglocation">
+          Standort
+        </option>
+        <option value="buchung">
+          Buchung
+        </option>
+        <option value="others">
+          Others
         </option>
       </select>
     </div>
@@ -142,7 +148,7 @@ class ChannelListTeam extends PureComponent {
               </div>
             </div>
 
-            <div className="str-chat__channel-list-team__header--button">
+            <div id="style-channel-selection" className="str-chat__channel-list-team__header--button">
               <this.SortingSelect></this.SortingSelect>
               {/* TODO: make it working */}
               <this.FilterSelect></this.FilterSelect>
