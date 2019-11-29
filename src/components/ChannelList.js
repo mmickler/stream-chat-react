@@ -199,7 +199,7 @@ class ChannelList extends PureComponent {
   }
 
   async onFilterChange(filter) {
-    const filters = {extraChannelType: { $in: [filter]}};
+    const filters = {extraType: filter};
     this.setState({
       filters,
       offset: 0,

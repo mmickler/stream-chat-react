@@ -10098,9 +10098,7 @@ function (_PureComponent) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 filters = {
-                  extraChannelType: {
-                    $in: [filter]
-                  }
+                  extraType: filter
                 };
                 this.setState({
                   filters: filters,
