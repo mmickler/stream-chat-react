@@ -165,7 +165,7 @@ class ChannelList extends PureComponent {
       }
     };
     this.onSortChange = this.onSortChange.bind(this);
-    this.onFilterChange= this.onFilterChange.bind(this);
+    this.onFilterChange = this.onFilterChange.bind(this);
     this.menuButton = React.createRef();
   }
 
@@ -179,7 +179,7 @@ class ChannelList extends PureComponent {
 
   async componentDidMount() {
     this.setState({ sort: this.props.sort });
-    this.setState({ filters: this.props.filters});
+    this.setState({ filters: this.props.filters });
     await this.queryChannels();
     this.listenToChanges();
   }
@@ -188,25 +188,26 @@ class ChannelList extends PureComponent {
     this.props.client.off(this.handleEvent);
   }
 
-  async onSortChange(sort) {
+  onSortChange(sort) {
     this.setState({
       sort,
       offset: 0,
       hasNextPage: true,
       channels: []
+    }, async () => {
+      await this.queryChannels();
     });
-    await this.queryChannels();
   }
 
-  async onFilterChange(filter) {
-    
+  onFilterChange(filter) {
     this.setState({
       filters: filter,
       offset: 0,
       hasNextPage: true,
       channels: []
+    }, async () => {
+      await this.queryChannels();
     });
-    await this.queryChannels();
   }
 
   queryChannels = async () => {
@@ -462,17 +463,17 @@ class ChannelList extends PureComponent {
             onSelectFilter={this.onFilterChange}
 
           >
-              {!channels.length ? (
-                <EmptyStateIndicator listType="channel" />
-              ) : (
-                  smartRender(Paginator, {
-                    loadNextPage: this.loadNextPage,
-                    hasNextPage,
-                    refreshing,
-                    children: channels.map((item) => this._renderChannel(item)),
-                  })
-                )}
-            
+            {!channels.length ? (
+              <EmptyStateIndicator listType="channel" />
+            ) : (
+                smartRender(Paginator, {
+                  loadNextPage: this.loadNextPage,
+                  hasNextPage,
+                  refreshing,
+                  children: channels.map((item) => this._renderChannel(item)),
+                })
+              )}
+
           </List>
         </div>
       </React.Fragment>

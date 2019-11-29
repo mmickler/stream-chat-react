@@ -10051,70 +10051,64 @@ function (_PureComponent) {
     }
   }, {
     key: "onSortChange",
-    value: function () {
-      var _onSortChange = _asyncToGenerator(
+    value: function onSortChange(sort) {
+      var _this2 = this;
+
+      this.setState({
+        sort: sort,
+        offset: 0,
+        hasNextPage: true,
+        channels: []
+      },
       /*#__PURE__*/
-      _regeneratorRuntime.mark(function _callee5(sort) {
+      _asyncToGenerator(
+      /*#__PURE__*/
+      _regeneratorRuntime.mark(function _callee5() {
         return _regeneratorRuntime.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                this.setState({
-                  sort: sort,
-                  offset: 0,
-                  hasNextPage: true,
-                  channels: []
-                });
-                _context5.next = 3;
-                return this.queryChannels();
+                _context5.next = 2;
+                return _this2.queryChannels();
 
-              case 3:
+              case 2:
               case "end":
                 return _context5.stop();
             }
           }
-        }, _callee5, this);
-      }));
-
-      function onSortChange(_x4) {
-        return _onSortChange.apply(this, arguments);
-      }
-
-      return onSortChange;
-    }()
+        }, _callee5);
+      })));
+    }
   }, {
     key: "onFilterChange",
-    value: function () {
-      var _onFilterChange = _asyncToGenerator(
+    value: function onFilterChange(filter) {
+      var _this3 = this;
+
+      this.setState({
+        filters: filter,
+        offset: 0,
+        hasNextPage: true,
+        channels: []
+      },
       /*#__PURE__*/
-      _regeneratorRuntime.mark(function _callee6(filter) {
+      _asyncToGenerator(
+      /*#__PURE__*/
+      _regeneratorRuntime.mark(function _callee6() {
         return _regeneratorRuntime.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                this.setState({
-                  filters: filter,
-                  offset: 0,
-                  hasNextPage: true,
-                  channels: []
-                });
-                _context6.next = 3;
-                return this.queryChannels();
+                _context6.next = 2;
+                return _this3.queryChannels();
 
-              case 3:
+              case 2:
               case "end":
                 return _context6.stop();
             }
           }
-        }, _callee6, this);
-      }));
-
-      function onFilterChange(_x5) {
-        return _onFilterChange.apply(this, arguments);
-      }
-
-      return onFilterChange;
-    }()
+        }, _callee6);
+      })));
+    }
   }, {
     key: "listenToChanges",
     value: function listenToChanges() {
@@ -10123,7 +10117,7 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this4 = this;
 
       var _this$props2 = this.props,
           List = _this$props2.List,
@@ -10160,7 +10154,7 @@ function (_PureComponent) {
         hasNextPage: hasNextPage,
         refreshing: refreshing,
         children: channels.map(function (item) {
-          return _this2._renderChannel(item);
+          return _this4._renderChannel(item);
         })
       }))));
     }
