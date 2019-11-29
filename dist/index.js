@@ -10096,24 +10096,20 @@ function (_PureComponent) {
       var _onFilterChange = _asyncToGenerator(
       /*#__PURE__*/
       _regeneratorRuntime.mark(function _callee6(filter) {
-        var filters;
         return _regeneratorRuntime.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                filters = {
-                  extraType: filter
-                };
                 this.setState({
-                  filters: filters,
+                  filters: filter,
                   offset: 0,
                   hasNextPage: true,
                   channels: []
                 });
-                _context6.next = 4;
+                _context6.next = 3;
                 return this.queryChannels();
 
-              case 4:
+              case 3:
               case "end":
                 return _context6.stop();
             }
