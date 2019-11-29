@@ -10419,13 +10419,12 @@ function (_PureComponent) {
         ref: this.channelPreviewButton,
         className: "str-chat__channel-preview-messenger ".concat(unreadClass, " ").concat(activeClass)
       }, React__default.createElement("div", {
-        className: "str-chat__channel-preview-messenger--left"
+        className: "str-chat__channel-preview-messenger--left",
+        id: "style-unread-messages"
       }, React__default.createElement(Avatar, {
         image: channel.data.image,
         size: 40
-      }), React__default.createElement("label", {
-        id: "style-unread-messages"
-      }, !channel.state.messages[0] ? "" : truncate(this.props.unread, 5))), React__default.createElement("div", {
+      }), React__default.createElement("label", null, !channel.state.messages[0] ? "" : truncate(this.props.unread, 5))), React__default.createElement("div", {
         className: "str-chat__channel-preview-messenger--right"
       }, React__default.createElement("div", {
         className: "str-chat__channel-preview-messenger--name"
