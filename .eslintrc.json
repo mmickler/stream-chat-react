@@ -25,7 +25,7 @@
     "require-await": 2,
     "react/prop-types": 0,
     "no-var": 2,
-    "linebreak-style": [2, "windows"],
+    "linebreak-style": [2, "unix"],
     "semi": [1, "always"],
     "sonarjs/cognitive-complexity": ["error", 30]
   },
