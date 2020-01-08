@@ -27,6 +27,7 @@ class ReactTextareaAutocomplete extends React.Component {
     value: '',
     minChar: 1,
     scrollToItem: true,
+    maxRows: 10,
   };
 
   constructor(props) {
@@ -550,8 +551,8 @@ class ReactTextareaAutocomplete extends React.Component {
     if (
       currentTrigger &&
       value[tokenMatch.index - 1] &&
-      (trigger[currentTrigger].afterWhitespace &&
-        !value[tokenMatch.index - 1].match(/\s/))
+      trigger[currentTrigger].afterWhitespace &&
+      !value[tokenMatch.index - 1].match(/\s/)
     ) {
       this._closeAutocomplete();
       return;
@@ -704,7 +705,7 @@ class ReactTextareaAutocomplete extends React.Component {
     const textToReplace = this._getTextToReplace();
     const selectedItem = this._getItemOnSelect();
 
-    let maxRows = 10;
+    let maxRows = this.props.maxRows;
     if (!this.props.grow) {
       maxRows = 1;
     }

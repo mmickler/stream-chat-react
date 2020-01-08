@@ -109,6 +109,12 @@ class MessageList extends PureComponent {
     /** **Available from [channel context](https://getstream.github.io/stream-chat-react/#channel)** */
     Message: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     /**
+     * Custom UI component to display system messages.
+     *
+     * Defaults to and accepts same props as: [EventComponent](https://github.com/GetStream/stream-chat-react/blob/master/src/components/EventComponent.js)
+     */
+    MessageSystem: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    /**
      * The UI Indicator to use when MessagerList or ChannelList is empty
      * */
     EmptyStateIndicator: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
@@ -140,10 +146,16 @@ class MessageList extends PureComponent {
     read: PropTypes.object,
     /** **Available from [channel context](https://getstream.github.io/stream-chat-react/#channel)** */
     typing: PropTypes.object,
+    /**
+     * Additional props for underlying MessageInput component.
+     * Available props - https://getstream.github.io/stream-chat-react/#messageinput
+     * */
+    additionalMessageInputProps: PropTypes.object,
   };
 
   static defaultProps = {
     Message: MessageSimple,
+    MessageSystem: EventComponent,
     threadList: false,
     Attachment,
     dateSeparator: DateSeparator,
@@ -307,7 +319,7 @@ class MessageList extends PureComponent {
   };
 
   clearEditingState = (e) => {
-    if (e) {
+    if (e && e.preventDefault) {
       e.preventDefault();
     }
     this.setState({
@@ -618,7 +630,7 @@ class MessageList extends PureComponent {
   // eslint-disable-next-line
   render() {
     let allMessages = [...this.props.messages];
-
+    const MessageSystem = this.props.MessageSystem;
     allMessages = this.insertDates(allMessages);
     if (this.props.HeaderComponent) {
       allMessages = this.insertIntro(allMessages);
@@ -666,19 +678,20 @@ class MessageList extends PureComponent {
         message.type === 'channel.event' ||
         message.type === 'system'
       ) {
-        elements.push(
-          <li
-            key={
-              message.type === 'system'
-                ? message.created_at
-                : message.type === 'channel.event'
-                ? message.event.created_at
-                : ''
-            }
-          >
-            <EventComponent message={message} />
-          </li>,
-        );
+        MessageSystem &&
+          elements.push(
+            <li
+              key={
+                message.type === 'system'
+                  ? message.created_at
+                  : message.type === 'channel.event'
+                  ? message.event.created_at
+                  : ''
+              }
+            >
+              <MessageSystem message={message} />
+            </li>,
+          );
       } else if (message.type !== 'message.read') {
         let groupStyles = messageGroupStyles[message.id];
         if (!groupStyles) {
@@ -721,6 +734,9 @@ class MessageList extends PureComponent {
               onMentionsClick={this.props.onMentionsClick}
               onMentionsHover={this.props.onMentionsHover}
               messageActions={this.props.messageActions}
+              additionalMessageInputProps={
+                this.props.additionalMessageInputProps
+              }
               getFlagMessageSuccessNotification={
                 this.props.getFlagMessageSuccessNotification
               }
@@ -803,9 +819,7 @@ MessageList = withChannelContext(MessageList);
 export { MessageList };
 
 const Center = ({ children }) => (
-  <div style={{ width: 100 + '%', display: 'flex', justifyContent: 'center' }}>
-    {children}
-  </div>
+  <div className="str-chat__list__center">{children}</div>
 );
 
 const Notification = ({ children, active, type }) => {

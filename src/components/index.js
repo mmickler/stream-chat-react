@@ -24,12 +24,14 @@ export { MessageCommerce } from './MessageCommerce';
 export { MessageLivestream } from './MessageLivestream';
 export { MessageTeam } from './MessageTeam';
 export { MessageSimple } from './MessageSimple';
+export { EventComponent } from './EventComponent';
 export { SendButton } from './SendButton';
 export { Thread } from './Thread';
 export { TypingIndicator } from './TypingIndicator';
 export { Window } from './Window';
 export { ReactionSelector } from './ReactionSelector';
 export { ReactionsList } from './ReactionsList';
+export { ChatAutoComplete } from './ChatAutoComplete';
 
 export * from '../utils';
 export * from '../context';
